@@ -175,10 +175,10 @@
             // 
             // txtAddFoodItemPrice
             // 
-            this.txtAddFoodItemPrice.Location = new System.Drawing.Point(90, 232);
+            this.txtAddFoodItemPrice.Location = new System.Drawing.Point(90, 229);
             this.txtAddFoodItemPrice.MaxLength = 5;
             this.txtAddFoodItemPrice.Name = "txtAddFoodItemPrice";
-            this.txtAddFoodItemPrice.Size = new System.Drawing.Size(71, 20);
+            this.txtAddFoodItemPrice.Size = new System.Drawing.Size(146, 20);
             this.txtAddFoodItemPrice.TabIndex = 16;
             // 
             // txtAddFoodItemStatus
