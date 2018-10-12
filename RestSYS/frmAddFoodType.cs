@@ -62,5 +62,14 @@ namespace RestSYS
             frmAddFoodItem formAddFoodItem = new frmAddFoodItem();
             formAddFoodItem.Show();
         }
+
+        private void changeFoodItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            txtFoodType.Clear();
+            txtFdTypeDesc.Clear();
+            this.Hide();
+            frmChangeFoodItem frmChangeFoodItem = new frmChangeFoodItem();
+            frmChangeFoodItem.Show();
+        }
     }
 }

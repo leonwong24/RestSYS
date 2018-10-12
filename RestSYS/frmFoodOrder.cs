@@ -10,23 +10,16 @@ using System.Windows.Forms;
 
 namespace RestSYS
 {
-    public partial class frmHomeInterface : Form
+    public partial class frmFoodOrder : Form
     {
-        public frmHomeInterface()
+        public frmFoodOrder()
         {
             InitializeComponent();
         }
 
-        private void btnHomeToManager_Click(object sender, EventArgs e)
+        private void btnTableInterface_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frmAddFoodItem frmAddFoodItem = new frmAddFoodItem();
-            frmAddFoodItem.Show();
-        }
-
-        private void btnHomeToOrder_Click(object sender, EventArgs e)
-        {
-            this.Hide();
+            this.Close();
             frmTableInterface frmTableInterface = new frmTableInterface();
             frmTableInterface.Show();
         }

@@ -115,5 +115,17 @@ namespace RestSYS
 
                 //clear the ui
         }
+
+        private void addFoodTypeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            txtAddFoodItem.Clear();
+            txtAddFoodItemDesc.Clear();
+            txtAddFoodItemPrice.Clear();
+            txtAddFoodItemStatus.Clear();
+            txtAddFoodItemType.Clear();
+            this.Hide();
+            frmAddFoodType frmAddFoodType = new frmAddFoodType();
+            frmAddFoodType.Show();
+        }
     }
 }

@@ -83,19 +83,20 @@
             // addFoodTypeToolStripMenuItem
             // 
             this.addFoodTypeToolStripMenuItem.Name = "addFoodTypeToolStripMenuItem";
-            this.addFoodTypeToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.addFoodTypeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addFoodTypeToolStripMenuItem.Text = "Add Food Type";
+            this.addFoodTypeToolStripMenuItem.Click += new System.EventHandler(this.addFoodTypeToolStripMenuItem_Click);
             // 
             // addFoodItemToolStripMenuItem
             // 
             this.addFoodItemToolStripMenuItem.Name = "addFoodItemToolStripMenuItem";
-            this.addFoodItemToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.addFoodItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addFoodItemToolStripMenuItem.Text = "Add Food Item";
             // 
             // changeFoodItemToolStripMenuItem
             // 
             this.changeFoodItemToolStripMenuItem.Name = "changeFoodItemToolStripMenuItem";
-            this.changeFoodItemToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.changeFoodItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.changeFoodItemToolStripMenuItem.Text = "Change Food Item";
             // 
             // orderToolStripMenuItem
