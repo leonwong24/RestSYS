@@ -51,35 +51,37 @@ namespace RestSYS
                 allCorrect = false;
             }
 
-            //food type must be one alphabetic character and must exist in Food type
-            if (!txtAddFoodItemType.Text.All(Char.IsLetter))
-            {
-                MessageBox.Show("Food item type must be one alphabetic character only");
-                allCorrect = false;
-            }
-
-            else if (!txtAddFoodItemType.Text.Equals("m"))
-            {
-                MessageBox.Show("Food item type must be exist in food item table");
-                allCorrect = false;
-            }
-
-            //Price value must be greater than 0
-            if (txtAddFoodItemPrice.Text.All(Char.IsDigit))
-            {
-                if (double.Parse(txtAddFoodItemPrice.Text) < 0.0)
-                {
-                    MessageBox.Show("Food item price must greater than 0");
-                    allCorrect = false;
-                }
-            }
-
             else
             {
-                MessageBox.Show("Food item price must be in decimal form");
-                allCorrect = false;             
+               //food type must be one alphabetic character and must exist in Food type
+                    if (!txtAddFoodItemType.Text.All(Char.IsLetter))
+                    {
+                        MessageBox.Show("Food item type must be one alphabetic character only");
+                        allCorrect = false;
+                    }
+
+                    else if (!txtAddFoodItemType.Text.Equals("m"))
+                    {
+                        MessageBox.Show("Food item type must be exist in food item table");
+                        allCorrect = false;
+                    }
+
+                 //Price value must be greater than 0
+                    if (txtAddFoodItemPrice.Text.All(Char.IsDigit))
+                    {
+                        if (double.Parse(txtAddFoodItemPrice.Text) < 0.0)
+                        {
+                            MessageBox.Show("Food item price must greater than 0");
+                            allCorrect = false;
+                        }
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Food item price must be in decimal form");
+                        allCorrect = false;             
+                    }
             }
-            
 
             //Status must be one alphabetic character , and must only be A and U
             if (!txtAddFoodItemStatus.Text.All(Char.IsLetter))

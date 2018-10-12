@@ -129,6 +129,7 @@
             this.addFoodItemToolStripMenuItem.Name = "addFoodItemToolStripMenuItem";
             this.addFoodItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addFoodItemToolStripMenuItem.Text = "Add Food Item";
+            this.addFoodItemToolStripMenuItem.Click += new System.EventHandler(this.addFoodItemToolStripMenuItem_Click);
             // 
             // changeFoodItemToolStripMenuItem
             // 

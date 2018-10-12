@@ -54,5 +54,13 @@ namespace RestSYS
             txtFoodType.Focus();
         }
 
+        private void addFoodItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            txtFoodType.Clear();
+            txtFdTypeDesc.Clear();
+            this.Hide();
+            frmAddFoodItem formAddFoodItem = new frmAddFoodItem();
+            formAddFoodItem.Show();
+        }
     }
 }

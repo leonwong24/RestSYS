@@ -218,7 +218,7 @@
             this.Controls.Add(this.mnuFoodItem);
             this.Controls.Add(this.lblAddFdItemTitle);
             this.Name = "frmAddFoodItem";
-            this.Text = "Form1";
+            this.Text = "RestSys - Add Food Item";
             this.mnuFoodItem.ResumeLayout(false);
             this.mnuFoodItem.PerformLayout();
             this.ResumeLayout(false);
