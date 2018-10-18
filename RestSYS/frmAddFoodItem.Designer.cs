@@ -42,10 +42,10 @@
             this.lblFoodStatus = new System.Windows.Forms.Label();
             this.txtAddFoodItem = new System.Windows.Forms.TextBox();
             this.txtAddFoodItemDesc = new System.Windows.Forms.TextBox();
-            this.txtAddFoodItemType = new System.Windows.Forms.TextBox();
             this.txtAddFoodItemPrice = new System.Windows.Forms.TextBox();
-            this.txtAddFoodItemStatus = new System.Windows.Forms.TextBox();
             this.btnAddFoodItemSubmit = new System.Windows.Forms.Button();
+            this.cboAddFoodItemType = new System.Windows.Forms.ComboBox();
+            this.cboAddFoodItemStatus = new System.Windows.Forms.ComboBox();
             this.mnuFoodItem.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,20 +83,20 @@
             // addFoodTypeToolStripMenuItem
             // 
             this.addFoodTypeToolStripMenuItem.Name = "addFoodTypeToolStripMenuItem";
-            this.addFoodTypeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addFoodTypeToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.addFoodTypeToolStripMenuItem.Text = "Add Food Type";
             this.addFoodTypeToolStripMenuItem.Click += new System.EventHandler(this.addFoodTypeToolStripMenuItem_Click);
             // 
             // addFoodItemToolStripMenuItem
             // 
             this.addFoodItemToolStripMenuItem.Name = "addFoodItemToolStripMenuItem";
-            this.addFoodItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addFoodItemToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.addFoodItemToolStripMenuItem.Text = "Add Food Item";
             // 
             // changeFoodItemToolStripMenuItem
             // 
             this.changeFoodItemToolStripMenuItem.Name = "changeFoodItemToolStripMenuItem";
-            this.changeFoodItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.changeFoodItemToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.changeFoodItemToolStripMenuItem.Text = "Change Food Item";
             // 
             // orderToolStripMenuItem
@@ -166,14 +166,6 @@
             this.txtAddFoodItemDesc.Size = new System.Drawing.Size(387, 20);
             this.txtAddFoodItemDesc.TabIndex = 14;
             // 
-            // txtAddFoodItemType
-            // 
-            this.txtAddFoodItemType.Location = new System.Drawing.Point(90, 193);
-            this.txtAddFoodItemType.MaxLength = 1;
-            this.txtAddFoodItemType.Name = "txtAddFoodItemType";
-            this.txtAddFoodItemType.Size = new System.Drawing.Size(35, 20);
-            this.txtAddFoodItemType.TabIndex = 15;
-            // 
             // txtAddFoodItemPrice
             // 
             this.txtAddFoodItemPrice.Location = new System.Drawing.Point(90, 229);
@@ -181,14 +173,6 @@
             this.txtAddFoodItemPrice.Name = "txtAddFoodItemPrice";
             this.txtAddFoodItemPrice.Size = new System.Drawing.Size(146, 20);
             this.txtAddFoodItemPrice.TabIndex = 16;
-            // 
-            // txtAddFoodItemStatus
-            // 
-            this.txtAddFoodItemStatus.Location = new System.Drawing.Point(90, 276);
-            this.txtAddFoodItemStatus.MaxLength = 1;
-            this.txtAddFoodItemStatus.Name = "txtAddFoodItemStatus";
-            this.txtAddFoodItemStatus.Size = new System.Drawing.Size(47, 20);
-            this.txtAddFoodItemStatus.TabIndex = 17;
             // 
             // btnAddFoodItemSubmit
             // 
@@ -200,15 +184,39 @@
             this.btnAddFoodItemSubmit.UseVisualStyleBackColor = true;
             this.btnAddFoodItemSubmit.Click += new System.EventHandler(this.btnAddFoodItemSubmit_Click);
             // 
+            // cboAddFoodItemType
+            // 
+            this.cboAddFoodItemType.FormattingEnabled = true;
+            this.cboAddFoodItemType.Items.AddRange(new object[] {
+            "M : Main",
+            "S : Starter",
+            "D : Dessert",
+            "B : Beverage"});
+            this.cboAddFoodItemType.Location = new System.Drawing.Point(90, 190);
+            this.cboAddFoodItemType.Name = "cboAddFoodItemType";
+            this.cboAddFoodItemType.Size = new System.Drawing.Size(128, 21);
+            this.cboAddFoodItemType.TabIndex = 19;
+            // 
+            // cboAddFoodItemStatus
+            // 
+            this.cboAddFoodItemStatus.FormattingEnabled = true;
+            this.cboAddFoodItemStatus.Items.AddRange(new object[] {
+            "A : Available",
+            "U : Unavailable"});
+            this.cboAddFoodItemStatus.Location = new System.Drawing.Point(90, 276);
+            this.cboAddFoodItemStatus.Name = "cboAddFoodItemStatus";
+            this.cboAddFoodItemStatus.Size = new System.Drawing.Size(109, 21);
+            this.cboAddFoodItemStatus.TabIndex = 20;
+            // 
             // frmAddFoodItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cboAddFoodItemStatus);
+            this.Controls.Add(this.cboAddFoodItemType);
             this.Controls.Add(this.btnAddFoodItemSubmit);
-            this.Controls.Add(this.txtAddFoodItemStatus);
             this.Controls.Add(this.txtAddFoodItemPrice);
-            this.Controls.Add(this.txtAddFoodItemType);
             this.Controls.Add(this.txtAddFoodItemDesc);
             this.Controls.Add(this.txtAddFoodItem);
             this.Controls.Add(this.lblFoodStatus);
@@ -219,7 +227,7 @@
             this.Controls.Add(this.mnuFoodItem);
             this.Controls.Add(this.lblAddFdItemTitle);
             this.Name = "frmAddFoodItem";
-            this.Text = "RestSys - Add Food Item";
+            this.Text = "           ";
             this.mnuFoodItem.ResumeLayout(false);
             this.mnuFoodItem.PerformLayout();
             this.ResumeLayout(false);
@@ -243,9 +251,9 @@
         private System.Windows.Forms.Label lblFoodStatus;
         private System.Windows.Forms.TextBox txtAddFoodItem;
         private System.Windows.Forms.TextBox txtAddFoodItemDesc;
-        private System.Windows.Forms.TextBox txtAddFoodItemType;
         private System.Windows.Forms.TextBox txtAddFoodItemPrice;
-        private System.Windows.Forms.TextBox txtAddFoodItemStatus;
         private System.Windows.Forms.Button btnAddFoodItemSubmit;
+        private System.Windows.Forms.ComboBox cboAddFoodItemType;
+        private System.Windows.Forms.ComboBox cboAddFoodItemStatus;
     }
 }

@@ -33,9 +33,9 @@ namespace RestSYS
                 allCorrect = false;
             }
 
-            else if (txtAddFoodItemType.Text.Equals(""))
+            else if (cboAddFoodItemType.SelectedItem == null)
             {
-                MessageBox.Show("Food item type must be entered", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Food item type must be entered","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 allCorrect = false;
             }
 
@@ -45,7 +45,7 @@ namespace RestSYS
                 allCorrect = false;
             }
 
-            else if (txtAddFoodItemStatus.Text.Equals(""))
+            else if (cboAddFoodItemStatus.SelectedItem == null)
             {
                 MessageBox.Show("Food item status must be entered", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 allCorrect = false;
@@ -53,18 +53,6 @@ namespace RestSYS
 
             else
             {
-               //food type must be one alphabetic character and must exist in Food type
-                    if (!txtAddFoodItemType.Text.All(Char.IsLetter))
-                    {
-                        MessageBox.Show("Food item type must be one alphabetic character only");
-                        allCorrect = false;
-                    }
-
-                    else if (!txtAddFoodItemType.Text.Equals("m"))
-                    {
-                        MessageBox.Show("Food item type must be exist in food item table");
-                        allCorrect = false;
-                    }
 
                  //Price value must be greater than 0
                     if (txtAddFoodItemPrice.Text.All(Char.IsDigit))
@@ -83,28 +71,14 @@ namespace RestSYS
                     }
             }
 
-            //Status must be one alphabetic character , and must only be A and U
-            if (!txtAddFoodItemStatus.Text.All(Char.IsLetter))
-            {
-                MessageBox.Show("Food item status must be one alphabetic character only");
-                allCorrect = false;
-            }
-
-            else if(!txtAddFoodItemStatus.Text.Equals("A") && !txtAddFoodItemStatus.Text.Equals("U"))
-            {
-                MessageBox.Show("Food item status must only be 'A' or 'U'");
-                allCorrect = false;
-            }
-
-
             if(allCorrect == true)
             {
                 MessageBox.Show("Food item added successfully!");
                 txtAddFoodItem.Clear();
                 txtAddFoodItemDesc.Clear();
                 txtAddFoodItemPrice.Clear();
-                txtAddFoodItemStatus.Clear();
-                txtAddFoodItemType.Clear();
+                cboAddFoodItemStatus.SelectedIndex = -1;
+                cboAddFoodItemType.SelectedIndex = -1;
             }
           
             
@@ -121,8 +95,8 @@ namespace RestSYS
             txtAddFoodItem.Clear();
             txtAddFoodItemDesc.Clear();
             txtAddFoodItemPrice.Clear();
-            txtAddFoodItemStatus.Clear();
-            txtAddFoodItemType.Clear();
+            cboAddFoodItemStatus.SelectedIndex = -1;
+            cboAddFoodItemType.SelectedIndex = -1;
             this.Hide();
             frmAddFoodType frmAddFoodType = new frmAddFoodType();
             frmAddFoodType.Show();

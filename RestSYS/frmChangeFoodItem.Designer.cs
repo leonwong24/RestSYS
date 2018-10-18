@@ -19,6 +19,7 @@
             }
             base.Dispose(disposing);
         }
+       
 
         #region Windows Form Designer generated code
 
@@ -29,9 +30,7 @@
         private void InitializeComponent()
         {
             this.btnChgFoodItemSubmit = new System.Windows.Forms.Button();
-            this.txtChgFoodItemStatus = new System.Windows.Forms.TextBox();
             this.txtChgFoodItemPrice = new System.Windows.Forms.TextBox();
-            this.txtChgFoodItemType = new System.Windows.Forms.TextBox();
             this.txtChangeFoodItemDesc = new System.Windows.Forms.TextBox();
             this.txtChangeFoodItem = new System.Windows.Forms.TextBox();
             this.lblFoodStatus = new System.Windows.Forms.Label();
@@ -46,12 +45,28 @@
             this.changeFoodItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.orderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblChangeFdItemTitle = new System.Windows.Forms.Label();
+            this.cboChangeFoodItemType = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.grpChangeFoodItemSelectFood = new System.Windows.Forms.GroupBox();
+            this.grdChangeFoodItemSelectFoodItem = new System.Windows.Forms.DataGridView();
+            this.FoodItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FoodType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnChangeFoodItemSelectFoodItemButton = new System.Windows.Forms.Button();
+            this.grpChangeFoodItemChangeFood = new System.Windows.Forms.GroupBox();
+            this.cboChangeFoodItemFoodType = new System.Windows.Forms.ComboBox();
+            this.cboChangeFoodItemFoodStatus = new System.Windows.Forms.ComboBox();
             this.mnuFoodItem.SuspendLayout();
+            this.grpChangeFoodItemSelectFood.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdChangeFoodItemSelectFoodItem)).BeginInit();
+            this.grpChangeFoodItemChangeFood.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnChgFoodItemSubmit
             // 
-            this.btnChgFoodItemSubmit.Location = new System.Drawing.Point(46, 376);
+            this.btnChgFoodItemSubmit.Location = new System.Drawing.Point(33, 273);
             this.btnChgFoodItemSubmit.Name = "btnChgFoodItemSubmit";
             this.btnChgFoodItemSubmit.Size = new System.Drawing.Size(147, 32);
             this.btnChgFoodItemSubmit.TabIndex = 31;
@@ -59,33 +74,17 @@
             this.btnChgFoodItemSubmit.UseVisualStyleBackColor = true;
             this.btnChgFoodItemSubmit.Click += new System.EventHandler(this.btnChgFoodItemSubmit_Click);
             // 
-            // txtChgFoodItemStatus
-            // 
-            this.txtChgFoodItemStatus.Location = new System.Drawing.Point(90, 318);
-            this.txtChgFoodItemStatus.MaxLength = 1;
-            this.txtChgFoodItemStatus.Name = "txtChgFoodItemStatus";
-            this.txtChgFoodItemStatus.Size = new System.Drawing.Size(47, 20);
-            this.txtChgFoodItemStatus.TabIndex = 30;
-            // 
             // txtChgFoodItemPrice
             // 
-            this.txtChgFoodItemPrice.Location = new System.Drawing.Point(90, 271);
+            this.txtChgFoodItemPrice.Location = new System.Drawing.Point(77, 168);
             this.txtChgFoodItemPrice.MaxLength = 5;
             this.txtChgFoodItemPrice.Name = "txtChgFoodItemPrice";
             this.txtChgFoodItemPrice.Size = new System.Drawing.Size(146, 20);
             this.txtChgFoodItemPrice.TabIndex = 29;
             // 
-            // txtChgFoodItemType
-            // 
-            this.txtChgFoodItemType.Location = new System.Drawing.Point(90, 235);
-            this.txtChgFoodItemType.MaxLength = 1;
-            this.txtChgFoodItemType.Name = "txtChgFoodItemType";
-            this.txtChgFoodItemType.Size = new System.Drawing.Size(35, 20);
-            this.txtChgFoodItemType.TabIndex = 28;
-            // 
             // txtChangeFoodItemDesc
             // 
-            this.txtChangeFoodItemDesc.Location = new System.Drawing.Point(90, 191);
+            this.txtChangeFoodItemDesc.Location = new System.Drawing.Point(77, 88);
             this.txtChangeFoodItemDesc.MaxLength = 100;
             this.txtChangeFoodItemDesc.Name = "txtChangeFoodItemDesc";
             this.txtChangeFoodItemDesc.Size = new System.Drawing.Size(387, 20);
@@ -93,7 +92,7 @@
             // 
             // txtChangeFoodItem
             // 
-            this.txtChangeFoodItem.Location = new System.Drawing.Point(90, 148);
+            this.txtChangeFoodItem.Location = new System.Drawing.Point(77, 45);
             this.txtChangeFoodItem.MaxLength = 25;
             this.txtChangeFoodItem.Name = "txtChangeFoodItem";
             this.txtChangeFoodItem.Size = new System.Drawing.Size(258, 20);
@@ -102,7 +101,7 @@
             // lblFoodStatus
             // 
             this.lblFoodStatus.AutoSize = true;
-            this.lblFoodStatus.Location = new System.Drawing.Point(18, 321);
+            this.lblFoodStatus.Location = new System.Drawing.Point(5, 218);
             this.lblFoodStatus.Name = "lblFoodStatus";
             this.lblFoodStatus.Size = new System.Drawing.Size(43, 13);
             this.lblFoodStatus.TabIndex = 25;
@@ -111,7 +110,7 @@
             // lblFoodPrice
             // 
             this.lblFoodPrice.AutoSize = true;
-            this.lblFoodPrice.Location = new System.Drawing.Point(18, 274);
+            this.lblFoodPrice.Location = new System.Drawing.Point(5, 171);
             this.lblFoodPrice.Name = "lblFoodPrice";
             this.lblFoodPrice.Size = new System.Drawing.Size(37, 13);
             this.lblFoodPrice.TabIndex = 24;
@@ -120,7 +119,7 @@
             // lblFoodType
             // 
             this.lblFoodType.AutoSize = true;
-            this.lblFoodType.Location = new System.Drawing.Point(18, 235);
+            this.lblFoodType.Location = new System.Drawing.Point(5, 132);
             this.lblFoodType.Name = "lblFoodType";
             this.lblFoodType.Size = new System.Drawing.Size(58, 13);
             this.lblFoodType.TabIndex = 23;
@@ -129,7 +128,7 @@
             // lblFoodItemDesc
             // 
             this.lblFoodItemDesc.AutoSize = true;
-            this.lblFoodItemDesc.Location = new System.Drawing.Point(18, 191);
+            this.lblFoodItemDesc.Location = new System.Drawing.Point(5, 88);
             this.lblFoodItemDesc.Name = "lblFoodItemDesc";
             this.lblFoodItemDesc.Size = new System.Drawing.Size(66, 13);
             this.lblFoodItemDesc.TabIndex = 22;
@@ -138,7 +137,7 @@
             // lblFoodItem
             // 
             this.lblFoodItem.AutoSize = true;
-            this.lblFoodItem.Location = new System.Drawing.Point(18, 149);
+            this.lblFoodItem.Location = new System.Drawing.Point(5, 46);
             this.lblFoodItem.Name = "lblFoodItem";
             this.lblFoodItem.Size = new System.Drawing.Size(57, 13);
             this.lblFoodItem.TabIndex = 21;
@@ -168,19 +167,19 @@
             // addFoodTypeToolStripMenuItem
             // 
             this.addFoodTypeToolStripMenuItem.Name = "addFoodTypeToolStripMenuItem";
-            this.addFoodTypeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addFoodTypeToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.addFoodTypeToolStripMenuItem.Text = "Add Food Type";
             // 
             // addFoodItemToolStripMenuItem
             // 
             this.addFoodItemToolStripMenuItem.Name = "addFoodItemToolStripMenuItem";
-            this.addFoodItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addFoodItemToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.addFoodItemToolStripMenuItem.Text = "Add Food Item";
             // 
             // changeFoodItemToolStripMenuItem
             // 
             this.changeFoodItemToolStripMenuItem.Name = "changeFoodItemToolStripMenuItem";
-            this.changeFoodItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.changeFoodItemToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.changeFoodItemToolStripMenuItem.Text = "Change Food Item";
             // 
             // orderToolStripMenuItem
@@ -193,34 +192,172 @@
             // 
             this.lblChangeFdItemTitle.AutoSize = true;
             this.lblChangeFdItemTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChangeFdItemTitle.Location = new System.Drawing.Point(249, 75);
+            this.lblChangeFdItemTitle.Location = new System.Drawing.Point(269, 45);
             this.lblChangeFdItemTitle.Name = "lblChangeFdItemTitle";
             this.lblChangeFdItemTitle.Size = new System.Drawing.Size(282, 37);
             this.lblChangeFdItemTitle.TabIndex = 19;
             this.lblChangeFdItemTitle.Text = "Change Food Item";
+            // 
+            // cboChangeFoodItemType
+            // 
+            this.cboChangeFoodItemType.FormattingEnabled = true;
+            this.cboChangeFoodItemType.Items.AddRange(new object[] {
+            "M : Main",
+            "S : Starter",
+            "D : Dessert",
+            "B : Beverage"});
+            this.cboChangeFoodItemType.Location = new System.Drawing.Point(115, 24);
+            this.cboChangeFoodItemType.Name = "cboChangeFoodItemType";
+            this.cboChangeFoodItemType.Size = new System.Drawing.Size(108, 21);
+            this.cboChangeFoodItemType.TabIndex = 32;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(39, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "Food Type";
+            // 
+            // grpChangeFoodItemSelectFood
+            // 
+            this.grpChangeFoodItemSelectFood.Controls.Add(this.btnChangeFoodItemSelectFoodItemButton);
+            this.grpChangeFoodItemSelectFood.Controls.Add(this.grdChangeFoodItemSelectFoodItem);
+            this.grpChangeFoodItemSelectFood.Controls.Add(this.label1);
+            this.grpChangeFoodItemSelectFood.Controls.Add(this.cboChangeFoodItemType);
+            this.grpChangeFoodItemSelectFood.Location = new System.Drawing.Point(12, 85);
+            this.grpChangeFoodItemSelectFood.Name = "grpChangeFoodItemSelectFood";
+            this.grpChangeFoodItemSelectFood.Size = new System.Drawing.Size(731, 353);
+            this.grpChangeFoodItemSelectFood.TabIndex = 34;
+            this.grpChangeFoodItemSelectFood.TabStop = false;
+            this.grpChangeFoodItemSelectFood.Text = "Select Food Item";
+            // 
+            // grdChangeFoodItemSelectFoodItem
+            // 
+            this.grdChangeFoodItemSelectFoodItem.AllowUserToAddRows = false;
+            this.grdChangeFoodItemSelectFoodItem.AllowUserToDeleteRows = false;
+            this.grdChangeFoodItemSelectFoodItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdChangeFoodItemSelectFoodItem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.FoodItem,
+            this.Description,
+            this.Price,
+            this.Status,
+            this.FoodType});
+            this.grdChangeFoodItemSelectFoodItem.Location = new System.Drawing.Point(16, 58);
+            this.grdChangeFoodItemSelectFoodItem.Name = "grdChangeFoodItemSelectFoodItem";
+            this.grdChangeFoodItemSelectFoodItem.ReadOnly = true;
+            this.grdChangeFoodItemSelectFoodItem.Size = new System.Drawing.Size(544, 252);
+            this.grdChangeFoodItemSelectFoodItem.TabIndex = 34;
+            // 
+            // FoodItem
+            // 
+            this.FoodItem.HeaderText = "Food Item";
+            this.FoodItem.Name = "FoodItem";
+            this.FoodItem.ReadOnly = true;
+            this.FoodItem.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Description
+            // 
+            this.Description.HeaderText = "Description";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            this.Description.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            this.Price.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            this.Status.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // FoodType
+            // 
+            this.FoodType.HeaderText = "Food Type";
+            this.FoodType.Name = "FoodType";
+            this.FoodType.ReadOnly = true;
+            this.FoodType.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // btnChangeFoodItemSelectFoodItemButton
+            // 
+            this.btnChangeFoodItemSelectFoodItemButton.Location = new System.Drawing.Point(579, 277);
+            this.btnChangeFoodItemSelectFoodItemButton.Name = "btnChangeFoodItemSelectFoodItemButton";
+            this.btnChangeFoodItemSelectFoodItemButton.Size = new System.Drawing.Size(125, 32);
+            this.btnChangeFoodItemSelectFoodItemButton.TabIndex = 35;
+            this.btnChangeFoodItemSelectFoodItemButton.Text = "Select Food";
+            this.btnChangeFoodItemSelectFoodItemButton.UseVisualStyleBackColor = true;
+            this.btnChangeFoodItemSelectFoodItemButton.Click += new System.EventHandler(this.btnChangeFoodItemSelectFoodItemButton_Click);
+            // 
+            // grpChangeFoodItemChangeFood
+            // 
+            this.grpChangeFoodItemChangeFood.Controls.Add(this.cboChangeFoodItemFoodStatus);
+            this.grpChangeFoodItemChangeFood.Controls.Add(this.cboChangeFoodItemFoodType);
+            this.grpChangeFoodItemChangeFood.Controls.Add(this.btnChgFoodItemSubmit);
+            this.grpChangeFoodItemChangeFood.Controls.Add(this.txtChgFoodItemPrice);
+            this.grpChangeFoodItemChangeFood.Controls.Add(this.txtChangeFoodItemDesc);
+            this.grpChangeFoodItemChangeFood.Controls.Add(this.txtChangeFoodItem);
+            this.grpChangeFoodItemChangeFood.Controls.Add(this.lblFoodStatus);
+            this.grpChangeFoodItemChangeFood.Controls.Add(this.lblFoodPrice);
+            this.grpChangeFoodItemChangeFood.Controls.Add(this.lblFoodType);
+            this.grpChangeFoodItemChangeFood.Controls.Add(this.lblFoodItemDesc);
+            this.grpChangeFoodItemChangeFood.Controls.Add(this.lblFoodItem);
+            this.grpChangeFoodItemChangeFood.Location = new System.Drawing.Point(13, 103);
+            this.grpChangeFoodItemChangeFood.Name = "grpChangeFoodItemChangeFood";
+            this.grpChangeFoodItemChangeFood.Size = new System.Drawing.Size(583, 319);
+            this.grpChangeFoodItemChangeFood.TabIndex = 35;
+            this.grpChangeFoodItemChangeFood.TabStop = false;
+            this.grpChangeFoodItemChangeFood.Text = "Change Food Item";
+            this.grpChangeFoodItemChangeFood.Visible = false;
+            // 
+            // cboChangeFoodItemFoodType
+            // 
+            this.cboChangeFoodItemFoodType.FormattingEnabled = true;
+            this.cboChangeFoodItemFoodType.Items.AddRange(new object[] {
+            "M : Main",
+            "S : Starter",
+            "D : Dessert",
+            "B : Beverage"});
+            this.cboChangeFoodItemFoodType.Location = new System.Drawing.Point(77, 129);
+            this.cboChangeFoodItemFoodType.Name = "cboChangeFoodItemFoodType";
+            this.cboChangeFoodItemFoodType.Size = new System.Drawing.Size(97, 21);
+            this.cboChangeFoodItemFoodType.TabIndex = 32;
+            // 
+            // cboChangeFoodItemFoodStatus
+            // 
+            this.cboChangeFoodItemFoodStatus.FormattingEnabled = true;
+            this.cboChangeFoodItemFoodStatus.Items.AddRange(new object[] {
+            "A : Available",
+            "U : Unavailable"});
+            this.cboChangeFoodItemFoodStatus.Location = new System.Drawing.Point(77, 218);
+            this.cboChangeFoodItemFoodStatus.Name = "cboChangeFoodItemFoodStatus";
+            this.cboChangeFoodItemFoodStatus.Size = new System.Drawing.Size(90, 21);
+            this.cboChangeFoodItemFoodStatus.TabIndex = 33;
             // 
             // frmChangeFoodItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnChgFoodItemSubmit);
-            this.Controls.Add(this.txtChgFoodItemStatus);
-            this.Controls.Add(this.txtChgFoodItemPrice);
-            this.Controls.Add(this.txtChgFoodItemType);
-            this.Controls.Add(this.txtChangeFoodItemDesc);
-            this.Controls.Add(this.txtChangeFoodItem);
-            this.Controls.Add(this.lblFoodStatus);
-            this.Controls.Add(this.lblFoodPrice);
-            this.Controls.Add(this.lblFoodType);
-            this.Controls.Add(this.lblFoodItemDesc);
-            this.Controls.Add(this.lblFoodItem);
+            this.Controls.Add(this.grpChangeFoodItemChangeFood);
+            this.Controls.Add(this.grpChangeFoodItemSelectFood);
             this.Controls.Add(this.mnuFoodItem);
             this.Controls.Add(this.lblChangeFdItemTitle);
             this.Name = "frmChangeFoodItem";
             this.Text = "frmChangeFoodItem";
             this.mnuFoodItem.ResumeLayout(false);
             this.mnuFoodItem.PerformLayout();
+            this.grpChangeFoodItemSelectFood.ResumeLayout(false);
+            this.grpChangeFoodItemSelectFood.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdChangeFoodItemSelectFoodItem)).EndInit();
+            this.grpChangeFoodItemChangeFood.ResumeLayout(false);
+            this.grpChangeFoodItemChangeFood.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,9 +366,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnChgFoodItemSubmit;
-        private System.Windows.Forms.TextBox txtChgFoodItemStatus;
         private System.Windows.Forms.TextBox txtChgFoodItemPrice;
-        private System.Windows.Forms.TextBox txtChgFoodItemType;
         private System.Windows.Forms.TextBox txtChangeFoodItemDesc;
         private System.Windows.Forms.TextBox txtChangeFoodItem;
         private System.Windows.Forms.Label lblFoodStatus;
@@ -246,5 +381,18 @@
         private System.Windows.Forms.ToolStripMenuItem changeFoodItemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem orderToolStripMenuItem;
         private System.Windows.Forms.Label lblChangeFdItemTitle;
+        private System.Windows.Forms.ComboBox cboChangeFoodItemType;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox grpChangeFoodItemSelectFood;
+        private System.Windows.Forms.DataGridView grdChangeFoodItemSelectFoodItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FoodItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FoodType;
+        private System.Windows.Forms.Button btnChangeFoodItemSelectFoodItemButton;
+        private System.Windows.Forms.GroupBox grpChangeFoodItemChangeFood;
+        private System.Windows.Forms.ComboBox cboChangeFoodItemFoodStatus;
+        private System.Windows.Forms.ComboBox cboChangeFoodItemFoodType;
     }
 }

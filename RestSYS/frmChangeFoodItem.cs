@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace RestSYS
 {
@@ -15,6 +16,16 @@ namespace RestSYS
         public frmChangeFoodItem()
         {
             InitializeComponent();
+            //Generate GridBox row data
+            this.grdChangeFoodItemSelectFoodItem.Rows.Add("Fish & Chips", "Fried battered fish and hot potato chips served with tartare sauce", 15.50, 'A', 'M');
+
+            //Generate change food 
+            txtChangeFoodItem.Text = "Fish & Chips";
+            txtChangeFoodItemDesc.Text = "Fried battered fish and hot potato chips served with tartare sauce";
+            txtChgFoodItemPrice.Text = "15.50";
+            cboChangeFoodItemFoodType.SelectedIndex = 0;
+            cboChangeFoodItemFoodStatus.SelectedIndex = 0;
+
         }
 
         private void btnChgFoodItemSubmit_Click(object sender, EventArgs e)
@@ -33,7 +44,7 @@ namespace RestSYS
                 allCorrect = false;
             }
 
-            else if (txtChgFoodItemType.Text.Equals(""))
+            else if (cboChangeFoodItemFoodType.SelectedItem == null)
             {
                 MessageBox.Show("Food item type must be entered", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 allCorrect = false;
@@ -45,7 +56,7 @@ namespace RestSYS
                 allCorrect = false;
             }
 
-            else if (txtChgFoodItemStatus.Text.Equals(""))
+            else if (cboChangeFoodItemFoodStatus.SelectedItem == null)
             {
                 MessageBox.Show("Food item status must be entered", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 allCorrect = false;
@@ -53,49 +64,17 @@ namespace RestSYS
 
             else
             {
-                //food type must be one alphabetic character and must exist in Food type
-                if (!txtChgFoodItemType.Text.All(Char.IsLetter))
-                {
-                    MessageBox.Show("Food item type must be one alphabetic character only");
-                    allCorrect = false;
-                }
-
-                else if (!txtChgFoodItemType.Text.Equals("m"))
-                {
-                    MessageBox.Show("Food item type must be exist in food item table");
-                    allCorrect = false;
-                }
-
                 //Price value must be greater than 0
-                if (txtChgFoodItemPrice.Text.All(Char.IsDigit))
+                Match validPrice1 = Regex.Match(txtChgFoodItemPrice.Text, @"\d\d\.\d\d");
+                Match validPrice2 = Regex.Match(txtChgFoodItemPrice.Text, @"\d");
+                Match validPrice3 = Regex.Match(txtChgFoodItemPrice.Text, @"\d\d");
+                Match validPrice4 = Regex.Match(txtChgFoodItemPrice.Text, @"\d.\d\d");
+                if(!validPrice1.Success && !validPrice2.Success && !validPrice3.Success && !validPrice4.Success)
                 {
-                    if (double.Parse(txtChgFoodItemPrice.Text) < 0.0)
-                    {
-                        MessageBox.Show("Food item price must greater than 0");
-                        allCorrect = false;
-                    }
-                }
-
-                else
-                {
-                    MessageBox.Show("Food item price must be in decimal form");
+                    MessageBox.Show("Food item price must be in decimal form and greater than 0");
                     allCorrect = false;
                 }
             }
-
-            //Status must be one alphabetic character , and must only be A and U
-            if (!txtChgFoodItemStatus.Text.All(Char.IsLetter))
-            {
-                MessageBox.Show("Food item status must be one alphabetic character only");
-                allCorrect = false;
-            }
-
-            else if (!txtChgFoodItemStatus.Text.Equals("A") && !txtChgFoodItemStatus.Text.Equals("U"))
-            {
-                MessageBox.Show("Food item status must only be 'A' or 'U'");
-                allCorrect = false;
-            }
-
 
             if (allCorrect == true)
             {
@@ -103,8 +82,28 @@ namespace RestSYS
                 txtChangeFoodItem.Clear();
                 txtChangeFoodItemDesc.Clear();
                 txtChgFoodItemPrice.Clear();
-                txtChgFoodItemStatus.Clear();
-                txtChgFoodItemType.Clear();
+                cboChangeFoodItemFoodStatus.SelectedIndex = -1;
+                cboChangeFoodItemFoodType.SelectedIndex = -1;
+                grpChangeFoodItemSelectFood.Visible = true;
+                grpChangeFoodItemChangeFood.Visible = false;
+            }
+        }
+
+        private void btnChangeFoodItemSelectFoodItemButton_Click(object sender, EventArgs e)
+        {
+            if(grdChangeFoodItemSelectFoodItem.SelectedRows.Count < 0)
+            {
+                MessageBox.Show("Please select the food item to change");
+            }
+            else if(grdChangeFoodItemSelectFoodItem.SelectedRows.Count > 1)
+            {
+                MessageBox.Show("Please select one food item to change only");
+            }
+
+            else
+            {
+                grpChangeFoodItemSelectFood.Visible = false;
+                grpChangeFoodItemChangeFood.Visible = true;
             }
         }
     }
