@@ -182,6 +182,7 @@
             this.btnNum2.TabIndex = 12;
             this.btnNum2.Text = "2";
             this.btnNum2.UseVisualStyleBackColor = true;
+            this.btnNum2.Click += new System.EventHandler(this.btnNum2_Click);
             // 
             // btnNum3
             // 

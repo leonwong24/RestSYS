@@ -48,16 +48,16 @@
             this.cboChangeFoodItemType = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.grpChangeFoodItemSelectFood = new System.Windows.Forms.GroupBox();
+            this.btnChangeFoodItemSelectFoodItemButton = new System.Windows.Forms.Button();
             this.grdChangeFoodItemSelectFoodItem = new System.Windows.Forms.DataGridView();
             this.FoodItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FoodType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnChangeFoodItemSelectFoodItemButton = new System.Windows.Forms.Button();
             this.grpChangeFoodItemChangeFood = new System.Windows.Forms.GroupBox();
-            this.cboChangeFoodItemFoodType = new System.Windows.Forms.ComboBox();
             this.cboChangeFoodItemFoodStatus = new System.Windows.Forms.ComboBox();
+            this.cboChangeFoodItemFoodType = new System.Windows.Forms.ComboBox();
             this.mnuFoodItem.SuspendLayout();
             this.grpChangeFoodItemSelectFood.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdChangeFoodItemSelectFoodItem)).BeginInit();
@@ -167,19 +167,21 @@
             // addFoodTypeToolStripMenuItem
             // 
             this.addFoodTypeToolStripMenuItem.Name = "addFoodTypeToolStripMenuItem";
-            this.addFoodTypeToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.addFoodTypeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addFoodTypeToolStripMenuItem.Text = "Add Food Type";
+            this.addFoodTypeToolStripMenuItem.Click += new System.EventHandler(this.addFoodTypeToolStripMenuItem_Click);
             // 
             // addFoodItemToolStripMenuItem
             // 
             this.addFoodItemToolStripMenuItem.Name = "addFoodItemToolStripMenuItem";
-            this.addFoodItemToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.addFoodItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addFoodItemToolStripMenuItem.Text = "Add Food Item";
+            this.addFoodItemToolStripMenuItem.Click += new System.EventHandler(this.addFoodItemToolStripMenuItem_Click);
             // 
             // changeFoodItemToolStripMenuItem
             // 
             this.changeFoodItemToolStripMenuItem.Name = "changeFoodItemToolStripMenuItem";
-            this.changeFoodItemToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.changeFoodItemToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.changeFoodItemToolStripMenuItem.Text = "Change Food Item";
             // 
             // orderToolStripMenuItem
@@ -233,6 +235,16 @@
             this.grpChangeFoodItemSelectFood.TabStop = false;
             this.grpChangeFoodItemSelectFood.Text = "Select Food Item";
             // 
+            // btnChangeFoodItemSelectFoodItemButton
+            // 
+            this.btnChangeFoodItemSelectFoodItemButton.Location = new System.Drawing.Point(579, 277);
+            this.btnChangeFoodItemSelectFoodItemButton.Name = "btnChangeFoodItemSelectFoodItemButton";
+            this.btnChangeFoodItemSelectFoodItemButton.Size = new System.Drawing.Size(125, 32);
+            this.btnChangeFoodItemSelectFoodItemButton.TabIndex = 35;
+            this.btnChangeFoodItemSelectFoodItemButton.Text = "Select Food";
+            this.btnChangeFoodItemSelectFoodItemButton.UseVisualStyleBackColor = true;
+            this.btnChangeFoodItemSelectFoodItemButton.Click += new System.EventHandler(this.btnChangeFoodItemSelectFoodItemButton_Click);
+            // 
             // grdChangeFoodItemSelectFoodItem
             // 
             this.grdChangeFoodItemSelectFoodItem.AllowUserToAddRows = false;
@@ -285,16 +297,6 @@
             this.FoodType.ReadOnly = true;
             this.FoodType.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // btnChangeFoodItemSelectFoodItemButton
-            // 
-            this.btnChangeFoodItemSelectFoodItemButton.Location = new System.Drawing.Point(579, 277);
-            this.btnChangeFoodItemSelectFoodItemButton.Name = "btnChangeFoodItemSelectFoodItemButton";
-            this.btnChangeFoodItemSelectFoodItemButton.Size = new System.Drawing.Size(125, 32);
-            this.btnChangeFoodItemSelectFoodItemButton.TabIndex = 35;
-            this.btnChangeFoodItemSelectFoodItemButton.Text = "Select Food";
-            this.btnChangeFoodItemSelectFoodItemButton.UseVisualStyleBackColor = true;
-            this.btnChangeFoodItemSelectFoodItemButton.Click += new System.EventHandler(this.btnChangeFoodItemSelectFoodItemButton_Click);
-            // 
             // grpChangeFoodItemChangeFood
             // 
             this.grpChangeFoodItemChangeFood.Controls.Add(this.cboChangeFoodItemFoodStatus);
@@ -316,6 +318,17 @@
             this.grpChangeFoodItemChangeFood.Text = "Change Food Item";
             this.grpChangeFoodItemChangeFood.Visible = false;
             // 
+            // cboChangeFoodItemFoodStatus
+            // 
+            this.cboChangeFoodItemFoodStatus.FormattingEnabled = true;
+            this.cboChangeFoodItemFoodStatus.Items.AddRange(new object[] {
+            "A : Available",
+            "U : Unavailable"});
+            this.cboChangeFoodItemFoodStatus.Location = new System.Drawing.Point(77, 218);
+            this.cboChangeFoodItemFoodStatus.Name = "cboChangeFoodItemFoodStatus";
+            this.cboChangeFoodItemFoodStatus.Size = new System.Drawing.Size(90, 21);
+            this.cboChangeFoodItemFoodStatus.TabIndex = 33;
+            // 
             // cboChangeFoodItemFoodType
             // 
             this.cboChangeFoodItemFoodType.FormattingEnabled = true;
@@ -328,17 +341,6 @@
             this.cboChangeFoodItemFoodType.Name = "cboChangeFoodItemFoodType";
             this.cboChangeFoodItemFoodType.Size = new System.Drawing.Size(97, 21);
             this.cboChangeFoodItemFoodType.TabIndex = 32;
-            // 
-            // cboChangeFoodItemFoodStatus
-            // 
-            this.cboChangeFoodItemFoodStatus.FormattingEnabled = true;
-            this.cboChangeFoodItemFoodStatus.Items.AddRange(new object[] {
-            "A : Available",
-            "U : Unavailable"});
-            this.cboChangeFoodItemFoodStatus.Location = new System.Drawing.Point(77, 218);
-            this.cboChangeFoodItemFoodStatus.Name = "cboChangeFoodItemFoodStatus";
-            this.cboChangeFoodItemFoodStatus.Size = new System.Drawing.Size(90, 21);
-            this.cboChangeFoodItemFoodStatus.TabIndex = 33;
             // 
             // frmChangeFoodItem
             // 

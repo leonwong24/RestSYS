@@ -12,9 +12,12 @@ namespace RestSYS
 {
     public partial class frmFoodOrder : Form
     {
+        String numberAsString;
+        String foodItemAsString;
         public frmFoodOrder()
         {
             InitializeComponent();
+            numberAsString = "";
         }
 
         private void btnTableInterface_Click(object sender, EventArgs e)
@@ -22,6 +25,12 @@ namespace RestSYS
             this.Close();
             frmTableInterface frmTableInterface = new frmTableInterface();
             frmTableInterface.Show();
+        }
+
+        private void btnNum2_Click(object sender, EventArgs e)
+        {
+            //Number 2 
+            numberAsString += "2";
         }
     }
 }

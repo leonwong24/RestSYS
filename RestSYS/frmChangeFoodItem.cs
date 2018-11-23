@@ -78,7 +78,7 @@ namespace RestSYS
 
             if (allCorrect == true)
             {
-                MessageBox.Show("Food item added successfully!");
+                MessageBox.Show("Food item changed successfully!");
                 txtChangeFoodItem.Clear();
                 txtChangeFoodItemDesc.Clear();
                 txtChgFoodItemPrice.Clear();
@@ -105,6 +105,20 @@ namespace RestSYS
                 grpChangeFoodItemSelectFood.Visible = false;
                 grpChangeFoodItemChangeFood.Visible = true;
             }
+        }
+
+        private void addFoodTypeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmAddFoodType frmAddFoodType = new frmAddFoodType();
+            frmAddFoodType.Show();
+        }
+
+        private void addFoodItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmAddFoodItem frmAddFoodItem = new frmAddFoodItem();
+            frmAddFoodItem.Show();
         }
     }
 }

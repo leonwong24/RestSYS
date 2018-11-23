@@ -56,8 +56,6 @@ namespace RestSYS
 
         private void addFoodItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            txtFoodType.Clear();
-            txtFdTypeDesc.Clear();
             this.Hide();
             frmAddFoodItem formAddFoodItem = new frmAddFoodItem();
             formAddFoodItem.Show();
@@ -65,8 +63,6 @@ namespace RestSYS
 
         private void changeFoodItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            txtFoodType.Clear();
-            txtFdTypeDesc.Clear();
             this.Hide();
             frmChangeFoodItem frmChangeFoodItem = new frmChangeFoodItem();
             frmChangeFoodItem.Show();

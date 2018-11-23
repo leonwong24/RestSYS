@@ -16,7 +16,7 @@ namespace RestSYS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmChangeFoodItem());
+            Application.Run(new frmHomeInterface());
         }
     }
 }

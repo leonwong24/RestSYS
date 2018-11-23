@@ -12,9 +12,16 @@ namespace RestSYS
 {
     public partial class frmAddFoodItem : Form
     {
+        frmHomeInterface parent;
+
         public frmAddFoodItem()
         {
             InitializeComponent();
+        }
+        public frmAddFoodItem(frmHomeInterface Parent)
+        {
+            InitializeComponent();
+            parent = Parent;
         }
 
         private void btnAddFoodItemSubmit_Click(object sender, EventArgs e)
@@ -100,6 +107,31 @@ namespace RestSYS
             this.Hide();
             frmAddFoodType frmAddFoodType = new frmAddFoodType();
             frmAddFoodType.Show();
+        }
+
+        private void changeFoodItemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            txtAddFoodItem.Clear();
+            txtAddFoodItemDesc.Clear();
+            txtAddFoodItemPrice.Clear();
+            cboAddFoodItemStatus.SelectedIndex = -1;
+            cboAddFoodItemType.SelectedIndex = -1;
+            this.Hide();
+            frmChangeFoodItem frmChangeFoodItem = new frmChangeFoodItem();
+            frmChangeFoodItem.Show();
+        }
+
+
+
+        private void mnuBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            parent.Visible = true;
+        }
+
+        private void frmAddFoodItem_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

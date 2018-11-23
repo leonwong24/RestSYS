@@ -10,8 +10,9 @@ using System.Windows.Forms;
 
 namespace RestSYS
 {
-    public partial class frmHomeInterface : Form
+    public partial class frmHomeInterface: Form
     {
+        frmHomeInterface parent;
         public frmHomeInterface()
         {
             InitializeComponent();
@@ -20,7 +21,7 @@ namespace RestSYS
         private void btnHomeToManager_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmAddFoodItem frmAddFoodItem = new frmAddFoodItem();
+            frmAddFoodItem frmAddFoodItem = new frmAddFoodItem(this);
             frmAddFoodItem.Show();
         }
 
@@ -30,5 +31,6 @@ namespace RestSYS
             frmTableInterface frmTableInterface = new frmTableInterface();
             frmTableInterface.Show();
         }
+    
     }
 }

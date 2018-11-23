@@ -35,6 +35,7 @@
             this.addFoodItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeFoodItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.orderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuBack = new System.Windows.Forms.ToolStripMenuItem();
             this.lblFoodItem = new System.Windows.Forms.Label();
             this.lblFoodItemDesc = new System.Windows.Forms.Label();
             this.lblFoodType = new System.Windows.Forms.Label();
@@ -63,7 +64,8 @@
             // 
             this.mnuFoodItem.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editToolStripMenuItem,
-            this.orderToolStripMenuItem});
+            this.orderToolStripMenuItem,
+            this.mnuBack});
             this.mnuFoodItem.Location = new System.Drawing.Point(0, 0);
             this.mnuFoodItem.Name = "mnuFoodItem";
             this.mnuFoodItem.Size = new System.Drawing.Size(800, 24);
@@ -98,12 +100,20 @@
             this.changeFoodItemToolStripMenuItem.Name = "changeFoodItemToolStripMenuItem";
             this.changeFoodItemToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.changeFoodItemToolStripMenuItem.Text = "Change Food Item";
+            this.changeFoodItemToolStripMenuItem.Click += new System.EventHandler(this.changeFoodItemToolStripMenuItem_Click);
             // 
             // orderToolStripMenuItem
             // 
             this.orderToolStripMenuItem.Name = "orderToolStripMenuItem";
             this.orderToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.orderToolStripMenuItem.Text = "Order";
+            // 
+            // mnuBack
+            // 
+            this.mnuBack.Name = "mnuBack";
+            this.mnuBack.Size = new System.Drawing.Size(44, 20);
+            this.mnuBack.Text = "Back";
+            this.mnuBack.Click += new System.EventHandler(this.mnuBack_Click);
             // 
             // lblFoodItem
             // 
@@ -228,6 +238,7 @@
             this.Controls.Add(this.lblAddFdItemTitle);
             this.Name = "frmAddFoodItem";
             this.Text = "           ";
+            this.Load += new System.EventHandler(this.frmAddFoodItem_Load);
             this.mnuFoodItem.ResumeLayout(false);
             this.mnuFoodItem.PerformLayout();
             this.ResumeLayout(false);
@@ -255,5 +266,6 @@
         private System.Windows.Forms.Button btnAddFoodItemSubmit;
         private System.Windows.Forms.ComboBox cboAddFoodItemType;
         private System.Windows.Forms.ComboBox cboAddFoodItemStatus;
+        private System.Windows.Forms.ToolStripMenuItem mnuBack;
     }
 }
