@@ -48,7 +48,7 @@
             this.btnNum7 = new System.Windows.Forms.Button();
             this.btnNum8 = new System.Windows.Forms.Button();
             this.btnNum9 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.grdOrder = new System.Windows.Forms.DataGridView();
             this.Item = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,7 +62,7 @@
             this.lblTime = new System.Windows.Forms.Label();
             this.btnUp = new System.Windows.Forms.Button();
             this.btnDown = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdOrder)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBarMenu
@@ -173,6 +173,7 @@
             this.btnNum1.TabIndex = 11;
             this.btnNum1.Text = "1";
             this.btnNum1.UseVisualStyleBackColor = true;
+            this.btnNum1.Click += new System.EventHandler(this.btnNum1_Click);
             // 
             // btnNum2
             // 
@@ -192,6 +193,7 @@
             this.btnNum3.TabIndex = 13;
             this.btnNum3.Text = "3";
             this.btnNum3.UseVisualStyleBackColor = true;
+            this.btnNum3.Click += new System.EventHandler(this.btnNum3_Click);
             // 
             // btnNum4
             // 
@@ -247,18 +249,18 @@
             this.btnNum9.Text = "9";
             this.btnNum9.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // grdOrder
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.grdOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Item,
             this.Quantity,
             this.Price,
             this.Cost});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 1);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(329, 280);
-            this.dataGridView1.TabIndex = 20;
+            this.grdOrder.Location = new System.Drawing.Point(6, 1);
+            this.grdOrder.Name = "grdOrder";
+            this.grdOrder.Size = new System.Drawing.Size(329, 280);
+            this.grdOrder.TabIndex = 20;
             // 
             // Item
             // 
@@ -300,8 +302,9 @@
             this.btnFoodItem1.Name = "btnFoodItem1";
             this.btnFoodItem1.Size = new System.Drawing.Size(76, 69);
             this.btnFoodItem1.TabIndex = 21;
-            this.btnFoodItem1.Text = "Food Item 1";
+            this.btnFoodItem1.Text = "Fish and Chips";
             this.btnFoodItem1.UseVisualStyleBackColor = true;
+            this.btnFoodItem1.Click += new System.EventHandler(this.btnFoodItem1_Click);
             // 
             // btnFoodItem2
             // 
@@ -309,8 +312,9 @@
             this.btnFoodItem2.Name = "btnFoodItem2";
             this.btnFoodItem2.Size = new System.Drawing.Size(76, 69);
             this.btnFoodItem2.TabIndex = 22;
-            this.btnFoodItem2.Text = "Food Item 1";
+            this.btnFoodItem2.Text = "Beef Steak";
             this.btnFoodItem2.UseVisualStyleBackColor = true;
+            this.btnFoodItem2.Click += new System.EventHandler(this.btnFoodItem2_Click);
             // 
             // btnFoodItem3
             // 
@@ -318,8 +322,9 @@
             this.btnFoodItem3.Name = "btnFoodItem3";
             this.btnFoodItem3.Size = new System.Drawing.Size(76, 69);
             this.btnFoodItem3.TabIndex = 23;
-            this.btnFoodItem3.Text = "Food Item 1";
+            this.btnFoodItem3.Text = "Chicken Burger";
             this.btnFoodItem3.UseVisualStyleBackColor = true;
+            this.btnFoodItem3.Click += new System.EventHandler(this.btnFoodItem3_Click);
             // 
             // btnFoodItem4
             // 
@@ -327,8 +332,9 @@
             this.btnFoodItem4.Name = "btnFoodItem4";
             this.btnFoodItem4.Size = new System.Drawing.Size(76, 69);
             this.btnFoodItem4.TabIndex = 24;
-            this.btnFoodItem4.Text = "Food Item 1";
+            this.btnFoodItem4.Text = "Salad Bowl";
             this.btnFoodItem4.UseVisualStyleBackColor = true;
+            this.btnFoodItem4.Click += new System.EventHandler(this.btnFoodItem4_Click);
             // 
             // lblTableNumber
             // 
@@ -389,7 +395,7 @@
             this.Controls.Add(this.btnFoodItem3);
             this.Controls.Add(this.btnFoodItem2);
             this.Controls.Add(this.btnFoodItem1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.grdOrder);
             this.Controls.Add(this.btnNum9);
             this.Controls.Add(this.btnNum8);
             this.Controls.Add(this.btnNum7);
@@ -412,7 +418,7 @@
             this.Controls.Add(this.btnBarMenu);
             this.Name = "frmFoodOrder";
             this.Text = "Order Food";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdOrder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -440,7 +446,7 @@
         private System.Windows.Forms.Button btnNum7;
         private System.Windows.Forms.Button btnNum8;
         private System.Windows.Forms.Button btnNum9;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView grdOrder;
         private System.Windows.Forms.DataGridViewTextBoxColumn Item;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;

@@ -12,7 +12,7 @@ namespace RestSYS
 {
     public partial class frmHomeInterface: Form
     {
-        frmHomeInterface parent;
+       
         public frmHomeInterface()
         {
             InitializeComponent();
