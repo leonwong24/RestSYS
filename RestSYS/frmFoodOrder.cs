@@ -12,12 +12,15 @@ namespace RestSYS
 {
     public partial class frmFoodOrder : Form
     {
+        
         String numberAsString;
         String foodItemAsString;
         //int row = -1; //order data grid row
         int number;
         int totalQty = 0;
+        int qtyToDeduct;
         double totalPrice = 0;
+        double valuetoDeduct;
         public frmFoodOrder()
         {
             InitializeComponent();
@@ -36,6 +39,7 @@ namespace RestSYS
             grdOrder.Enabled = false;
             grdOrder.Enabled = true;
         }
+
 
         private void MyTimer_Tick(object sender, EventArgs e)
         {
@@ -92,7 +96,8 @@ namespace RestSYS
             numberAsString = "";
             totalQty += number;
             totalPrice += 20.50 * number;
-
+            grdOrder.Rows[0].Cells[1].Value = totalQty;
+            grdOrder.Rows[0].Cells[3].Value = totalPrice;
         }
 
         private void btnFoodItem2_Click(object sender, EventArgs e) //Beef Steak
@@ -120,6 +125,8 @@ namespace RestSYS
             numberAsString = "";
             totalQty += number;
             totalPrice += 10.00 * number;
+            grdOrder.Rows[0].Cells[1].Value = totalQty;
+            grdOrder.Rows[0].Cells[3].Value = totalPrice;
         }
 
         private void btnFoodItem3_Click(object sender, EventArgs e)//Chicken burger
@@ -147,6 +154,8 @@ namespace RestSYS
             numberAsString = "";
             totalQty += number;
             totalPrice += 8.00 * number;
+            grdOrder.Rows[0].Cells[1].Value = totalQty;
+            grdOrder.Rows[0].Cells[3].Value = totalPrice;
         }
 
         private void btnFoodItem4_Click(object sender, EventArgs e)//Salad bowl
@@ -174,8 +183,44 @@ namespace RestSYS
             numberAsString = "";
             totalQty += number;
             totalPrice += 10.00 * number;
-            
+            grdOrder.Rows[0].Cells[1].Value = totalQty;
+            grdOrder.Rows[0].Cells[3].Value = totalPrice;
         }
 
+        private void backToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmHomeInterface frmHomeInterface = new frmHomeInterface();
+            frmHomeInterface.Show();
+        }
+
+        private void btnDeleteFoodRow_Click(object sender, EventArgs e)
+        {   
+            int rowToDelete = grdOrder.CurrentCell.RowIndex;
+
+            //recalculate the total cost of the table
+            String valueToDeductAsString = grdOrder.Rows[rowToDelete].Cells[3].Value.ToString();
+            double.TryParse(valueToDeductAsString,out valuetoDeduct);
+            totalPrice -= valuetoDeduct;
+
+            //recalculate the total food item quantity of the table
+            String qtyToDeductAsString = grdOrder.Rows[rowToDelete].Cells[1].Value.ToString();
+            int.TryParse(qtyToDeductAsString, out qtyToDeduct);
+            totalQty -= qtyToDeduct;
+
+            //display updated row
+            grdOrder.Rows[0].Cells[1].Value = totalQty;
+            grdOrder.Rows[0].Cells[3].Value = totalPrice;
+
+            //delete selected row
+            grdOrder.Rows.RemoveAt(rowToDelete);
+        }
+
+        private void btnPlaceOrder_Click(object sender, EventArgs e)
+        {
+            grdOrder.Rows[0].Cells[1].Value = totalQty;
+            grdOrder.Rows[0].Cells[3].Value = totalPrice;
+            MessageBox.Show("Order placed successfully!");
+        }
     }
 }

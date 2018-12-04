@@ -56,16 +56,23 @@ namespace RestSYS
 
         private void addFoodItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             frmAddFoodItem formAddFoodItem = new frmAddFoodItem();
             formAddFoodItem.Show();
         }
 
         private void changeFoodItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             frmChangeFoodItem frmChangeFoodItem = new frmChangeFoodItem();
             frmChangeFoodItem.Show();
+        }
+
+        private void mnuBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmHomeInterface frmHomeInterface = new frmHomeInterface();
+            frmHomeInterface.Show();
         }
     }
 }

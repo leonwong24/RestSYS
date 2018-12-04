@@ -30,12 +30,13 @@
         {
             this.lblAddFdItemTitle = new System.Windows.Forms.Label();
             this.mnuFoodItem = new System.Windows.Forms.MenuStrip();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addFoodTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addFoodItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.changeFoodItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.orderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItmAddFoodType = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItmAddFoodItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItmChangeFoodItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuOrder = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBack = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAdmin = new System.Windows.Forms.ToolStripMenuItem();
             this.lblFoodItem = new System.Windows.Forms.Label();
             this.lblFoodItemDesc = new System.Windows.Forms.Label();
             this.lblFoodType = new System.Windows.Forms.Label();
@@ -47,6 +48,8 @@
             this.btnAddFoodItemSubmit = new System.Windows.Forms.Button();
             this.cboAddFoodItemType = new System.Windows.Forms.ComboBox();
             this.cboAddFoodItemStatus = new System.Windows.Forms.ComboBox();
+            this.mnuItmRevenueAnalysis = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItmFoodAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFoodItem.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,50 +66,51 @@
             // mnuFoodItem
             // 
             this.mnuFoodItem.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editToolStripMenuItem,
-            this.orderToolStripMenuItem,
-            this.mnuBack});
+            this.mnuEdit,
+            this.mnuOrder,
+            this.mnuBack,
+            this.mnuAdmin});
             this.mnuFoodItem.Location = new System.Drawing.Point(0, 0);
             this.mnuFoodItem.Name = "mnuFoodItem";
             this.mnuFoodItem.Size = new System.Drawing.Size(800, 24);
             this.mnuFoodItem.TabIndex = 7;
             this.mnuFoodItem.Text = "menuAddFoodType";
             // 
-            // editToolStripMenuItem
+            // mnuEdit
             // 
-            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addFoodTypeToolStripMenuItem,
-            this.addFoodItemToolStripMenuItem,
-            this.changeFoodItemToolStripMenuItem});
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.editToolStripMenuItem.Text = "Edit";
+            this.mnuEdit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuItmAddFoodType,
+            this.mnuItmAddFoodItem,
+            this.mnuItmChangeFoodItem});
+            this.mnuEdit.Name = "mnuEdit";
+            this.mnuEdit.Size = new System.Drawing.Size(39, 20);
+            this.mnuEdit.Text = "Edit";
             // 
-            // addFoodTypeToolStripMenuItem
+            // mnuItmAddFoodType
             // 
-            this.addFoodTypeToolStripMenuItem.Name = "addFoodTypeToolStripMenuItem";
-            this.addFoodTypeToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.addFoodTypeToolStripMenuItem.Text = "Add Food Type";
-            this.addFoodTypeToolStripMenuItem.Click += new System.EventHandler(this.addFoodTypeToolStripMenuItem_Click);
+            this.mnuItmAddFoodType.Name = "mnuItmAddFoodType";
+            this.mnuItmAddFoodType.Size = new System.Drawing.Size(180, 22);
+            this.mnuItmAddFoodType.Text = "Add Food Type";
+            this.mnuItmAddFoodType.Click += new System.EventHandler(this.addFoodTypeToolStripMenuItem_Click);
             // 
-            // addFoodItemToolStripMenuItem
+            // mnuItmAddFoodItem
             // 
-            this.addFoodItemToolStripMenuItem.Name = "addFoodItemToolStripMenuItem";
-            this.addFoodItemToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.addFoodItemToolStripMenuItem.Text = "Add Food Item";
+            this.mnuItmAddFoodItem.Name = "mnuItmAddFoodItem";
+            this.mnuItmAddFoodItem.Size = new System.Drawing.Size(180, 22);
+            this.mnuItmAddFoodItem.Text = "Add Food Item";
             // 
-            // changeFoodItemToolStripMenuItem
+            // mnuItmChangeFoodItem
             // 
-            this.changeFoodItemToolStripMenuItem.Name = "changeFoodItemToolStripMenuItem";
-            this.changeFoodItemToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.changeFoodItemToolStripMenuItem.Text = "Change Food Item";
-            this.changeFoodItemToolStripMenuItem.Click += new System.EventHandler(this.changeFoodItemToolStripMenuItem_Click);
+            this.mnuItmChangeFoodItem.Name = "mnuItmChangeFoodItem";
+            this.mnuItmChangeFoodItem.Size = new System.Drawing.Size(180, 22);
+            this.mnuItmChangeFoodItem.Text = "Change Food Item";
+            this.mnuItmChangeFoodItem.Click += new System.EventHandler(this.changeFoodItemToolStripMenuItem_Click);
             // 
-            // orderToolStripMenuItem
+            // mnuOrder
             // 
-            this.orderToolStripMenuItem.Name = "orderToolStripMenuItem";
-            this.orderToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
-            this.orderToolStripMenuItem.Text = "Order";
+            this.mnuOrder.Name = "mnuOrder";
+            this.mnuOrder.Size = new System.Drawing.Size(49, 20);
+            this.mnuOrder.Text = "Order";
             // 
             // mnuBack
             // 
@@ -114,6 +118,15 @@
             this.mnuBack.Size = new System.Drawing.Size(44, 20);
             this.mnuBack.Text = "Back";
             this.mnuBack.Click += new System.EventHandler(this.mnuBack_Click);
+            // 
+            // mnuAdmin
+            // 
+            this.mnuAdmin.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuItmRevenueAnalysis,
+            this.mnuItmFoodAnalysis});
+            this.mnuAdmin.Name = "mnuAdmin";
+            this.mnuAdmin.Size = new System.Drawing.Size(55, 20);
+            this.mnuAdmin.Text = "Admin";
             // 
             // lblFoodItem
             // 
@@ -218,6 +231,18 @@
             this.cboAddFoodItemStatus.Size = new System.Drawing.Size(109, 21);
             this.cboAddFoodItemStatus.TabIndex = 20;
             // 
+            // mnuItmRevenueAnalysis
+            // 
+            this.mnuItmRevenueAnalysis.Name = "mnuItmRevenueAnalysis";
+            this.mnuItmRevenueAnalysis.Size = new System.Drawing.Size(180, 22);
+            this.mnuItmRevenueAnalysis.Text = "Revenue Analysis";
+            // 
+            // mnuItmFoodAnalysis
+            // 
+            this.mnuItmFoodAnalysis.Name = "mnuItmFoodAnalysis";
+            this.mnuItmFoodAnalysis.Size = new System.Drawing.Size(180, 22);
+            this.mnuItmFoodAnalysis.Text = "Food Analysis";
+            // 
             // frmAddFoodItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -250,11 +275,11 @@
 
         private System.Windows.Forms.Label lblAddFdItemTitle;
         private System.Windows.Forms.MenuStrip mnuFoodItem;
-        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addFoodTypeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addFoodItemToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem changeFoodItemToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem orderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuEdit;
+        private System.Windows.Forms.ToolStripMenuItem mnuItmAddFoodType;
+        private System.Windows.Forms.ToolStripMenuItem mnuItmAddFoodItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuItmChangeFoodItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuOrder;
         private System.Windows.Forms.Label lblFoodItem;
         private System.Windows.Forms.Label lblFoodItemDesc;
         private System.Windows.Forms.Label lblFoodType;
@@ -267,5 +292,8 @@
         private System.Windows.Forms.ComboBox cboAddFoodItemType;
         private System.Windows.Forms.ComboBox cboAddFoodItemStatus;
         private System.Windows.Forms.ToolStripMenuItem mnuBack;
+        private System.Windows.Forms.ToolStripMenuItem mnuAdmin;
+        private System.Windows.Forms.ToolStripMenuItem mnuItmRevenueAnalysis;
+        private System.Windows.Forms.ToolStripMenuItem mnuItmFoodAnalysis;
     }
 }

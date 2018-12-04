@@ -58,6 +58,10 @@
             this.grpChangeFoodItemChangeFood = new System.Windows.Forms.GroupBox();
             this.cboChangeFoodItemFoodStatus = new System.Windows.Forms.ComboBox();
             this.cboChangeFoodItemFoodType = new System.Windows.Forms.ComboBox();
+            this.mnuBack = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAdmin = new System.Windows.Forms.ToolStripMenuItem();
+            this.revenueAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.foodAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFoodItem.SuspendLayout();
             this.grpChangeFoodItemSelectFood.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdChangeFoodItemSelectFoodItem)).BeginInit();
@@ -147,7 +151,9 @@
             // 
             this.mnuFoodItem.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editToolStripMenuItem,
-            this.orderToolStripMenuItem});
+            this.orderToolStripMenuItem,
+            this.mnuBack,
+            this.mnuAdmin});
             this.mnuFoodItem.Location = new System.Drawing.Point(0, 0);
             this.mnuFoodItem.Name = "mnuFoodItem";
             this.mnuFoodItem.Size = new System.Drawing.Size(800, 24);
@@ -342,6 +348,34 @@
             this.cboChangeFoodItemFoodType.Size = new System.Drawing.Size(97, 21);
             this.cboChangeFoodItemFoodType.TabIndex = 32;
             // 
+            // mnuBack
+            // 
+            this.mnuBack.Name = "mnuBack";
+            this.mnuBack.Size = new System.Drawing.Size(44, 20);
+            this.mnuBack.Text = "Back";
+            this.mnuBack.Click += new System.EventHandler(this.mnuBack_Click);
+            // 
+            // mnuAdmin
+            // 
+            this.mnuAdmin.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.revenueAnalysisToolStripMenuItem,
+            this.foodAnalysisToolStripMenuItem});
+            this.mnuAdmin.Name = "mnuAdmin";
+            this.mnuAdmin.Size = new System.Drawing.Size(55, 20);
+            this.mnuAdmin.Text = "Admin";
+            // 
+            // revenueAnalysisToolStripMenuItem
+            // 
+            this.revenueAnalysisToolStripMenuItem.Name = "revenueAnalysisToolStripMenuItem";
+            this.revenueAnalysisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.revenueAnalysisToolStripMenuItem.Text = "Revenue Analysis";
+            // 
+            // foodAnalysisToolStripMenuItem
+            // 
+            this.foodAnalysisToolStripMenuItem.Name = "foodAnalysisToolStripMenuItem";
+            this.foodAnalysisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.foodAnalysisToolStripMenuItem.Text = "Food Analysis";
+            // 
             // frmChangeFoodItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -396,5 +430,9 @@
         private System.Windows.Forms.GroupBox grpChangeFoodItemChangeFood;
         private System.Windows.Forms.ComboBox cboChangeFoodItemFoodStatus;
         private System.Windows.Forms.ComboBox cboChangeFoodItemFoodType;
+        private System.Windows.Forms.ToolStripMenuItem mnuBack;
+        private System.Windows.Forms.ToolStripMenuItem mnuAdmin;
+        private System.Windows.Forms.ToolStripMenuItem revenueAnalysisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem foodAnalysisToolStripMenuItem;
     }
 }
