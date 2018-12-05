@@ -222,5 +222,31 @@ namespace RestSYS
             grdOrder.Rows[0].Cells[3].Value = totalPrice;
             MessageBox.Show("Order placed successfully!");
         }
+
+        private void btnPrintBill_Click(object sender, EventArgs e)
+        {
+            if(totalQty == 0 && totalPrice == 0)
+            {
+                MessageBox.Show("This table has no any order yet!");
+            }
+            else
+            {
+                MessageBox.Show("Bill printed!");
+            }
+            
+        }
+
+        private void btnPayBill_Click(object sender, EventArgs e)
+        {
+            if(totalQty == 0 && totalPrice == 0)
+            {
+                MessageBox.Show("This table has no any order yet!");
+            }
+            else
+            {
+                MessageBox.Show("Table pay.");
+            }
+            
+        }
     }
 }

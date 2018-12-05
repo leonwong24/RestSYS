@@ -57,11 +57,29 @@
     <Compile Include="frmAddFoodType.Designer.cs">
       <DependentUpon>frmAddFoodType.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddStaff.Designer.cs">
+      <DependentUpon>frmAddStaff.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmChangeFoodItem.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmChangeFoodItem.Designer.cs">
       <DependentUpon>frmChangeFoodItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChangeStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChangeStaff.Designer.cs">
+      <DependentUpon>frmChangeStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFoodAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFoodAnalysis.Designer.cs">
+      <DependentUpon>frmFoodAnalysis.cs</DependentUpon>
     </Compile>
     <Compile Include="frmFoodOrder.cs">
       <SubType>Form</SubType>
@@ -74,6 +92,18 @@
     </Compile>
     <Compile Include="frmHomeInterface.Designer.cs">
       <DependentUpon>frmHomeInterface.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRemoveStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRemoveStaff.Designer.cs">
+      <DependentUpon>frmRemoveStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRevenueAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRevenueAnalysis.Designer.cs">
+      <DependentUpon>frmRevenueAnalysis.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTableInterface.cs">
       <SubType>Form</SubType>
@@ -89,14 +119,29 @@
     <EmbeddedResource Include="frmAddFoodType.resx">
       <DependentUpon>frmAddFoodType.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddStaff.resx">
+      <DependentUpon>frmAddStaff.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmChangeFoodItem.resx">
       <DependentUpon>frmChangeFoodItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChangeStaff.resx">
+      <DependentUpon>frmChangeStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFoodAnalysis.resx">
+      <DependentUpon>frmFoodAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFoodOrder.resx">
       <DependentUpon>frmFoodOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHomeInterface.resx">
       <DependentUpon>frmHomeInterface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRemoveStaff.resx">
+      <DependentUpon>frmRemoveStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRevenueAnalysis.resx">
+      <DependentUpon>frmRevenueAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTableInterface.resx">
       <DependentUpon>frmTableInterface.cs</DependentUpon>

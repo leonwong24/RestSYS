@@ -133,5 +133,40 @@ namespace RestSYS
         {
 
         }
+
+        private void mnuItmRevenueAnalysis_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmRevenueAnalysis frmRevenueAnalysis = new frmRevenueAnalysis();
+            frmRevenueAnalysis.Show();
+        }
+
+        private void mnuItmFoodAnalysis_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmFoodAnalysis frmFoodAnalysis = new frmFoodAnalysis();
+            frmFoodAnalysis.Show();
+        }
+
+        private void addStaffToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmAddStaff frmAddStaff = new frmAddStaff();
+            frmAddStaff.Show();
+        }
+
+        private void mnuItmModifyStaff_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmChangeStaff frmChangeStaff = new frmChangeStaff();
+            frmChangeStaff.Show();
+        }
+
+        private void mnuItmRemoveStaff_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmRemoveStaff frmRemoveStaff = new frmRemoveStaff();
+            frmRemoveStaff.Show();
+        }
     }
 }

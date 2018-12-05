@@ -37,6 +37,8 @@
             this.mnuOrder = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBack = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAdmin = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItmRevenueAnalysis = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItmFoodAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.lblFoodItem = new System.Windows.Forms.Label();
             this.lblFoodItemDesc = new System.Windows.Forms.Label();
             this.lblFoodType = new System.Windows.Forms.Label();
@@ -48,8 +50,9 @@
             this.btnAddFoodItemSubmit = new System.Windows.Forms.Button();
             this.cboAddFoodItemType = new System.Windows.Forms.ComboBox();
             this.cboAddFoodItemStatus = new System.Windows.Forms.ComboBox();
-            this.mnuItmRevenueAnalysis = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuItmFoodAnalysis = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItmAddStaff = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItmModifyStaff = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItmRemoveStaff = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFoodItem.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,20 +92,20 @@
             // mnuItmAddFoodType
             // 
             this.mnuItmAddFoodType.Name = "mnuItmAddFoodType";
-            this.mnuItmAddFoodType.Size = new System.Drawing.Size(180, 22);
+            this.mnuItmAddFoodType.Size = new System.Drawing.Size(172, 22);
             this.mnuItmAddFoodType.Text = "Add Food Type";
             this.mnuItmAddFoodType.Click += new System.EventHandler(this.addFoodTypeToolStripMenuItem_Click);
             // 
             // mnuItmAddFoodItem
             // 
             this.mnuItmAddFoodItem.Name = "mnuItmAddFoodItem";
-            this.mnuItmAddFoodItem.Size = new System.Drawing.Size(180, 22);
+            this.mnuItmAddFoodItem.Size = new System.Drawing.Size(172, 22);
             this.mnuItmAddFoodItem.Text = "Add Food Item";
             // 
             // mnuItmChangeFoodItem
             // 
             this.mnuItmChangeFoodItem.Name = "mnuItmChangeFoodItem";
-            this.mnuItmChangeFoodItem.Size = new System.Drawing.Size(180, 22);
+            this.mnuItmChangeFoodItem.Size = new System.Drawing.Size(172, 22);
             this.mnuItmChangeFoodItem.Text = "Change Food Item";
             this.mnuItmChangeFoodItem.Click += new System.EventHandler(this.changeFoodItemToolStripMenuItem_Click);
             // 
@@ -123,10 +126,27 @@
             // 
             this.mnuAdmin.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuItmRevenueAnalysis,
-            this.mnuItmFoodAnalysis});
+            this.mnuItmFoodAnalysis,
+            this.mnuItmAddStaff,
+            this.mnuItmModifyStaff,
+            this.mnuItmRemoveStaff});
             this.mnuAdmin.Name = "mnuAdmin";
             this.mnuAdmin.Size = new System.Drawing.Size(55, 20);
             this.mnuAdmin.Text = "Admin";
+            // 
+            // mnuItmRevenueAnalysis
+            // 
+            this.mnuItmRevenueAnalysis.Name = "mnuItmRevenueAnalysis";
+            this.mnuItmRevenueAnalysis.Size = new System.Drawing.Size(180, 22);
+            this.mnuItmRevenueAnalysis.Text = "Revenue Analysis";
+            this.mnuItmRevenueAnalysis.Click += new System.EventHandler(this.mnuItmRevenueAnalysis_Click);
+            // 
+            // mnuItmFoodAnalysis
+            // 
+            this.mnuItmFoodAnalysis.Name = "mnuItmFoodAnalysis";
+            this.mnuItmFoodAnalysis.Size = new System.Drawing.Size(180, 22);
+            this.mnuItmFoodAnalysis.Text = "Food Analysis";
+            this.mnuItmFoodAnalysis.Click += new System.EventHandler(this.mnuItmFoodAnalysis_Click);
             // 
             // lblFoodItem
             // 
@@ -231,17 +251,26 @@
             this.cboAddFoodItemStatus.Size = new System.Drawing.Size(109, 21);
             this.cboAddFoodItemStatus.TabIndex = 20;
             // 
-            // mnuItmRevenueAnalysis
+            // mnuItmAddStaff
             // 
-            this.mnuItmRevenueAnalysis.Name = "mnuItmRevenueAnalysis";
-            this.mnuItmRevenueAnalysis.Size = new System.Drawing.Size(180, 22);
-            this.mnuItmRevenueAnalysis.Text = "Revenue Analysis";
+            this.mnuItmAddStaff.Name = "mnuItmAddStaff";
+            this.mnuItmAddStaff.Size = new System.Drawing.Size(180, 22);
+            this.mnuItmAddStaff.Text = "Add Staff";
+            this.mnuItmAddStaff.Click += new System.EventHandler(this.addStaffToolStripMenuItem_Click);
             // 
-            // mnuItmFoodAnalysis
+            // mnuItmModifyStaff
             // 
-            this.mnuItmFoodAnalysis.Name = "mnuItmFoodAnalysis";
-            this.mnuItmFoodAnalysis.Size = new System.Drawing.Size(180, 22);
-            this.mnuItmFoodAnalysis.Text = "Food Analysis";
+            this.mnuItmModifyStaff.Name = "mnuItmModifyStaff";
+            this.mnuItmModifyStaff.Size = new System.Drawing.Size(180, 22);
+            this.mnuItmModifyStaff.Text = "Modify Staff";
+            this.mnuItmModifyStaff.Click += new System.EventHandler(this.mnuItmModifyStaff_Click);
+            // 
+            // mnuItmRemoveStaff
+            // 
+            this.mnuItmRemoveStaff.Name = "mnuItmRemoveStaff";
+            this.mnuItmRemoveStaff.Size = new System.Drawing.Size(180, 22);
+            this.mnuItmRemoveStaff.Text = "Remove Staff";
+            this.mnuItmRemoveStaff.Click += new System.EventHandler(this.mnuItmRemoveStaff_Click);
             // 
             // frmAddFoodItem
             // 
@@ -295,5 +324,8 @@
         private System.Windows.Forms.ToolStripMenuItem mnuAdmin;
         private System.Windows.Forms.ToolStripMenuItem mnuItmRevenueAnalysis;
         private System.Windows.Forms.ToolStripMenuItem mnuItmFoodAnalysis;
+        private System.Windows.Forms.ToolStripMenuItem mnuItmAddStaff;
+        private System.Windows.Forms.ToolStripMenuItem mnuItmModifyStaff;
+        private System.Windows.Forms.ToolStripMenuItem mnuItmRemoveStaff;
     }
 }
