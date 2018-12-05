@@ -67,5 +67,26 @@ namespace RestSYS
             frmRevenueAnalysis frmRevenueAnalysis = new frmRevenueAnalysis();
             frmRevenueAnalysis.Show();
         }
+
+        private void addStaffToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmAddStaff frmAddStaff = new frmAddStaff();
+            frmAddStaff.Show();
+        }
+
+        private void mnuItmModifyStaff_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmChangeStaff frmChangeStaff = new frmChangeStaff();
+            frmChangeStaff.Show();
+        }
+
+        private void mnuItmRemoveStaff_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmRemoveStaff frmRemoveStaff = new frmRemoveStaff();
+            frmRemoveStaff.Show();
+        }
     }
 }
