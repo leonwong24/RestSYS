@@ -48,6 +48,9 @@
             this.mnuAdmin = new System.Windows.Forms.ToolStripMenuItem();
             this.revenueAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.foodAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItmAddStaff = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItmChangeStaff = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItmRemoveStaff = new System.Windows.Forms.ToolStripMenuItem();
             this.lblChangeFdItemTitle = new System.Windows.Forms.Label();
             this.cboChangeFoodItemType = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -62,9 +65,6 @@
             this.grpChangeFoodItemChangeFood = new System.Windows.Forms.GroupBox();
             this.cboChangeFoodItemFoodStatus = new System.Windows.Forms.ComboBox();
             this.cboChangeFoodItemFoodType = new System.Windows.Forms.ComboBox();
-            this.mnuItmAddStaff = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuItmChangeStaff = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuItmRemoveStaff = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFoodItem.SuspendLayout();
             this.grpChangeFoodItemSelectFood.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdChangeFoodItemSelectFoodItem)).BeginInit();
@@ -198,6 +198,7 @@
             this.orderToolStripMenuItem.Name = "orderToolStripMenuItem";
             this.orderToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
             this.orderToolStripMenuItem.Text = "Order";
+            this.orderToolStripMenuItem.Click += new System.EventHandler(this.orderToolStripMenuItem_Click);
             // 
             // mnuBack
             // 
@@ -221,16 +222,37 @@
             // revenueAnalysisToolStripMenuItem
             // 
             this.revenueAnalysisToolStripMenuItem.Name = "revenueAnalysisToolStripMenuItem";
-            this.revenueAnalysisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.revenueAnalysisToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.revenueAnalysisToolStripMenuItem.Text = "Revenue Analysis";
             this.revenueAnalysisToolStripMenuItem.Click += new System.EventHandler(this.revenueAnalysisToolStripMenuItem_Click);
             // 
             // foodAnalysisToolStripMenuItem
             // 
             this.foodAnalysisToolStripMenuItem.Name = "foodAnalysisToolStripMenuItem";
-            this.foodAnalysisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.foodAnalysisToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.foodAnalysisToolStripMenuItem.Text = "Food Analysis";
             this.foodAnalysisToolStripMenuItem.Click += new System.EventHandler(this.foodAnalysisToolStripMenuItem_Click);
+            // 
+            // mnuItmAddStaff
+            // 
+            this.mnuItmAddStaff.Name = "mnuItmAddStaff";
+            this.mnuItmAddStaff.Size = new System.Drawing.Size(165, 22);
+            this.mnuItmAddStaff.Text = "Add Staff";
+            this.mnuItmAddStaff.Click += new System.EventHandler(this.mnuItmAddStaff_Click);
+            // 
+            // mnuItmChangeStaff
+            // 
+            this.mnuItmChangeStaff.Name = "mnuItmChangeStaff";
+            this.mnuItmChangeStaff.Size = new System.Drawing.Size(165, 22);
+            this.mnuItmChangeStaff.Text = "Modify Staff";
+            this.mnuItmChangeStaff.Click += new System.EventHandler(this.mnuItmChangeStaff_Click);
+            // 
+            // mnuItmRemoveStaff
+            // 
+            this.mnuItmRemoveStaff.Name = "mnuItmRemoveStaff";
+            this.mnuItmRemoveStaff.Size = new System.Drawing.Size(165, 22);
+            this.mnuItmRemoveStaff.Text = "Remove Staff";
+            this.mnuItmRemoveStaff.Click += new System.EventHandler(this.mnuItmRemoveStaff_Click);
             // 
             // lblChangeFdItemTitle
             // 
@@ -383,27 +405,6 @@
             this.cboChangeFoodItemFoodType.Name = "cboChangeFoodItemFoodType";
             this.cboChangeFoodItemFoodType.Size = new System.Drawing.Size(97, 21);
             this.cboChangeFoodItemFoodType.TabIndex = 32;
-            // 
-            // mnuItmAddStaff
-            // 
-            this.mnuItmAddStaff.Name = "mnuItmAddStaff";
-            this.mnuItmAddStaff.Size = new System.Drawing.Size(180, 22);
-            this.mnuItmAddStaff.Text = "Add Staff";
-            this.mnuItmAddStaff.Click += new System.EventHandler(this.mnuItmAddStaff_Click);
-            // 
-            // mnuItmChangeStaff
-            // 
-            this.mnuItmChangeStaff.Name = "mnuItmChangeStaff";
-            this.mnuItmChangeStaff.Size = new System.Drawing.Size(180, 22);
-            this.mnuItmChangeStaff.Text = "Modify Staff";
-            this.mnuItmChangeStaff.Click += new System.EventHandler(this.mnuItmChangeStaff_Click);
-            // 
-            // mnuItmRemoveStaff
-            // 
-            this.mnuItmRemoveStaff.Name = "mnuItmRemoveStaff";
-            this.mnuItmRemoveStaff.Size = new System.Drawing.Size(180, 22);
-            this.mnuItmRemoveStaff.Text = "Remove Staff";
-            this.mnuItmRemoveStaff.Click += new System.EventHandler(this.mnuItmRemoveStaff_Click);
             // 
             // frmChangeFoodItem
             // 

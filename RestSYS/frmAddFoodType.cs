@@ -77,35 +77,44 @@ namespace RestSYS
 
         private void revenueAnalysisToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Close();
             frmRevenueAnalysis frmRevenueAnalysis = new frmRevenueAnalysis();
             frmRevenueAnalysis.Show();
         }
 
         private void foodAnalysisToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Close();
             frmFoodAnalysis frmFoodAnalysis = new frmFoodAnalysis();
             frmFoodAnalysis.Show();
         }
 
         private void mnuItmAddStaff_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             frmAddStaff frmAddStaff = new frmAddStaff();
             frmAddStaff.Show();
         }
 
         private void mnuItmModifyStaff_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             frmChangeStaff frmChangeStaff = new frmChangeStaff();
             frmChangeStaff.Show();
         }
 
         private void mnuItmRemoveStaff_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             frmRemoveStaff frmRemoveStaff = new frmRemoveStaff();
             frmRemoveStaff.Show();
+        }
+
+        private void orderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmTableInterface frmTableInterface = new frmTableInterface();
+            frmTableInterface.Show();
         }
     }
 }

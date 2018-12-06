@@ -30,8 +30,8 @@ namespace RestSYS
         private void foodAnalysisToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmRevenueAnalysis frmRevenueAnalysis = new frmRevenueAnalysis();
-            frmRevenueAnalysis.Show();
+            frmFoodAnalysis frmFoodAnalysis = new frmFoodAnalysis();
+            frmFoodAnalysis.Show();
         }
 
         private void addFoodTypeToolStripMenuItem_Click(object sender, EventArgs e)

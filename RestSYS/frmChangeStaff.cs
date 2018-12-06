@@ -27,6 +27,7 @@ namespace RestSYS
 
         private void btnChange_Click(object sender, EventArgs e)
         {
+            //Staff name must contain only alphabetic character
             System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("^[a-zA-z]*$");
             System.Text.RegularExpressions.Match match = regex.Match(txtStaffName.Text);
 
@@ -50,21 +51,21 @@ namespace RestSYS
 
         private void mnuItmAddFoodType_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             frmAddFoodType frmAddFoodType = new frmAddFoodType();
             frmAddFoodType.Show();
         }
 
         private void mnuItmAddFoodItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             frmAddFoodItem frmAddFoodItem = new frmAddFoodItem();
             frmAddFoodItem.Show();
         }
 
         private void mnuItmChangeFoodItm_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             frmChangeFoodItem frmChangeFoodItem = new frmChangeFoodItem();
             frmChangeFoodItem.Show();
         }
@@ -78,35 +79,35 @@ namespace RestSYS
 
         private void mnuBack_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             frmHomeInterface frmHomeInterface = new frmHomeInterface();
             frmHomeInterface.Show();
         }
 
         private void mnuItmRevenueAnalysis_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             frmRevenueAnalysis frmRevenueAnalysis = new frmRevenueAnalysis();
             frmRevenueAnalysis.Show();
         }
 
         private void mnuItmFoodAnalysis_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             frmFoodAnalysis frmFoodAnalysis = new frmFoodAnalysis();
             frmFoodAnalysis.Show();
         }
 
         private void mnuItmAddStaff_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             frmAddStaff frmAddStaff = new frmAddStaff();
             frmAddStaff.Show();
         }
 
         private void mnuItmRemoveStaff_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             frmRemoveStaff frmRemoveStaff = new frmRemoveStaff();
             frmRemoveStaff.Show();
         }

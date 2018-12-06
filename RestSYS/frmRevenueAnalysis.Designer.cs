@@ -40,19 +40,19 @@
             this.mnuItmRevenueAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItemFoodAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItmAddStaff = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItmModifyStaff = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItmRemoveStaff = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.grpFilter = new System.Windows.Forms.GroupBox();
             this.cboWeek = new System.Windows.Forms.ComboBox();
             this.cboMonth = new System.Windows.Forms.ComboBox();
             this.cboYear = new System.Windows.Forms.ComboBox();
             this.grdRevnAnalys = new System.Windows.Forms.DataGridView();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Month = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Week = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnPrint = new System.Windows.Forms.Button();
-            this.mnuItmModifyStaff = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuItmRemoveStaff = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRevenueAnalysis.SuspendLayout();
             this.grpFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdRevnAnalys)).BeginInit();
@@ -131,22 +131,36 @@
             // mnuItmRevenueAnalysis
             // 
             this.mnuItmRevenueAnalysis.Name = "mnuItmRevenueAnalysis";
-            this.mnuItmRevenueAnalysis.Size = new System.Drawing.Size(180, 22);
+            this.mnuItmRevenueAnalysis.Size = new System.Drawing.Size(165, 22);
             this.mnuItmRevenueAnalysis.Text = "Revenue Analysis";
             // 
             // mnuItemFoodAnalysis
             // 
             this.mnuItemFoodAnalysis.Name = "mnuItemFoodAnalysis";
-            this.mnuItemFoodAnalysis.Size = new System.Drawing.Size(180, 22);
+            this.mnuItemFoodAnalysis.Size = new System.Drawing.Size(165, 22);
             this.mnuItemFoodAnalysis.Text = "Food Analysis";
             this.mnuItemFoodAnalysis.Click += new System.EventHandler(this.foodAnalysisToolStripMenuItem_Click);
             // 
             // mnuItmAddStaff
             // 
             this.mnuItmAddStaff.Name = "mnuItmAddStaff";
-            this.mnuItmAddStaff.Size = new System.Drawing.Size(180, 22);
+            this.mnuItmAddStaff.Size = new System.Drawing.Size(165, 22);
             this.mnuItmAddStaff.Text = "Add Staff";
             this.mnuItmAddStaff.Click += new System.EventHandler(this.mnuItmAddStaff_Click);
+            // 
+            // mnuItmModifyStaff
+            // 
+            this.mnuItmModifyStaff.Name = "mnuItmModifyStaff";
+            this.mnuItmModifyStaff.Size = new System.Drawing.Size(165, 22);
+            this.mnuItmModifyStaff.Text = "Modify Staff";
+            this.mnuItmModifyStaff.Click += new System.EventHandler(this.mnuItmModifyStaff_Click);
+            // 
+            // mnuItmRemoveStaff
+            // 
+            this.mnuItmRemoveStaff.Name = "mnuItmRemoveStaff";
+            this.mnuItmRemoveStaff.Size = new System.Drawing.Size(165, 22);
+            this.mnuItmRemoveStaff.Text = "Remove Staff";
+            this.mnuItmRemoveStaff.Click += new System.EventHandler(this.mnuItmRemoveStaff_Click);
             // 
             // contextMenuStrip1
             // 
@@ -224,32 +238,13 @@
             this.Cost});
             this.grdRevnAnalys.Location = new System.Drawing.Point(18, 124);
             this.grdRevnAnalys.Name = "grdRevnAnalys";
-            this.grdRevnAnalys.Size = new System.Drawing.Size(443, 278);
+            this.grdRevnAnalys.RowHeadersWidth = 30;
+            this.grdRevnAnalys.Size = new System.Drawing.Size(603, 278);
             this.grdRevnAnalys.TabIndex = 3;
-            // 
-            // Year
-            // 
-            this.Year.HeaderText = "Year";
-            this.Year.Name = "Year";
-            // 
-            // Month
-            // 
-            this.Month.HeaderText = "Month";
-            this.Month.Name = "Month";
-            // 
-            // Week
-            // 
-            this.Week.HeaderText = "Week";
-            this.Week.Name = "Week";
-            // 
-            // Cost
-            // 
-            this.Cost.HeaderText = "Cost";
-            this.Cost.Name = "Cost";
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(493, 342);
+            this.btnPrint.Location = new System.Drawing.Point(627, 390);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(145, 59);
             this.btnPrint.TabIndex = 4;
@@ -257,19 +252,29 @@
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
-            // mnuItmModifyStaff
+            // Year
             // 
-            this.mnuItmModifyStaff.Name = "mnuItmModifyStaff";
-            this.mnuItmModifyStaff.Size = new System.Drawing.Size(180, 22);
-            this.mnuItmModifyStaff.Text = "Modify Staff";
-            this.mnuItmModifyStaff.Click += new System.EventHandler(this.mnuItmModifyStaff_Click);
+            this.Year.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Year.HeaderText = "Year";
+            this.Year.Name = "Year";
             // 
-            // mnuItmRemoveStaff
+            // Month
             // 
-            this.mnuItmRemoveStaff.Name = "mnuItmRemoveStaff";
-            this.mnuItmRemoveStaff.Size = new System.Drawing.Size(180, 22);
-            this.mnuItmRemoveStaff.Text = "Remove Staff";
-            this.mnuItmRemoveStaff.Click += new System.EventHandler(this.mnuItmRemoveStaff_Click);
+            this.Month.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Month.HeaderText = "Month";
+            this.Month.Name = "Month";
+            // 
+            // Week
+            // 
+            this.Week.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Week.HeaderText = "Week";
+            this.Week.Name = "Week";
+            // 
+            // Cost
+            // 
+            this.Cost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Cost.HeaderText = "Cost";
+            this.Cost.Name = "Cost";
             // 
             // frmRevenueAnalysis
             // 
@@ -311,12 +316,12 @@
         private System.Windows.Forms.ComboBox cboMonth;
         private System.Windows.Forms.ComboBox cboYear;
         private System.Windows.Forms.DataGridView grdRevnAnalys;
+        private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.ToolStripMenuItem mnuItmModifyStaff;
+        private System.Windows.Forms.ToolStripMenuItem mnuItmRemoveStaff;
         private System.Windows.Forms.DataGridViewTextBoxColumn Year;
         private System.Windows.Forms.DataGridViewTextBoxColumn Month;
         private System.Windows.Forms.DataGridViewTextBoxColumn Week;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cost;
-        private System.Windows.Forms.Button btnPrint;
-        private System.Windows.Forms.ToolStripMenuItem mnuItmModifyStaff;
-        private System.Windows.Forms.ToolStripMenuItem mnuItmRemoveStaff;
     }
 }

@@ -104,7 +104,7 @@ namespace RestSYS
             txtAddFoodItemPrice.Clear();
             cboAddFoodItemStatus.SelectedIndex = -1;
             cboAddFoodItemType.SelectedIndex = -1;
-            this.Hide();
+            this.Close();
             frmAddFoodType frmAddFoodType = new frmAddFoodType();
             frmAddFoodType.Show();
         }
@@ -116,7 +116,7 @@ namespace RestSYS
             txtAddFoodItemPrice.Clear();
             cboAddFoodItemStatus.SelectedIndex = -1;
             cboAddFoodItemType.SelectedIndex = -1;
-            this.Hide();
+            this.Close();
             frmChangeFoodItem frmChangeFoodItem = new frmChangeFoodItem();
             frmChangeFoodItem.Show();
         }
@@ -125,6 +125,7 @@ namespace RestSYS
 
         private void mnuBack_Click(object sender, EventArgs e)
         {
+
             this.Close();
             parent.Visible = true;
         }
@@ -136,35 +137,60 @@ namespace RestSYS
 
         private void mnuItmRevenueAnalysis_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            txtAddFoodItem.Clear();
+            txtAddFoodItemDesc.Clear();
+            txtAddFoodItemPrice.Clear();
+            cboAddFoodItemStatus.SelectedIndex = -1;
+            cboAddFoodItemType.SelectedIndex = -1;
+            this.Close();
             frmRevenueAnalysis frmRevenueAnalysis = new frmRevenueAnalysis();
             frmRevenueAnalysis.Show();
         }
 
         private void mnuItmFoodAnalysis_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            txtAddFoodItem.Clear();
+            txtAddFoodItemDesc.Clear();
+            txtAddFoodItemPrice.Clear();
+            cboAddFoodItemStatus.SelectedIndex = -1;
+            cboAddFoodItemType.SelectedIndex = -1;
+            this.Close();
             frmFoodAnalysis frmFoodAnalysis = new frmFoodAnalysis();
             frmFoodAnalysis.Show();
         }
 
         private void addStaffToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            txtAddFoodItem.Clear();
+            txtAddFoodItemDesc.Clear();
+            txtAddFoodItemPrice.Clear();
+            cboAddFoodItemStatus.SelectedIndex = -1;
+            cboAddFoodItemType.SelectedIndex = -1;
+            this.Close();
             frmAddStaff frmAddStaff = new frmAddStaff();
             frmAddStaff.Show();
         }
 
         private void mnuItmModifyStaff_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            txtAddFoodItem.Clear();
+            txtAddFoodItemDesc.Clear();
+            txtAddFoodItemPrice.Clear();
+            cboAddFoodItemStatus.SelectedIndex = -1;
+            cboAddFoodItemType.SelectedIndex = -1;
+            this.Close();
             frmChangeStaff frmChangeStaff = new frmChangeStaff();
             frmChangeStaff.Show();
         }
 
         private void mnuItmRemoveStaff_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            txtAddFoodItem.Clear();
+            txtAddFoodItemDesc.Clear();
+            txtAddFoodItemPrice.Clear();
+            cboAddFoodItemStatus.SelectedIndex = -1;
+            cboAddFoodItemType.SelectedIndex = -1;
+            this.Close();
             frmRemoveStaff frmRemoveStaff = new frmRemoveStaff();
             frmRemoveStaff.Show();
         }

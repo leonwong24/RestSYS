@@ -162,5 +162,12 @@ namespace RestSYS
             frmRemoveStaff frmRemoveStaff = new frmRemoveStaff();
             frmRemoveStaff.Show();
         }
+
+        private void orderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmTableInterface frmTableInterface = new frmTableInterface();
+            frmTableInterface.Show();
+        }
     }
 }

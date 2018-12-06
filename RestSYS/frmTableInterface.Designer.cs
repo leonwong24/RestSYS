@@ -55,6 +55,7 @@
             this.btnTable2.TabIndex = 1;
             this.btnTable2.Text = "Table 2";
             this.btnTable2.UseVisualStyleBackColor = true;
+            this.btnTable2.Click += new System.EventHandler(this.btnTable2_Click);
             // 
             // btnTable3
             // 

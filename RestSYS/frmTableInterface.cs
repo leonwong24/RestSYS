@@ -24,5 +24,11 @@ namespace RestSYS
             frmFoodOrder.Show();
             frmFoodOrder.lblTableNumber.Text = "1";
         }
+
+        private void btnTable2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+        }
     }
 }

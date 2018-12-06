@@ -15,6 +15,7 @@ namespace RestSYS
         public frmFoodAnalysis()
         {
             InitializeComponent();
+            //Assume it retrieve data from the Order Items file and Food Items File
             this.grdFdAnlys.Rows.Add("2018", "1", "M", "Fish and Chips", "20");
             this.grdFdAnlys.Rows.Add("2018", "1", "M", "Chicken Burger", "18");
             this.grdFdAnlys.Rows.Add("2018", "1", "M", "Beef Steak", "15");
@@ -28,21 +29,21 @@ namespace RestSYS
 
         private void mnuItemAddFoodType_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             frmAddFoodType frmAddFoodType = new frmAddFoodType();
             frmAddFoodType.Show();
         }
 
         private void mnuItmAddFoodItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             frmAddFoodItem frmAddFoodItem = new frmAddFoodItem();
             frmAddFoodItem.Show();
         }
 
         private void mnuItmChangeFoodItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             frmChangeFoodItem frmChangeFoodItem = new frmChangeFoodItem();
             frmChangeFoodItem.Show();
         }
@@ -56,7 +57,7 @@ namespace RestSYS
 
         private void mnuBack_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             frmHomeInterface frmHomeInterface = new frmHomeInterface();
             frmHomeInterface.Show();
         }
@@ -70,21 +71,21 @@ namespace RestSYS
 
         private void addStaffToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             frmAddStaff frmAddStaff = new frmAddStaff();
             frmAddStaff.Show();
         }
 
         private void mnuItmModifyStaff_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             frmChangeStaff frmChangeStaff = new frmChangeStaff();
             frmChangeStaff.Show();
         }
 
         private void mnuItmRemoveStaff_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             frmRemoveStaff frmRemoveStaff = new frmRemoveStaff();
             frmRemoveStaff.Show();
         }
