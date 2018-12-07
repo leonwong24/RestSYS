@@ -194,5 +194,17 @@ namespace RestSYS
             frmRemoveStaff frmRemoveStaff = new frmRemoveStaff();
             frmRemoveStaff.Show();
         }
+
+        private void mnuOrder_Click(object sender, EventArgs e)
+        {
+            txtAddFoodItem.Clear();
+            txtAddFoodItemDesc.Clear();
+            txtAddFoodItemPrice.Clear();
+            cboAddFoodItemStatus.SelectedIndex = -1;
+            cboAddFoodItemType.SelectedIndex = -1;
+            this.Close();
+            frmTableInterface frmTableInterface = new frmTableInterface();
+            frmTableInterface.Show();
+        }
     }
 }

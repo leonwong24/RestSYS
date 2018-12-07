@@ -62,15 +62,21 @@
             this.lblTime = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.grpStaffSign = new System.Windows.Forms.GroupBox();
+            this.cboStaffSignIn = new System.Windows.Forms.ComboBox();
+            this.lblStaffSignInName = new System.Windows.Forms.Label();
+            this.btnSignIn = new System.Windows.Forms.Button();
+            this.btnPromptSignIn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdOrder)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.grpStaffSign.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnBarMenu
             // 
             this.btnBarMenu.Location = new System.Drawing.Point(722, 27);
             this.btnBarMenu.Name = "btnBarMenu";
-            this.btnBarMenu.Size = new System.Drawing.Size(75, 52);
+            this.btnBarMenu.Size = new System.Drawing.Size(75, 56);
             this.btnBarMenu.TabIndex = 0;
             this.btnBarMenu.Text = "BAR";
             this.btnBarMenu.UseVisualStyleBackColor = true;
@@ -385,11 +391,69 @@
             this.backToolStripMenuItem.Text = "Back";
             this.backToolStripMenuItem.Click += new System.EventHandler(this.backToolStripMenuItem_Click);
             // 
+            // grpStaffSign
+            // 
+            this.grpStaffSign.Controls.Add(this.btnSignIn);
+            this.grpStaffSign.Controls.Add(this.lblStaffSignInName);
+            this.grpStaffSign.Controls.Add(this.cboStaffSignIn);
+            this.grpStaffSign.Location = new System.Drawing.Point(0, 27);
+            this.grpStaffSign.Name = "grpStaffSign";
+            this.grpStaffSign.Size = new System.Drawing.Size(342, 254);
+            this.grpStaffSign.TabIndex = 29;
+            this.grpStaffSign.TabStop = false;
+            this.grpStaffSign.Text = "Staff Sign In";
+            this.grpStaffSign.Visible = false;
+            // 
+            // cboStaffSignIn
+            // 
+            this.cboStaffSignIn.FormattingEnabled = true;
+            this.cboStaffSignIn.Items.AddRange(new object[] {
+            "Brian",
+            "Colin",
+            "George",
+            "Jonathon"});
+            this.cboStaffSignIn.Location = new System.Drawing.Point(27, 64);
+            this.cboStaffSignIn.Name = "cboStaffSignIn";
+            this.cboStaffSignIn.Size = new System.Drawing.Size(179, 21);
+            this.cboStaffSignIn.TabIndex = 0;
+            this.cboStaffSignIn.Text = "Sign in";
+            // 
+            // lblStaffSignInName
+            // 
+            this.lblStaffSignInName.AutoSize = true;
+            this.lblStaffSignInName.Location = new System.Drawing.Point(24, 40);
+            this.lblStaffSignInName.Name = "lblStaffSignInName";
+            this.lblStaffSignInName.Size = new System.Drawing.Size(64, 13);
+            this.lblStaffSignInName.TabIndex = 1;
+            this.lblStaffSignInName.Text = "Staff Sign in";
+            // 
+            // btnSignIn
+            // 
+            this.btnSignIn.Location = new System.Drawing.Point(41, 122);
+            this.btnSignIn.Name = "btnSignIn";
+            this.btnSignIn.Size = new System.Drawing.Size(80, 28);
+            this.btnSignIn.TabIndex = 2;
+            this.btnSignIn.Text = "Sign In";
+            this.btnSignIn.UseVisualStyleBackColor = true;
+            this.btnSignIn.Click += new System.EventHandler(this.btnSignIn_Click);
+            // 
+            // btnPromptSignIn
+            // 
+            this.btnPromptSignIn.Location = new System.Drawing.Point(345, 27);
+            this.btnPromptSignIn.Name = "btnPromptSignIn";
+            this.btnPromptSignIn.Size = new System.Drawing.Size(46, 58);
+            this.btnPromptSignIn.TabIndex = 30;
+            this.btnPromptSignIn.Text = "Sign In";
+            this.btnPromptSignIn.UseVisualStyleBackColor = true;
+            this.btnPromptSignIn.Click += new System.EventHandler(this.btnPromptSignIn_Click);
+            // 
             // frmFoodOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnPromptSignIn);
+            this.Controls.Add(this.grpStaffSign);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblStaffName);
             this.Controls.Add(this.lblTableNumber);
@@ -425,6 +489,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdOrder)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.grpStaffSign.ResumeLayout(false);
+            this.grpStaffSign.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -466,5 +532,10 @@
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem backToolStripMenuItem;
+        private System.Windows.Forms.GroupBox grpStaffSign;
+        private System.Windows.Forms.Button btnSignIn;
+        private System.Windows.Forms.Label lblStaffSignInName;
+        private System.Windows.Forms.ComboBox cboStaffSignIn;
+        private System.Windows.Forms.Button btnPromptSignIn;
     }
 }

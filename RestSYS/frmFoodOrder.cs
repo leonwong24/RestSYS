@@ -250,5 +250,16 @@ namespace RestSYS
             }
             
         }
+
+        private void btnSignIn_Click(object sender, EventArgs e)
+        {
+            lblStaffName.Text = cboStaffSignIn.Text;
+            grpStaffSign.Hide();
+        }
+
+        private void btnPromptSignIn_Click(object sender, EventArgs e)
+        {
+            grpStaffSign.Show();
+        }
     }
 }

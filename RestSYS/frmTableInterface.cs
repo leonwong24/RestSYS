@@ -28,7 +28,9 @@ namespace RestSYS
         private void btnTable2_Click(object sender, EventArgs e)
         {
             this.Hide();
-
+            frmFoodOrder frmFoodOrder = new frmFoodOrder();
+            frmFoodOrder.Show();
+            frmFoodOrder.lblTableNumber.Text = "1";
         }
     }
 }
