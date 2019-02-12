@@ -19,35 +19,47 @@ namespace RestSYS
 
         private void btnFdTypeSubmit_Click(object sender, EventArgs e)
         {
-            //validate input
+            //input validation
+            
+            //foodtype is empty
             if (txtFoodType.Text.Equals(""))
             {
                 MessageBox.Show("Food Type must be entered", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+            //foodtype is all char letter
+            else if (!txtFoodType.Text.All(Char.IsLetter))
+            {
+                MessageBox.Show("Food Type must only be alphabetic character", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //foodtype description is empty
             else if (txtFdTypeDesc.Text.Equals(""))
             {
                 MessageBox.Show("Food Description must be entered", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            else if (txtFoodType.Text.Equals("M"))
+            //foodtype exist in the database
+            else if (FoodTypes.isFoodTypeExist(txtFoodType.Text))
             {
-                MessageBox.Show("Food Type already added", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Food Type already existed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            else if (!txtFoodType.Text.All(Char.IsLetter))
-            {
-                MessageBox.Show("Food Type must only be alphabetic character", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //valid input! 
             //display confirmation message
             else {MessageBox.Show("Valid Food Type! Food type has been inputed","Food Type input success",MessageBoxButtons.OK,MessageBoxIcon.Information); }
 
             //save food type detail in food type files
             txtFoodType.Text.ToUpper();
+            FoodTypes foodtype = new FoodTypes(txtFoodType.Text[0], txtFdTypeDesc.Text);
+
+            //insert new foodtype into FoodTypes table in the database;
+            foodtype.addNewFoodType();
+
             //reset user interface
             txtFoodType.Clear();
             txtFdTypeDesc.Clear();
