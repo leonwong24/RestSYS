@@ -1,4 +1,4 @@
-﻿using Oracle.DataAccess.Client;
+﻿using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -17,8 +17,8 @@ namespace RestSYS
         //no argument constructor
         public FoodTypes()
         {
-            foodType = 'M';
-            description = "Main dish";
+            foodType = 'N';
+            description = "Null description";
         }
 
         //argument constructor
@@ -45,7 +45,7 @@ namespace RestSYS
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
             //connection name conn.open()
-            String strSQL = "SELECT FoodType FROM FOODTYPES";
+            String strSQL = "SELECT * FROM FOODTYPES";
             OracleCommand cmd = new OracleCommand(strSQL, conn);
 
             //cmd.CommandType = CommandType.Text;
@@ -89,7 +89,7 @@ namespace RestSYS
             OracleCommand cmd = new OracleCommand(strSQL, conn);
 
             //execute the select command
-            int count = (int)cmd.ExecuteScalar();
+            int count = Convert.ToInt32(cmd.ExecuteScalar());
 
             //check if the count is larger than 1
             if (count >= 1)

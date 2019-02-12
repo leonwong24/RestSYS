@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Oracle.ManagedDataAccess.Client;
 
 namespace RestSYS
 {
@@ -10,6 +11,6 @@ namespace RestSYS
     {
         //public const string oradb = "Data Source oracle/orcl; User Id = t00198005; Password = h9jsmc44;";
 
-        public const string oradb = "Data Source oracle/orcl; User Id = HR; Password = h9jsmc44;";
+        public const string oradb = "User Id=HR; password=h9jsmc44; Data Source=localhost:1521/orcl;";
     }
 }

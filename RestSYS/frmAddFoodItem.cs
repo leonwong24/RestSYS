@@ -130,9 +130,17 @@ namespace RestSYS
             parent.Visible = true;
         }
 
+        //Define a method that load the combo box with existing food type
         private void frmAddFoodItem_Load(object sender, EventArgs e)
         {
+            //load food type combo box with food types and description
+            DataSet ds = new DataSet();
+            ds = FoodTypes.getAllFoodType(ds);
 
+            for (int i = 0; i < ds.Tables["ss"].Rows.Count; i++)
+            {
+                cboAddFoodItemType.Items.Add(ds.Tables[0].Rows[i][0].ToString().PadLeft(2) + " : " + ds.Tables[0].Rows[i][1].ToString());
+            }
         }
 
         private void mnuItmRevenueAnalysis_Click(object sender, EventArgs e)

@@ -92,20 +92,20 @@
             // mnuItmAddFoodType
             // 
             this.mnuItmAddFoodType.Name = "mnuItmAddFoodType";
-            this.mnuItmAddFoodType.Size = new System.Drawing.Size(180, 22);
+            this.mnuItmAddFoodType.Size = new System.Drawing.Size(172, 22);
             this.mnuItmAddFoodType.Text = "Add Food Type";
             this.mnuItmAddFoodType.Click += new System.EventHandler(this.addFoodTypeToolStripMenuItem_Click);
             // 
             // mnuItmAddFoodItem
             // 
             this.mnuItmAddFoodItem.Name = "mnuItmAddFoodItem";
-            this.mnuItmAddFoodItem.Size = new System.Drawing.Size(180, 22);
+            this.mnuItmAddFoodItem.Size = new System.Drawing.Size(172, 22);
             this.mnuItmAddFoodItem.Text = "Add Food Item";
             // 
             // mnuItmChangeFoodItem
             // 
             this.mnuItmChangeFoodItem.Name = "mnuItmChangeFoodItem";
-            this.mnuItmChangeFoodItem.Size = new System.Drawing.Size(180, 22);
+            this.mnuItmChangeFoodItem.Size = new System.Drawing.Size(172, 22);
             this.mnuItmChangeFoodItem.Text = "Change Food Item";
             this.mnuItmChangeFoodItem.Click += new System.EventHandler(this.changeFoodItemToolStripMenuItem_Click);
             // 
@@ -252,11 +252,6 @@
             // cboAddFoodItemType
             // 
             this.cboAddFoodItemType.FormattingEnabled = true;
-            this.cboAddFoodItemType.Items.AddRange(new object[] {
-            "M : Main",
-            "S : Starter",
-            "D : Dessert",
-            "B : Beverage"});
             this.cboAddFoodItemType.Location = new System.Drawing.Point(90, 190);
             this.cboAddFoodItemType.Name = "cboAddFoodItemType";
             this.cboAddFoodItemType.Size = new System.Drawing.Size(128, 21);
