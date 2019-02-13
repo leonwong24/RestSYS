@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,7 @@ namespace RestSYS
         public frmAddFoodItem()
         {
             InitializeComponent();
+            txtNextItemId.Text = nextFoodItemId().ToString();
         }
         public frmAddFoodItem(frmHomeInterface Parent)
         {
@@ -80,7 +82,14 @@ namespace RestSYS
 
             if(allCorrect == true)
             {
+                //display successful message
                 MessageBox.Show("Food item added successfully!");
+
+                //save food item details into food item object
+                FoodItems fooditem = new FoodItems();
+
+
+                //clear all textbox
                 txtAddFoodItem.Clear();
                 txtAddFoodItemDesc.Clear();
                 txtAddFoodItemPrice.Clear();
@@ -141,6 +150,67 @@ namespace RestSYS
             {
                 cboAddFoodItemType.Items.Add(ds.Tables[0].Rows[i][0].ToString().PadLeft(2) + " : " + ds.Tables[0].Rows[i][1].ToString());
             }
+        }
+
+        //Define a method that will extract the food type and store into the foodtype variable in this class
+        private void cboAddFoodItemType_SelectedIndexChange(object sender,EventArgs e)
+        {
+            //if resetting combo, ignore...
+            if(cboAddFoodItemType.SelectedIndex == 1)
+            {
+                return;
+            }
+
+            //find food type details , create a new fooditems and store the food type details into food item
+            FoodItems newFoodItem = new FoodItems();
+            newFoodItem.setFoodType(cboAddFoodItemType.Text[0]);
+
+            //Validation to prevent the food type is empty
+            if(newFoodItem.getFoodType() == ' ')
+            {
+                MessageBox.Show("No food type selected", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cboAddFoodItemType.Focus();
+                return;
+            }
+
+        }
+
+        //Define a method that return the next fooditemid
+        private int nextFoodItemId()
+        {
+            //variable to hold value to be returned
+            int intNextFoodItemId = 1;
+
+            //Connect to the DB
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            //Define SQL query to get MAX itemId used
+            String strSQL = "SELECT MAX(itemId) FROM FoodItems";
+;
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            //execute the SQL QUery and put result in OracleDataReader object
+            OracleDataReader dr = cmd.ExecuteReader();
+
+            //read the first (only) value returned by query
+            //If its first itemId, assign value 1 to it, otherwise add 1 to the MAX(itemId)
+            dr.Read();
+
+            //An aggregate function always return 1 row, even if contains a NULL VALUE
+            //if null, then there are no itemId in the fooditems file - Start at 1 
+            //Otherwise add 1 to the value read
+
+            if (!dr.IsDBNull(0))
+            {
+                intNextFoodItemId = dr.GetInt32(0) + 1;
+            }
+
+            //close DB Connection
+            conn.Close();
+
+            //return nextItemId
+            return intNextFoodItemId;
         }
 
         private void mnuItmRevenueAnalysis_Click(object sender, EventArgs e)

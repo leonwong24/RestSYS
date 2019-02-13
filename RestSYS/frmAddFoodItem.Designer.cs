@@ -53,6 +53,8 @@
             this.btnAddFoodItemSubmit = new System.Windows.Forms.Button();
             this.cboAddFoodItemType = new System.Windows.Forms.ComboBox();
             this.cboAddFoodItemStatus = new System.Windows.Forms.ComboBox();
+            this.lblFoodItemId = new System.Windows.Forms.Label();
+            this.txtNextItemId = new System.Windows.Forms.TextBox();
             this.mnuFoodItem.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -254,7 +256,7 @@
             this.cboAddFoodItemType.FormattingEnabled = true;
             this.cboAddFoodItemType.Location = new System.Drawing.Point(90, 190);
             this.cboAddFoodItemType.Name = "cboAddFoodItemType";
-            this.cboAddFoodItemType.Size = new System.Drawing.Size(128, 21);
+            this.cboAddFoodItemType.Size = new System.Drawing.Size(146, 21);
             this.cboAddFoodItemType.TabIndex = 19;
             // 
             // cboAddFoodItemStatus
@@ -268,11 +270,32 @@
             this.cboAddFoodItemStatus.Size = new System.Drawing.Size(109, 21);
             this.cboAddFoodItemStatus.TabIndex = 20;
             // 
+            // lblFoodItemId
+            // 
+            this.lblFoodItemId.AutoSize = true;
+            this.lblFoodItemId.Location = new System.Drawing.Point(23, 69);
+            this.lblFoodItemId.Name = "lblFoodItemId";
+            this.lblFoodItemId.Size = new System.Drawing.Size(44, 13);
+            this.lblFoodItemId.TabIndex = 21;
+            this.lblFoodItemId.Text = "ItemID: ";
+            // 
+            // txtNextItemId
+            // 
+            this.txtNextItemId.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtNextItemId.Enabled = false;
+            this.txtNextItemId.Location = new System.Drawing.Point(90, 66);
+            this.txtNextItemId.Name = "txtNextItemId";
+            this.txtNextItemId.Size = new System.Drawing.Size(106, 20);
+            this.txtNextItemId.TabIndex = 22;
+            this.txtNextItemId.Text = "something";
+            // 
             // frmAddFoodItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtNextItemId);
+            this.Controls.Add(this.lblFoodItemId);
             this.Controls.Add(this.cboAddFoodItemStatus);
             this.Controls.Add(this.cboAddFoodItemType);
             this.Controls.Add(this.btnAddFoodItemSubmit);
@@ -323,5 +346,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuItmAddStaff;
         private System.Windows.Forms.ToolStripMenuItem mnuItmModifyStaff;
         private System.Windows.Forms.ToolStripMenuItem mnuItmRemoveStaff;
+        private System.Windows.Forms.Label lblFoodItemId;
+        private System.Windows.Forms.TextBox txtNextItemId;
     }
 }

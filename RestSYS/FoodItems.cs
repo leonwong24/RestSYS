@@ -1,4 +1,4 @@
-﻿using Oracle.DataAccess.Client;
+﻿using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -76,6 +76,11 @@ namespace RestSYS
         public int getItemId()
         {
             return itemId;
+        }
+
+        public int getFoodType()
+        {
+            return foodType;
         }
 
         //define a static method to get all food item data
