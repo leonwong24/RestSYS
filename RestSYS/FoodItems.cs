@@ -19,12 +19,12 @@ namespace RestSYS
         private char status;
 
         //no argument constructor
-        public FoodItems()
+        public FoodItems(int v)
         {
             itemId = 0;
             itemName = "no name";
             description = "no description";
-            foodType = 'U';
+            foodType = 'N';
             price = 0;
             status = 'U';
         }
@@ -78,7 +78,7 @@ namespace RestSYS
             return itemId;
         }
 
-        public int getFoodType()
+        public char getFoodType()
         {
             return foodType;
         }
