@@ -49,13 +49,14 @@
             this.lblFoodStatus = new System.Windows.Forms.Label();
             this.txtAddFoodItem = new System.Windows.Forms.TextBox();
             this.txtAddFoodItemDesc = new System.Windows.Forms.TextBox();
-            this.txtAddFoodItemPrice = new System.Windows.Forms.TextBox();
             this.btnAddFoodItemSubmit = new System.Windows.Forms.Button();
             this.cboAddFoodItemType = new System.Windows.Forms.ComboBox();
             this.cboAddFoodItemStatus = new System.Windows.Forms.ComboBox();
             this.lblFoodItemId = new System.Windows.Forms.Label();
             this.txtNextItemId = new System.Windows.Forms.TextBox();
+            this.txtAddFoodItemPrice = new System.Windows.Forms.NumericUpDown();
             this.mnuFoodItem.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAddFoodItemPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAddFdItemTitle
@@ -233,14 +234,6 @@
             this.txtAddFoodItemDesc.Size = new System.Drawing.Size(387, 20);
             this.txtAddFoodItemDesc.TabIndex = 14;
             // 
-            // txtAddFoodItemPrice
-            // 
-            this.txtAddFoodItemPrice.Location = new System.Drawing.Point(90, 229);
-            this.txtAddFoodItemPrice.MaxLength = 5;
-            this.txtAddFoodItemPrice.Name = "txtAddFoodItemPrice";
-            this.txtAddFoodItemPrice.Size = new System.Drawing.Size(146, 20);
-            this.txtAddFoodItemPrice.TabIndex = 16;
-            // 
             // btnAddFoodItemSubmit
             // 
             this.btnAddFoodItemSubmit.Location = new System.Drawing.Point(46, 334);
@@ -289,17 +282,25 @@
             this.txtNextItemId.TabIndex = 22;
             this.txtNextItemId.Text = "something";
             // 
+            // txtAddFoodItemPrice
+            // 
+            this.txtAddFoodItemPrice.DecimalPlaces = 1;
+            this.txtAddFoodItemPrice.Location = new System.Drawing.Point(90, 232);
+            this.txtAddFoodItemPrice.Name = "txtAddFoodItemPrice";
+            this.txtAddFoodItemPrice.Size = new System.Drawing.Size(120, 20);
+            this.txtAddFoodItemPrice.TabIndex = 23;
+            // 
             // frmAddFoodItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtAddFoodItemPrice);
             this.Controls.Add(this.txtNextItemId);
             this.Controls.Add(this.lblFoodItemId);
             this.Controls.Add(this.cboAddFoodItemStatus);
             this.Controls.Add(this.cboAddFoodItemType);
             this.Controls.Add(this.btnAddFoodItemSubmit);
-            this.Controls.Add(this.txtAddFoodItemPrice);
             this.Controls.Add(this.txtAddFoodItemDesc);
             this.Controls.Add(this.txtAddFoodItem);
             this.Controls.Add(this.lblFoodStatus);
@@ -314,6 +315,7 @@
             this.Load += new System.EventHandler(this.frmAddFoodItem_Load);
             this.mnuFoodItem.ResumeLayout(false);
             this.mnuFoodItem.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAddFoodItemPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,7 +337,6 @@
         private System.Windows.Forms.Label lblFoodStatus;
         private System.Windows.Forms.TextBox txtAddFoodItem;
         private System.Windows.Forms.TextBox txtAddFoodItemDesc;
-        private System.Windows.Forms.TextBox txtAddFoodItemPrice;
         private System.Windows.Forms.Button btnAddFoodItemSubmit;
         private System.Windows.Forms.ComboBox cboAddFoodItemType;
         private System.Windows.Forms.ComboBox cboAddFoodItemStatus;
@@ -348,5 +349,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuItmRemoveStaff;
         private System.Windows.Forms.Label lblFoodItemId;
         private System.Windows.Forms.TextBox txtNextItemId;
+        private System.Windows.Forms.NumericUpDown txtAddFoodItemPrice;
     }
 }

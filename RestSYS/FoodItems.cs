@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace RestSYS
 {
@@ -14,23 +15,23 @@ namespace RestSYS
         private int itemId;
         private string itemName;
         private string description;
-        private char foodType;
+        private string foodType;
         private decimal price;
-        private char status;
+        private string status;
 
         //no argument constructor
-        public FoodItems(int v)
+        public FoodItems()
         {
             itemId = 0;
             itemName = "no name";
             description = "no description";
-            foodType = 'N';
+            foodType = "N";
             price = 0;
-            status = 'U';
+            status = "U";
         }
 
         //argument constructor
-        public FoodItems(int itemId,string itemName,string description,char foodType,decimal price, char status)
+        public FoodItems(int itemId,string itemName,string description,string foodType,decimal price, string status)
         {
             this.itemId = itemId;
             this.itemName = itemName;
@@ -56,7 +57,7 @@ namespace RestSYS
             this.description = description;
         }
 
-        public void setFoodType(char foodType)
+        public void setFoodType(string foodType)
         {
             this.foodType = foodType;
         }
@@ -66,7 +67,7 @@ namespace RestSYS
             this.price = price;
         }
 
-        public void setStatus(char status)
+        public void setStatus(string status)
         {
             this.status = status;
         }
@@ -78,7 +79,7 @@ namespace RestSYS
             return itemId;
         }
 
-        public char getFoodType()
+        public string getFoodType()
         {
             return foodType;
         }
@@ -113,7 +114,7 @@ namespace RestSYS
             myConn.Open();
 
             //Define SQL Query to get MAX itemId used
-            String strSQL = "SELECT MAX(ItemId) FROM FoodItems";
+            String strSQL = "SELECT Count(ItemId) FROM FoodItems";
 
             OracleCommand cmd = new OracleCommand(strSQL, myConn);
 
@@ -123,11 +124,11 @@ namespace RestSYS
             //read the first (only) value returned by query
             //If first itemId, assign value 1, otherwise add 1 to MAX value
             dr.Read();
-
+            MessageBox.Show(Convert.ToString(dr.GetValue(0)));
             if (!dr.IsDBNull(0))
             {
-                //int itemId = Convert.ToInt32(dr.GetValue(0) + 1 ;
-                intNextItemId = dr.GetInt32(0) + 1;
+                //intNextItemId = dr.GetInt32(0) + 1;
+                intNextItemId = Convert.ToInt32(dr.GetValue(0)) + 1;
             }
 
             //close db connection
@@ -140,18 +141,18 @@ namespace RestSYS
         public void addFoodItem()
         {
             //connect to database
-            OracleConnection myConn = new OracleConnection(DBConnect.oradb);
-            myConn.Open();
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
 
             //Define SQL query to INSERT foodItem database
             String strSQL = "INSERT INTO FoodItems VALUES(" +this.itemId +",'"+this.itemName+"','"+this.description+"','"+this.foodType+"',"+this.price+",'"+this.status+"')";
 
             //Execute the command 
-            OracleCommand cmd = new OracleCommand(strSQL, myConn);
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
             cmd.ExecuteNonQuery();
 
             //close DBConnection
-            myConn.Close();
+            conn.Close();
         }
     }
 }

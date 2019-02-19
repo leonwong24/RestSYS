@@ -55,7 +55,7 @@ namespace RestSYS
 
             //save food type detail in food type files
             txtFoodType.Text.ToUpper();
-            FoodTypes foodtype = new FoodTypes(txtFoodType.Text[0], txtFdTypeDesc.Text);
+            FoodTypes foodtype = new FoodTypes(Convert.ToString(txtFoodType.Text[0]), txtFdTypeDesc.Text);
 
             //insert new foodtype into FoodTypes table in the database;
             foodtype.addNewFoodType();

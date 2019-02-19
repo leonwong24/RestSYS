@@ -11,25 +11,25 @@ namespace RestSYS
     class FoodTypes
     {
         //Instance variables
-        private char foodType;
+        private string foodType;
         private string description;
 
         //no argument constructor
         public FoodTypes()
         {
-            foodType = 'N';
+            foodType = "N";
             description = "Null description";
         }
 
         //argument constructor
-        public FoodTypes(char foodType , string description)
+        public FoodTypes(string foodType , string description)
         {
             this.foodType = foodType;
             this.description = description;
         }
 
         //Define setters
-        public void setFoodType(char foodType)
+        public void setFoodType(string foodType)
         {
             this.foodType = foodType;
         }

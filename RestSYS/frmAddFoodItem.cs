@@ -65,39 +65,30 @@ namespace RestSYS
                 allCorrect = false;
             }
 
-            else
+            else if(txtAddFoodItemPrice.Value < 0)
             {
-
-                 //Price value must be greater than 0
-                    if (txtAddFoodItemPrice.Text.All(Char.IsDigit))
-                    {
-                        if (double.Parse(txtAddFoodItemPrice.Text) < 0.0)
-                        {
-                            MessageBox.Show("Food item price must greater than 0");
-                            allCorrect = false;
-                        }
-                    }
-
-                    else
-                    {
-                        MessageBox.Show("Food item price must be in decimal form");
-                        allCorrect = false;             
-                    }
+                MessageBox.Show("Food item price must greater than 0");
+                allCorrect = false;
             }
+                 
 
             if(allCorrect == true)
-            {
+            { 
+
+                //save food item details into food item object
+                FoodItems fooditem = new FoodItems(Convert.ToInt32(txtNextItemId.Text),txtAddFoodItem.Text,txtAddFoodItemDesc.Text,cboAddFoodItemType.Text.Substring(0,1),Convert.ToDecimal(txtAddFoodItemPrice.Value),cboAddFoodItemStatus.Text.Substring(0,1));
+                fooditem.addFoodItem();
+
                 //display successful message
                 MessageBox.Show("Food item added successfully!");
 
-                //save food item details into food item object
-                FoodItems fooditem = new FoodItems(Int32.Parse(lblFoodItemId.Text), txtAddFoodItem.Text, txtAddFoodItemDesc.Text,cboAddFoodItemType.SelectedItem);
-                fooditem.addFoodItem();
+                //update itemId??
+                txtNextItemId.Text = FoodItems.nextItemId().ToString();
 
                 //clear all textbox
                 txtAddFoodItem.Clear();
                 txtAddFoodItemDesc.Clear();
-                txtAddFoodItemPrice.Clear();
+                txtAddFoodItemPrice.ResetText();
                 cboAddFoodItemStatus.SelectedIndex = -1;
                 cboAddFoodItemType.SelectedIndex = -1;
             }
@@ -115,7 +106,7 @@ namespace RestSYS
         {
             txtAddFoodItem.Clear();
             txtAddFoodItemDesc.Clear();
-            txtAddFoodItemPrice.Clear();
+            txtAddFoodItemPrice.ResetText();
             cboAddFoodItemStatus.SelectedIndex = -1;
             cboAddFoodItemType.SelectedIndex = -1;
             this.Close();
@@ -127,7 +118,7 @@ namespace RestSYS
         {
             txtAddFoodItem.Clear();
             txtAddFoodItemDesc.Clear();
-            txtAddFoodItemPrice.Clear();
+            txtAddFoodItemPrice.ResetText();
             cboAddFoodItemStatus.SelectedIndex = -1;
             cboAddFoodItemType.SelectedIndex = -1;
             this.Close();
@@ -147,13 +138,14 @@ namespace RestSYS
         //Define a method that load the combo box with existing food type
         private void frmAddFoodItem_Load(object sender, EventArgs e)
         {
+            txtNextItemId.Text = FoodItems.nextItemId().ToString();
             //load food type combo box with food types and description
             DataSet ds = new DataSet();
             ds = FoodTypes.getAllFoodType(ds);
-            txtNextItemId.Text = FoodItems.nextItemId().ToString();
+            
             for (int i = 0; i < ds.Tables["ss"].Rows.Count; i++)
             {
-                cboAddFoodItemType.Items.Add(ds.Tables[0].Rows[i][0].ToString().PadLeft(2) + " : " + ds.Tables[0].Rows[i][1].ToString());
+                cboAddFoodItemType.Items.Add(ds.Tables[0].Rows[i][0].ToString().PadLeft(0) + " : " + ds.Tables[0].Rows[i][1].ToString());
             }
         }
 
@@ -168,10 +160,10 @@ namespace RestSYS
 
             //find food type details , create a new fooditems and store the food type details into food item
             FoodItems newFoodItem = new FoodItems();
-            newFoodItem.setFoodType(cboAddFoodItemType.Text[0]);
+            newFoodItem.setFoodType(cboAddFoodItemType.Text.Substring(0,1));
 
             //Validation to prevent the food type is empty
-            if(newFoodItem.getFoodType() == ' ')
+            if(newFoodItem.getFoodType() == "")
             {
                 MessageBox.Show("No food type selected", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cboAddFoodItemType.Focus();
@@ -183,7 +175,7 @@ namespace RestSYS
         {
             txtAddFoodItem.Clear();
             txtAddFoodItemDesc.Clear();
-            txtAddFoodItemPrice.Clear();
+            txtAddFoodItemPrice.ResetText();
             cboAddFoodItemStatus.SelectedIndex = -1;
             cboAddFoodItemType.SelectedIndex = -1;
             this.Close();
@@ -195,7 +187,7 @@ namespace RestSYS
         {
             txtAddFoodItem.Clear();
             txtAddFoodItemDesc.Clear();
-            txtAddFoodItemPrice.Clear();
+            txtAddFoodItemPrice.ResetText();
             cboAddFoodItemStatus.SelectedIndex = -1;
             cboAddFoodItemType.SelectedIndex = -1;
             this.Close();
@@ -207,7 +199,7 @@ namespace RestSYS
         {
             txtAddFoodItem.Clear();
             txtAddFoodItemDesc.Clear();
-            txtAddFoodItemPrice.Clear();
+            txtAddFoodItemPrice.ResetText();
             cboAddFoodItemStatus.SelectedIndex = -1;
             cboAddFoodItemType.SelectedIndex = -1;
             this.Close();
@@ -219,7 +211,7 @@ namespace RestSYS
         {
             txtAddFoodItem.Clear();
             txtAddFoodItemDesc.Clear();
-            txtAddFoodItemPrice.Clear();
+            txtAddFoodItemPrice.ResetText();
             cboAddFoodItemStatus.SelectedIndex = -1;
             cboAddFoodItemType.SelectedIndex = -1;
             this.Close();
@@ -231,7 +223,7 @@ namespace RestSYS
         {
             txtAddFoodItem.Clear();
             txtAddFoodItemDesc.Clear();
-            txtAddFoodItemPrice.Clear();
+            txtAddFoodItemPrice.ResetText();
             cboAddFoodItemStatus.SelectedIndex = -1;
             cboAddFoodItemType.SelectedIndex = -1;
             this.Close();
@@ -243,7 +235,7 @@ namespace RestSYS
         {
             txtAddFoodItem.Clear();
             txtAddFoodItemDesc.Clear();
-            txtAddFoodItemPrice.Clear();
+            txtAddFoodItemPrice.ResetText();
             cboAddFoodItemStatus.SelectedIndex = -1;
             cboAddFoodItemType.SelectedIndex = -1;
             this.Close();
