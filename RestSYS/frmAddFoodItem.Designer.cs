@@ -284,7 +284,7 @@
             // 
             // txtAddFoodItemPrice
             // 
-            this.txtAddFoodItemPrice.DecimalPlaces = 1;
+            this.txtAddFoodItemPrice.DecimalPlaces = 2;
             this.txtAddFoodItemPrice.Location = new System.Drawing.Point(90, 232);
             this.txtAddFoodItemPrice.Name = "txtAddFoodItemPrice";
             this.txtAddFoodItemPrice.Size = new System.Drawing.Size(120, 20);

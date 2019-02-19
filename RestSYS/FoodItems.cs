@@ -74,19 +74,41 @@ namespace RestSYS
 
         //define getters
 
+
+
         public int getItemId()
         {
-            return itemId;
+            return this.itemId;
+        }
+
+        public string getItemName()
+        {
+            return this.itemName;
+        }
+
+        public string getDescription()
+        {
+            return this.description;
+        }
+
+        public decimal getPrice()
+        {
+            return this.price;
+        }
+
+        public string getStatus()
+        {
+            return this.status;
         }
 
         public string getFoodType()
         {
-            return foodType;
+            return this.foodType;
         }
 
         //define a static method to get all food item data
 
-        public static DataSet getAllStock(DataSet DS)
+        public static DataSet getAllFoodItem(DataSet DS)
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
@@ -98,6 +120,24 @@ namespace RestSYS
             OracleDataAdapter da = new OracleDataAdapter(cmd);
 
             da.Fill(DS, "ss");
+
+            conn.Close();
+
+            return DS;
+        }
+
+        public static DataSet getSelectedFoodItem(DataSet DS,string foodType)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            //connection name conn.open()
+            String strSQL = "SELECT * FROM FoodItems WHERE FoodType LIKE '"+foodType+"'";
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            //cmd.CommandType = CommandType.text;
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            da.Fill(DS, "FoodItems");
 
             conn.Close();
 
@@ -124,7 +164,6 @@ namespace RestSYS
             //read the first (only) value returned by query
             //If first itemId, assign value 1, otherwise add 1 to MAX value
             dr.Read();
-            MessageBox.Show(Convert.ToString(dr.GetValue(0)));
             if (!dr.IsDBNull(0))
             {
                 //intNextItemId = dr.GetInt32(0) + 1;
