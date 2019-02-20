@@ -41,6 +41,11 @@ namespace RestSYS
                 allCorrect = false;
             }
 
+            else if (txtAddFoodItem.Text.Length > 15)
+            {
+                MessageBox.Show("Food items name must shorter than 15", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             else if (txtAddFoodItemDesc.Text.Length > 30)
             {
                 MessageBox.Show("Food item description must lower or equal than 30", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -76,7 +81,7 @@ namespace RestSYS
             { 
 
                 //save food item details into food item object
-                FoodItems fooditem = new FoodItems(Convert.ToInt32(txtNextItemId.Text),txtAddFoodItem.Text,txtAddFoodItemDesc.Text,cboAddFoodItemType.Text.Substring(0,1),Convert.ToDecimal(txtAddFoodItemPrice.Value),cboAddFoodItemStatus.Text.Substring(0,1));
+                FoodItems fooditem = new FoodItems(Convert.ToInt32(txtNextItemId.Text),txtAddFoodItem.Text,txtAddFoodItemDesc.Text,cboAddFoodItemType.Text.Substring(1,1),Convert.ToDecimal(txtAddFoodItemPrice.Value),cboAddFoodItemStatus.Text.Substring(0,1));
                 fooditem.addFoodItem();
 
                 //display successful message
@@ -145,7 +150,7 @@ namespace RestSYS
             
             for (int i = 0; i < ds.Tables["ss"].Rows.Count; i++)
             {
-                cboAddFoodItemType.Items.Add(ds.Tables[0].Rows[i][0].ToString().PadLeft(0) + " : " + ds.Tables[0].Rows[i][1].ToString());
+                cboAddFoodItemType.Items.Add(ds.Tables[0].Rows[i][0].ToString().PadLeft(2) + " : " + ds.Tables[0].Rows[i][1].ToString());
             }
         }
 

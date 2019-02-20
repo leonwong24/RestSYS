@@ -221,7 +221,7 @@
             // txtAddFoodItem
             // 
             this.txtAddFoodItem.Location = new System.Drawing.Point(90, 106);
-            this.txtAddFoodItem.MaxLength = 25;
+            this.txtAddFoodItem.MaxLength = 15;
             this.txtAddFoodItem.Name = "txtAddFoodItem";
             this.txtAddFoodItem.Size = new System.Drawing.Size(258, 20);
             this.txtAddFoodItem.TabIndex = 13;

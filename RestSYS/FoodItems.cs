@@ -193,5 +193,23 @@ namespace RestSYS
             //close DBConnection
             conn.Close();
         }
+
+        //define a method that update the food item
+        public void updateFoodItem()
+        {
+            //Connecto to database
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            //Define SQL query to UPDATE fooditem database
+            String strSQL = "UPDATE FoodItems SET itemName= '" + this.getItemName() + "',itemDescription = '" + this.getDescription() + "',foodType = '" + this.getFoodType() + "',price = " + this.getPrice()+", status = '" + this.getStatus() + "' WHERE itemId = " + this.getItemId();
+
+            //Execute the command
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+            cmd.ExecuteNonQuery();
+
+            //close DBConnection
+            conn.Close();
+        }
     }
 }

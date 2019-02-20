@@ -34,6 +34,12 @@ namespace RestSYS
                 allCorrect = false;
             }
 
+            /*else if(txtChangeFoodItemDesc.Text.Length > 15)
+            {
+                MessageBox.Show("Food item name must shorter than 15", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                allCorrect = false;
+            }*/
+
             else if (cboChangeFoodItemFoodType.SelectedItem == null)
             {
                 MessageBox.Show("Food item type must be entered", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -68,7 +74,29 @@ namespace RestSYS
 
             if (allCorrect == true)
             {
+                //save every details from the detail box into a food item
+                FoodItems foodItem = new FoodItems(Convert.ToInt32(txtChangeFoodItemId.Text),txtChangeFoodItem.Text,txtChangeFoodItemDesc.Text,cboChangeFoodItemFoodType.Text.Substring(0,1),Convert.ToDecimal(txtChgFoodItemPrice.Value),cboChangeFoodItemFoodStatus.Text.Substring(0,1));
+
+
+                //Insert fooditem via written SQL method
+                foodItem.updateFoodItem();
+
+                //show successful message
                 MessageBox.Show("Food item changed successfully!");
+
+                //make sure the datasource output is updated too
+                DataSet DS = new DataSet();
+
+                DS = FoodItems.getSelectedFoodItem(DS, foodItem.getStatus());
+                if (DS != null)
+                {
+                    if (DS.Tables[0].Rows.Count != 0)
+                    {
+                        grdChangeFoodItemSelectFoodItem.DataSource = DS.Tables["FoodItems"];
+                    }
+                }
+
+                //clear everything
                 txtChangeFoodItem.Clear();
                 txtChangeFoodItemDesc.Clear();
                 txtChgFoodItemPrice.ResetText();
@@ -101,6 +129,7 @@ namespace RestSYS
                 FoodItems selectedItem = new FoodItems(Convert.ToInt32(selectedRow.Cells[0].Value), Convert.ToString(selectedRow.Cells[1].Value), Convert.ToString(selectedRow.Cells[2].Value), Convert.ToString(selectedRow.Cells[3].Value), Convert.ToDecimal(selectedRow.Cells[4].Value), Convert.ToString(selectedRow.Cells[5].Value));
 
                 //set all the text to the corresponding food items variable
+                this.txtChangeFoodItemId.Text = Convert.ToString(selectedItem.getItemId());
                 this.txtChangeFoodItem.Text = selectedItem.getItemName();
                 this.txtChangeFoodItemDesc.Text = selectedItem.getDescription();
                 DataSet DS = new DataSet();
