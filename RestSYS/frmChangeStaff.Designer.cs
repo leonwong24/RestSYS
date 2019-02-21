@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.grpSelectStaff = new System.Windows.Forms.GroupBox();
-            this.cboStaffName = new System.Windows.Forms.ComboBox();
             this.btnSelectStaff = new System.Windows.Forms.Button();
+            this.cboStaffName = new System.Windows.Forms.ComboBox();
             this.grpChangeStaff = new System.Windows.Forms.GroupBox();
-            this.lblStaffName = new System.Windows.Forms.Label();
-            this.txtStaffName = new System.Windows.Forms.TextBox();
             this.btnChange = new System.Windows.Forms.Button();
+            this.txtStaffName = new System.Windows.Forms.TextBox();
+            this.lblStaffName = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuOrder = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuBack = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuAdmin = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItmAddFoodType = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItmAddFoodItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItmChangeFoodItm = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuOrder = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuBack = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAdmin = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItmRevenueAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItmFoodAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItmAddStaff = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,6 +55,7 @@
             // 
             // grpSelectStaff
             // 
+            this.grpSelectStaff.Controls.Add(this.grpChangeStaff);
             this.grpSelectStaff.Controls.Add(this.btnSelectStaff);
             this.grpSelectStaff.Controls.Add(this.cboStaffName);
             this.grpSelectStaff.Location = new System.Drawing.Point(50, 56);
@@ -63,19 +64,6 @@
             this.grpSelectStaff.TabIndex = 0;
             this.grpSelectStaff.TabStop = false;
             this.grpSelectStaff.Text = "Select Staff to Change";
-            // 
-            // cboStaffName
-            // 
-            this.cboStaffName.FormattingEnabled = true;
-            this.cboStaffName.Items.AddRange(new object[] {
-            "Brian",
-            "Colin",
-            "George",
-            "Jonathon"});
-            this.cboStaffName.Location = new System.Drawing.Point(23, 44);
-            this.cboStaffName.Name = "cboStaffName";
-            this.cboStaffName.Size = new System.Drawing.Size(172, 21);
-            this.cboStaffName.TabIndex = 0;
             // 
             // btnSelectStaff
             // 
@@ -87,34 +75,26 @@
             this.btnSelectStaff.UseVisualStyleBackColor = true;
             this.btnSelectStaff.Click += new System.EventHandler(this.btnSelectStaff_Click);
             // 
+            // cboStaffName
+            // 
+            this.cboStaffName.FormattingEnabled = true;
+            this.cboStaffName.Location = new System.Drawing.Point(23, 44);
+            this.cboStaffName.Name = "cboStaffName";
+            this.cboStaffName.Size = new System.Drawing.Size(172, 21);
+            this.cboStaffName.TabIndex = 0;
+            // 
             // grpChangeStaff
             // 
             this.grpChangeStaff.Controls.Add(this.btnChange);
             this.grpChangeStaff.Controls.Add(this.txtStaffName);
             this.grpChangeStaff.Controls.Add(this.lblStaffName);
-            this.grpChangeStaff.Location = new System.Drawing.Point(37, 45);
+            this.grpChangeStaff.Location = new System.Drawing.Point(6, 141);
             this.grpChangeStaff.Name = "grpChangeStaff";
             this.grpChangeStaff.Size = new System.Drawing.Size(482, 306);
             this.grpChangeStaff.TabIndex = 1;
             this.grpChangeStaff.TabStop = false;
             this.grpChangeStaff.Text = "Change Staff Details";
             this.grpChangeStaff.Visible = false;
-            // 
-            // lblStaffName
-            // 
-            this.lblStaffName.AutoSize = true;
-            this.lblStaffName.Location = new System.Drawing.Point(11, 53);
-            this.lblStaffName.Name = "lblStaffName";
-            this.lblStaffName.Size = new System.Drawing.Size(60, 13);
-            this.lblStaffName.TabIndex = 0;
-            this.lblStaffName.Text = "Staff Name";
-            // 
-            // txtStaffName
-            // 
-            this.txtStaffName.Location = new System.Drawing.Point(77, 50);
-            this.txtStaffName.Name = "txtStaffName";
-            this.txtStaffName.Size = new System.Drawing.Size(104, 20);
-            this.txtStaffName.TabIndex = 1;
             // 
             // btnChange
             // 
@@ -125,6 +105,22 @@
             this.btnChange.Text = "Change Details";
             this.btnChange.UseVisualStyleBackColor = true;
             this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
+            // 
+            // txtStaffName
+            // 
+            this.txtStaffName.Location = new System.Drawing.Point(77, 50);
+            this.txtStaffName.Name = "txtStaffName";
+            this.txtStaffName.Size = new System.Drawing.Size(104, 20);
+            this.txtStaffName.TabIndex = 1;
+            // 
+            // lblStaffName
+            // 
+            this.lblStaffName.AutoSize = true;
+            this.lblStaffName.Location = new System.Drawing.Point(11, 53);
+            this.lblStaffName.Name = "lblStaffName";
+            this.lblStaffName.Size = new System.Drawing.Size(60, 13);
+            this.lblStaffName.TabIndex = 0;
+            this.lblStaffName.Text = "Staff Name";
             // 
             // menuStrip1
             // 
@@ -148,6 +144,27 @@
             this.mnuEdit.Name = "mnuEdit";
             this.mnuEdit.Size = new System.Drawing.Size(39, 20);
             this.mnuEdit.Text = "Edit";
+            // 
+            // mnuItmAddFoodType
+            // 
+            this.mnuItmAddFoodType.Name = "mnuItmAddFoodType";
+            this.mnuItmAddFoodType.Size = new System.Drawing.Size(172, 22);
+            this.mnuItmAddFoodType.Text = "Add Food Type";
+            this.mnuItmAddFoodType.Click += new System.EventHandler(this.mnuItmAddFoodType_Click);
+            // 
+            // mnuItmAddFoodItem
+            // 
+            this.mnuItmAddFoodItem.Name = "mnuItmAddFoodItem";
+            this.mnuItmAddFoodItem.Size = new System.Drawing.Size(172, 22);
+            this.mnuItmAddFoodItem.Text = "Add Food Item";
+            this.mnuItmAddFoodItem.Click += new System.EventHandler(this.mnuItmAddFoodItem_Click);
+            // 
+            // mnuItmChangeFoodItm
+            // 
+            this.mnuItmChangeFoodItm.Name = "mnuItmChangeFoodItm";
+            this.mnuItmChangeFoodItm.Size = new System.Drawing.Size(172, 22);
+            this.mnuItmChangeFoodItm.Text = "Change Food Item";
+            this.mnuItmChangeFoodItm.Click += new System.EventHandler(this.mnuItmChangeFoodItm_Click);
             // 
             // mnuOrder
             // 
@@ -175,58 +192,37 @@
             this.mnuAdmin.Size = new System.Drawing.Size(55, 20);
             this.mnuAdmin.Text = "Admin";
             // 
-            // mnuItmAddFoodType
-            // 
-            this.mnuItmAddFoodType.Name = "mnuItmAddFoodType";
-            this.mnuItmAddFoodType.Size = new System.Drawing.Size(180, 22);
-            this.mnuItmAddFoodType.Text = "Add Food Type";
-            this.mnuItmAddFoodType.Click += new System.EventHandler(this.mnuItmAddFoodType_Click);
-            // 
-            // mnuItmAddFoodItem
-            // 
-            this.mnuItmAddFoodItem.Name = "mnuItmAddFoodItem";
-            this.mnuItmAddFoodItem.Size = new System.Drawing.Size(180, 22);
-            this.mnuItmAddFoodItem.Text = "Add Food Item";
-            this.mnuItmAddFoodItem.Click += new System.EventHandler(this.mnuItmAddFoodItem_Click);
-            // 
-            // mnuItmChangeFoodItm
-            // 
-            this.mnuItmChangeFoodItm.Name = "mnuItmChangeFoodItm";
-            this.mnuItmChangeFoodItm.Size = new System.Drawing.Size(180, 22);
-            this.mnuItmChangeFoodItm.Text = "Change Food Item";
-            this.mnuItmChangeFoodItm.Click += new System.EventHandler(this.mnuItmChangeFoodItm_Click);
-            // 
             // mnuItmRevenueAnalysis
             // 
             this.mnuItmRevenueAnalysis.Name = "mnuItmRevenueAnalysis";
-            this.mnuItmRevenueAnalysis.Size = new System.Drawing.Size(180, 22);
+            this.mnuItmRevenueAnalysis.Size = new System.Drawing.Size(177, 22);
             this.mnuItmRevenueAnalysis.Text = "Revenue Analysis";
             this.mnuItmRevenueAnalysis.Click += new System.EventHandler(this.mnuItmRevenueAnalysis_Click);
             // 
             // mnuItmFoodAnalysis
             // 
             this.mnuItmFoodAnalysis.Name = "mnuItmFoodAnalysis";
-            this.mnuItmFoodAnalysis.Size = new System.Drawing.Size(180, 22);
+            this.mnuItmFoodAnalysis.Size = new System.Drawing.Size(177, 22);
             this.mnuItmFoodAnalysis.Text = "Food Analysis";
             this.mnuItmFoodAnalysis.Click += new System.EventHandler(this.mnuItmFoodAnalysis_Click);
             // 
             // mnuItmAddStaff
             // 
             this.mnuItmAddStaff.Name = "mnuItmAddStaff";
-            this.mnuItmAddStaff.Size = new System.Drawing.Size(180, 22);
+            this.mnuItmAddStaff.Size = new System.Drawing.Size(177, 22);
             this.mnuItmAddStaff.Text = "Add Staff";
             this.mnuItmAddStaff.Click += new System.EventHandler(this.mnuItmAddStaff_Click);
             // 
             // mnuItmChangeStaffDetails
             // 
             this.mnuItmChangeStaffDetails.Name = "mnuItmChangeStaffDetails";
-            this.mnuItmChangeStaffDetails.Size = new System.Drawing.Size(180, 22);
+            this.mnuItmChangeStaffDetails.Size = new System.Drawing.Size(177, 22);
             this.mnuItmChangeStaffDetails.Text = "Modify Staff Details";
             // 
             // mnuItmRemoveStaff
             // 
             this.mnuItmRemoveStaff.Name = "mnuItmRemoveStaff";
-            this.mnuItmRemoveStaff.Size = new System.Drawing.Size(180, 22);
+            this.mnuItmRemoveStaff.Size = new System.Drawing.Size(177, 22);
             this.mnuItmRemoveStaff.Text = "Remove Staff";
             this.mnuItmRemoveStaff.Click += new System.EventHandler(this.mnuItmRemoveStaff_Click);
             // 
@@ -235,12 +231,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.grpChangeStaff);
             this.Controls.Add(this.grpSelectStaff);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmChangeStaff";
             this.Text = "frmChangeStaff";
+            this.Load += new System.EventHandler(this.frmChangeStaff_Load);
             this.grpSelectStaff.ResumeLayout(false);
             this.grpChangeStaff.ResumeLayout(false);
             this.grpChangeStaff.PerformLayout();

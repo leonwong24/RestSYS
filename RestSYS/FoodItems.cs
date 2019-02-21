@@ -144,6 +144,8 @@ namespace RestSYS
             return DS;
         }
 
+
+        //define a method that return next food item id
         public static int nextItemId()
         {
             //variable to hold value to be returned
@@ -154,7 +156,7 @@ namespace RestSYS
             myConn.Open();
 
             //Define SQL Query to get MAX itemId used
-            String strSQL = "SELECT Count(ItemId) FROM FoodItems";
+            String strSQL = "SELECT MAX(ItemId) FROM FoodItems";
 
             OracleCommand cmd = new OracleCommand(strSQL, myConn);
 

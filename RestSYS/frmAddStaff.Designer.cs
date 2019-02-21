@@ -39,11 +39,13 @@
             this.mnuItmRevenueAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItmFoodAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItmAddStaff = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItmChangeStaff = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuItmDeleteStaff = new System.Windows.Forms.ToolStripMenuItem();
             this.lblStaffName = new System.Windows.Forms.Label();
             this.txtStaffName = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.mnuItmChangeStaff = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuItmDeleteStaff = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblStaffId = new System.Windows.Forms.Label();
+            this.txtStaffId = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,21 +75,21 @@
             // mnuItmAddFoodType
             // 
             this.mnuItmAddFoodType.Name = "mnuItmAddFoodType";
-            this.mnuItmAddFoodType.Size = new System.Drawing.Size(180, 22);
+            this.mnuItmAddFoodType.Size = new System.Drawing.Size(172, 22);
             this.mnuItmAddFoodType.Text = "Add Food Type";
             this.mnuItmAddFoodType.Click += new System.EventHandler(this.mnuItmAddFoodType_Click);
             // 
             // mnuItmAddFoodItem
             // 
             this.mnuItmAddFoodItem.Name = "mnuItmAddFoodItem";
-            this.mnuItmAddFoodItem.Size = new System.Drawing.Size(180, 22);
+            this.mnuItmAddFoodItem.Size = new System.Drawing.Size(172, 22);
             this.mnuItmAddFoodItem.Text = "Add Food Item";
             this.mnuItmAddFoodItem.Click += new System.EventHandler(this.mnuItmAddFoodItem_Click);
             // 
             // mnuItmChangeFoodItem
             // 
             this.mnuItmChangeFoodItem.Name = "mnuItmChangeFoodItem";
-            this.mnuItmChangeFoodItem.Size = new System.Drawing.Size(180, 22);
+            this.mnuItmChangeFoodItem.Size = new System.Drawing.Size(172, 22);
             this.mnuItmChangeFoodItem.Text = "Change Food Item";
             this.mnuItmChangeFoodItem.Click += new System.EventHandler(this.mnuItmChangeFoodItem_Click);
             // 
@@ -137,6 +139,19 @@
             this.mnuItmAddStaff.Size = new System.Drawing.Size(180, 22);
             this.mnuItmAddStaff.Text = "Add Staff";
             // 
+            // mnuItmChangeStaff
+            // 
+            this.mnuItmChangeStaff.Name = "mnuItmChangeStaff";
+            this.mnuItmChangeStaff.Size = new System.Drawing.Size(180, 22);
+            this.mnuItmChangeStaff.Text = "Change Staff Details";
+            this.mnuItmChangeStaff.Click += new System.EventHandler(this.mnuItmChangeStaff_Click);
+            // 
+            // mnuItmDeleteStaff
+            // 
+            this.mnuItmDeleteStaff.Name = "mnuItmDeleteStaff";
+            this.mnuItmDeleteStaff.Size = new System.Drawing.Size(180, 22);
+            this.mnuItmDeleteStaff.Text = "Delete Staff";
+            // 
             // lblStaffName
             // 
             this.lblStaffName.AutoSize = true;
@@ -163,24 +178,31 @@
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
-            // mnuItmChangeStaff
+            // lblStaffId
             // 
-            this.mnuItmChangeStaff.Name = "mnuItmChangeStaff";
-            this.mnuItmChangeStaff.Size = new System.Drawing.Size(180, 22);
-            this.mnuItmChangeStaff.Text = "Change Staff Details";
-            this.mnuItmChangeStaff.Click += new System.EventHandler(this.mnuItmChangeStaff_Click);
+            this.lblStaffId.AutoSize = true;
+            this.lblStaffId.Location = new System.Drawing.Point(15, 44);
+            this.lblStaffId.Name = "lblStaffId";
+            this.lblStaffId.Size = new System.Drawing.Size(43, 13);
+            this.lblStaffId.TabIndex = 4;
+            this.lblStaffId.Text = "Staff ID";
             // 
-            // mnuItmDeleteStaff
+            // txtStaffId
             // 
-            this.mnuItmDeleteStaff.Name = "mnuItmDeleteStaff";
-            this.mnuItmDeleteStaff.Size = new System.Drawing.Size(180, 22);
-            this.mnuItmDeleteStaff.Text = "Delete Staff";
+            this.txtStaffId.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtStaffId.Enabled = false;
+            this.txtStaffId.Location = new System.Drawing.Point(96, 44);
+            this.txtStaffId.Name = "txtStaffId";
+            this.txtStaffId.Size = new System.Drawing.Size(88, 20);
+            this.txtStaffId.TabIndex = 5;
             // 
             // frmAddStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtStaffId);
+            this.Controls.Add(this.lblStaffId);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtStaffName);
             this.Controls.Add(this.lblStaffName);
@@ -188,6 +210,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmAddStaff";
             this.Text = "Add Staff";
+            this.Load += new System.EventHandler(this.frmAddStaff_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -213,5 +236,7 @@
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.ToolStripMenuItem mnuItmChangeStaff;
         private System.Windows.Forms.ToolStripMenuItem mnuItmDeleteStaff;
+        private System.Windows.Forms.Label lblStaffId;
+        private System.Windows.Forms.TextBox txtStaffId;
     }
 }

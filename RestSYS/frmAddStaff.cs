@@ -1,4 +1,5 @@
 ﻿using System;
+using Oracle.ManagedDataAccess.Client;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,7 +33,18 @@ namespace RestSYS
             }
             else
             {
+                //Save staff details into staff
+                Staff newStaff = new Staff(Convert.ToInt32(txtStaffId.Text), txtStaffName.Text);
+
+                //Execute Insert command
+                newStaff.addNewStaff();
+
                 MessageBox.Show("Staff Added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                //Clear the textbox and update the staffId
+                txtStaffId.Text = Convert.ToString(Staff.nextStaffId());
+                txtStaffName.Clear();
+            
             }
             
         }
@@ -91,6 +103,11 @@ namespace RestSYS
             this.Close();
             frmChangeStaff frmChangeStaff = new frmChangeStaff();
             frmChangeStaff.Show();
+        }
+
+        private void frmAddStaff_Load(object sender, EventArgs e)
+        {
+            this.txtStaffId.Text = Convert.ToString(Staff.nextStaffId());
         }
     }
 }

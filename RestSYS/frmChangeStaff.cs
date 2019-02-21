@@ -19,8 +19,24 @@ namespace RestSYS
 
         private void btnSelectStaff_Click(object sender, EventArgs e)
         {
-            grpSelectStaff.Visible = false; //Hide select staff group box
-            grpChangeStaff.Visible = true;  //Show select staff group box
+            //if user doesn't select a staff 
+            if(cboStaffName.SelectedItem == null)
+            {
+                MessageBox.Show("A staff must be selected to change", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                DataSet ds = new DataSet();
+                ds = Staff.getSelectedStaff(ds, Convert.ToInt32(cboStaffName.Text.Substring(2,1)));
+                //set the staff name text box from the combo box 
+                txtStaffName.Text = ds.Tables["Selected Staff"].Rows[0][1].ToString().PadLeft(2);
+                
+                //display group box 
+                grpSelectStaff.Visible = false; //Hide select staff group box
+                grpChangeStaff.Visible = true;  //Show select staff group box
+            }
+
+            
 
             txtStaffName.Text = cboStaffName.Text;
         }
@@ -110,6 +126,39 @@ namespace RestSYS
             this.Close();
             frmRemoveStaff frmRemoveStaff = new frmRemoveStaff();
             frmRemoveStaff.Show();
+        }
+
+        private void frmChangeStaff_Load(object sender, EventArgs e)
+        {
+            //load all staff into the dataset and display in the combo box
+            DataSet DS = new DataSet();
+            DS = Staff.getAllStaff(DS);
+
+            for(int i = 0; i < DS.Tables["All Staff"].Rows.Count; i++)
+            {
+                cboStaffName.Items.Add(DS.Tables[0].Rows[i][0].ToString().PadLeft(2) + " : " + DS.Tables[0].Rows[i][1].ToString());
+            }
+        }
+
+        //Define a method that will extract the staff details and store inside the staff
+        private void cboAddFoodItemType_SelectedIndexChange(object sender, EventArgs e)
+        {
+            //if resetting combo, ignore...
+            if (cboStaffName.SelectedIndex == 1)
+            {
+                return;
+            }
+
+            //find food type details , create a new fooditems and store the food type details into food item
+            Staff staff = new Staff();
+            staff.setStaffId(Convert.ToInt32(cboStaffName.Text.Substring(2, 1)));
+
+            //Validation to prevent the food type is empty
+            if (staff.getStaffId() == -1)
+            {
+                MessageBox.Show("No staff selected", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
     }
 }

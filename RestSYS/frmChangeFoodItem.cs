@@ -189,8 +189,6 @@ namespace RestSYS
             //load data from ds to grpChangeFoodItemSelectFood
             if (DS != null)
             {
-                if (DS.Tables[0].Rows.Count != 0)
-                {
                     //grdChangeFoodItemSelectFoodItem.AutoGenerateColumns = true;
                     //grdChangeFoodItemSelectFoodItem.DataSource = DS;
                     grdChangeFoodItemSelectFoodItem.DataSource = DS.Tables["FoodItems"];
@@ -204,7 +202,6 @@ namespace RestSYS
                         grdChangeFoodItemSelectFoodItem.Rows[r].Cells[3].Value = DS.Tables["FoodItems"].Rows[r].ItemArray[3];
                         grdChangeFoodItemSelectFoodItem.Rows[r].Cells[4].Value = DS.Tables["FoodItems"].Rows[r].ItemArray[4];
                     }*/
-                }
             }
         }
 
