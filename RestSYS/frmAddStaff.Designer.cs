@@ -46,6 +46,8 @@
             this.btnSubmit = new System.Windows.Forms.Button();
             this.lblStaffId = new System.Windows.Forms.Label();
             this.txtStaffId = new System.Windows.Forms.TextBox();
+            this.lblStaffStatus = new System.Windows.Forms.Label();
+            this.cboStaffStatus = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -196,11 +198,33 @@
             this.txtStaffId.Size = new System.Drawing.Size(88, 20);
             this.txtStaffId.TabIndex = 5;
             // 
+            // lblStaffStatus
+            // 
+            this.lblStaffStatus.AutoSize = true;
+            this.lblStaffStatus.Location = new System.Drawing.Point(15, 132);
+            this.lblStaffStatus.Name = "lblStaffStatus";
+            this.lblStaffStatus.Size = new System.Drawing.Size(62, 13);
+            this.lblStaffStatus.TabIndex = 6;
+            this.lblStaffStatus.Text = "Staff Status";
+            // 
+            // cboStaffStatus
+            // 
+            this.cboStaffStatus.FormattingEnabled = true;
+            this.cboStaffStatus.Items.AddRange(new object[] {
+            "W: Working",
+            "Q: Quit"});
+            this.cboStaffStatus.Location = new System.Drawing.Point(96, 129);
+            this.cboStaffStatus.Name = "cboStaffStatus";
+            this.cboStaffStatus.Size = new System.Drawing.Size(141, 21);
+            this.cboStaffStatus.TabIndex = 7;
+            // 
             // frmAddStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cboStaffStatus);
+            this.Controls.Add(this.lblStaffStatus);
             this.Controls.Add(this.txtStaffId);
             this.Controls.Add(this.lblStaffId);
             this.Controls.Add(this.btnSubmit);
@@ -238,5 +262,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuItmDeleteStaff;
         private System.Windows.Forms.Label lblStaffId;
         private System.Windows.Forms.TextBox txtStaffId;
+        private System.Windows.Forms.Label lblStaffStatus;
+        private System.Windows.Forms.ComboBox cboStaffStatus;
     }
 }

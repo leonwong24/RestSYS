@@ -32,6 +32,8 @@
             this.btnSelectStaff = new System.Windows.Forms.Button();
             this.cboStaffName = new System.Windows.Forms.ComboBox();
             this.grpChangeStaff = new System.Windows.Forms.GroupBox();
+            this.cboStaffStatus = new System.Windows.Forms.ComboBox();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.btnChange = new System.Windows.Forms.Button();
             this.txtStaffName = new System.Windows.Forms.TextBox();
             this.lblStaffName = new System.Windows.Forms.Label();
@@ -55,10 +57,9 @@
             // 
             // grpSelectStaff
             // 
-            this.grpSelectStaff.Controls.Add(this.grpChangeStaff);
             this.grpSelectStaff.Controls.Add(this.btnSelectStaff);
             this.grpSelectStaff.Controls.Add(this.cboStaffName);
-            this.grpSelectStaff.Location = new System.Drawing.Point(50, 56);
+            this.grpSelectStaff.Location = new System.Drawing.Point(35, 56);
             this.grpSelectStaff.Name = "grpSelectStaff";
             this.grpSelectStaff.Size = new System.Drawing.Size(459, 267);
             this.grpSelectStaff.TabIndex = 0;
@@ -82,13 +83,16 @@
             this.cboStaffName.Name = "cboStaffName";
             this.cboStaffName.Size = new System.Drawing.Size(172, 21);
             this.cboStaffName.TabIndex = 0;
+            this.cboStaffName.SelectedIndexChanged += new System.EventHandler(this.cboAddFoodItemType_SelectedIndexChange);
             // 
             // grpChangeStaff
             // 
+            this.grpChangeStaff.Controls.Add(this.cboStaffStatus);
+            this.grpChangeStaff.Controls.Add(this.lblStatus);
             this.grpChangeStaff.Controls.Add(this.btnChange);
             this.grpChangeStaff.Controls.Add(this.txtStaffName);
             this.grpChangeStaff.Controls.Add(this.lblStaffName);
-            this.grpChangeStaff.Location = new System.Drawing.Point(6, 141);
+            this.grpChangeStaff.Location = new System.Drawing.Point(12, 56);
             this.grpChangeStaff.Name = "grpChangeStaff";
             this.grpChangeStaff.Size = new System.Drawing.Size(482, 306);
             this.grpChangeStaff.TabIndex = 1;
@@ -96,9 +100,29 @@
             this.grpChangeStaff.Text = "Change Staff Details";
             this.grpChangeStaff.Visible = false;
             // 
+            // cboStaffStatus
+            // 
+            this.cboStaffStatus.FormattingEnabled = true;
+            this.cboStaffStatus.Items.AddRange(new object[] {
+            "W: Working",
+            "Q: Quit"});
+            this.cboStaffStatus.Location = new System.Drawing.Point(77, 98);
+            this.cboStaffStatus.Name = "cboStaffStatus";
+            this.cboStaffStatus.Size = new System.Drawing.Size(99, 21);
+            this.cboStaffStatus.TabIndex = 4;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(11, 101);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(37, 13);
+            this.lblStatus.TabIndex = 3;
+            this.lblStatus.Text = "Status";
+            // 
             // btnChange
             // 
-            this.btnChange.Location = new System.Drawing.Point(41, 100);
+            this.btnChange.Location = new System.Drawing.Point(46, 182);
             this.btnChange.Name = "btnChange";
             this.btnChange.Size = new System.Drawing.Size(119, 26);
             this.btnChange.TabIndex = 2;
@@ -109,6 +133,7 @@
             // txtStaffName
             // 
             this.txtStaffName.Location = new System.Drawing.Point(77, 50);
+            this.txtStaffName.MaxLength = 30;
             this.txtStaffName.Name = "txtStaffName";
             this.txtStaffName.Size = new System.Drawing.Size(104, 20);
             this.txtStaffName.TabIndex = 1;
@@ -231,6 +256,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.grpChangeStaff);
             this.Controls.Add(this.grpSelectStaff);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -269,5 +295,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuItmAddStaff;
         private System.Windows.Forms.ToolStripMenuItem mnuItmChangeStaffDetails;
         private System.Windows.Forms.ToolStripMenuItem mnuItmRemoveStaff;
+        private System.Windows.Forms.ComboBox cboStaffStatus;
+        private System.Windows.Forms.Label lblStatus;
     }
 }

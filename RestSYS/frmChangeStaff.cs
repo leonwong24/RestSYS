@@ -27,18 +27,26 @@ namespace RestSYS
             else
             {
                 DataSet ds = new DataSet();
-                ds = Staff.getSelectedStaff(ds, Convert.ToInt32(cboStaffName.Text.Substring(2,1)));
+                //MessageBox.Show(cboStaffName.Text.Substring(0, 2));
+                ds = Staff.getSelectedStaff(ds, Convert.ToInt32(cboStaffName.Text.Substring(0,2)));
                 //set the staff name text box from the combo box 
-                txtStaffName.Text = ds.Tables["Selected Staff"].Rows[0][1].ToString().PadLeft(2);
+                txtStaffName.Text = ds.Tables["Selected Staff"].Rows[0][1].ToString();
+
+                //load the appropriate staff status .
+                if(ds.Tables["Selected Staff"].Rows[0][2].ToString() == "W")
+                {
+                    cboStaffStatus.SelectedIndex = 0;
+                }
+                else
+                {
+                    cboStaffStatus.SelectedIndex = 1;
+                }
                 
                 //display group box 
                 grpSelectStaff.Visible = false; //Hide select staff group box
                 grpChangeStaff.Visible = true;  //Show select staff group box
             }
 
-            
-
-            txtStaffName.Text = cboStaffName.Text;
         }
 
         private void btnChange_Click(object sender, EventArgs e)
@@ -57,12 +65,22 @@ namespace RestSYS
             }
             else
             {
+                //Show success message
                 MessageBox.Show("Staff details changed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                //Save staff details into new staff
+                Staff changedStaff = new Staff(Convert.ToInt32(cboStaffName.Text.Substring(0,2)),txtStaffName.Text,cboStaffName.Text.Substring(0,1));
+
+                //Update staff details;
+                changedStaff.updateStaff();
+
+                //Clears the UI
+                txtStaffName.Clear();
+                grpChangeStaff.Visible = false;
+                grpSelectStaff.Visible = true;
             }
 
-            grpChangeStaff.Visible = false;
-
-            grpSelectStaff.Visible = true;
+            
         }
 
         private void mnuItmAddFoodType_Click(object sender, EventArgs e)
@@ -136,7 +154,7 @@ namespace RestSYS
 
             for(int i = 0; i < DS.Tables["All Staff"].Rows.Count; i++)
             {
-                cboStaffName.Items.Add(DS.Tables[0].Rows[i][0].ToString().PadLeft(2) + " : " + DS.Tables[0].Rows[i][1].ToString());
+                cboStaffName.Items.Add(DS.Tables[0].Rows[i][0].ToString().PadLeft(2,'0') + " : " + DS.Tables[0].Rows[i][1].ToString());
             }
         }
 
@@ -144,14 +162,15 @@ namespace RestSYS
         private void cboAddFoodItemType_SelectedIndexChange(object sender, EventArgs e)
         {
             //if resetting combo, ignore...
-            if (cboStaffName.SelectedIndex == 1)
+            if (cboStaffName.SelectedIndex == -1)
             {
                 return;
             }
 
             //find food type details , create a new fooditems and store the food type details into food item
             Staff staff = new Staff();
-            staff.setStaffId(Convert.ToInt32(cboStaffName.Text.Substring(2, 1)));
+            staff.setStaffId(Convert.ToInt32(cboStaffName.Text.Substring(0, 2)));
+           // MessageBox.Show(cboStaffName.Text.Substring(0, 2));
 
             //Validation to prevent the food type is empty
             if (staff.getStaffId() == -1)
@@ -160,5 +179,6 @@ namespace RestSYS
                 return;
             }
         }
+
     }
 }

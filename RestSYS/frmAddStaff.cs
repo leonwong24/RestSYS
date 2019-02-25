@@ -31,10 +31,15 @@ namespace RestSYS
             else if (!match.Success) {
                 MessageBox.Show("Staff name must contained alphabetical characters only", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            else if(cboStaffStatus.SelectedIndex == -1)
+            {
+                MessageBox.Show("Staff Status must be choose", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else
             {
                 //Save staff details into staff
-                Staff newStaff = new Staff(Convert.ToInt32(txtStaffId.Text), txtStaffName.Text);
+                Staff newStaff = new Staff(Convert.ToInt32(txtStaffId.Text), txtStaffName.Text,cboStaffStatus.Text.Substring(0,1));
 
                 //Execute Insert command
                 newStaff.addNewStaff();
@@ -108,6 +113,8 @@ namespace RestSYS
         private void frmAddStaff_Load(object sender, EventArgs e)
         {
             this.txtStaffId.Text = Convert.ToString(Staff.nextStaffId());
+            this.cboStaffStatus.SelectedIndex = 0;
         }
+
     }
 }

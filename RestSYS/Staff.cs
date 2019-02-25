@@ -13,19 +13,22 @@ namespace RestSYS
         //Instance variables
         private int staffId;
         private string staffName;
+        private string status;
 
         //no argument constructor\
         public Staff()
         {
             staffId = -1;
             staffName = "empty";
+            status = "W";//working
         }
 
         //argument constructor
-        public Staff(int staffId, string staffName)
+        public Staff(int staffId, string staffName,string status)
         {
             this.staffId = staffId;
             this.staffName = staffName;
+            this.status = status;
         }
 
         //Define setters
@@ -39,10 +42,20 @@ namespace RestSYS
             this.staffName = staffName;
         }
 
+        public void setStaffStatus(string status)
+        {
+            this.status = status;
+        }
+
         //Define getters
         public int getStaffId()
         {
             return staffId;
+        }
+
+        public string getStaffStatus()
+        {
+            return status;
         }
 
         //define a static method to get all staff
@@ -92,7 +105,7 @@ namespace RestSYS
             conn.Open();
 
             //Define SQL query to insert new staff
-            String strSQL = "INSERT INTO STAFF VALUES(" + this.staffId + ",'" + this.staffName + "')";
+            String strSQL = "INSERT INTO STAFF VALUES(" + this.staffId + ",'" + this.staffName + "','"+this.status+"')";
 
             //execute the insert command
             OracleCommand cmd = new OracleCommand(strSQL, conn);
@@ -110,7 +123,7 @@ namespace RestSYS
             conn.Open();
 
             //Define SQL query to update new staff
-            String strSQL = "UPDATE STAFF SET staffName = '" + this.staffName + "' WHERE staffId =" + this.staffId;
+            String strSQL = "UPDATE STAFF SET staffName = '" + this.staffName + "',status = '"+this.status+"' WHERE staffId =" + this.staffId;
 
             //execute the update command
             OracleCommand cmd = new OracleCommand(strSQL, conn);

@@ -132,12 +132,6 @@ namespace RestSYS
                 this.txtChangeFoodItemId.Text = Convert.ToString(selectedItem.getItemId());
                 this.txtChangeFoodItem.Text = selectedItem.getItemName();
                 this.txtChangeFoodItemDesc.Text = selectedItem.getDescription();
-                DataSet DS = new DataSet();
-                DS = FoodTypes.getAllFoodType(DS);
-                for (int i = 0; i < DS.Tables["ss"].Rows.Count; i++)
-                {
-                    this.cboChangeFoodItemFoodType.Items.Add(DS.Tables[0].Rows[i][0].ToString().PadLeft(0) + " : " + DS.Tables[0].Rows[i][1].ToString());
-                }
                 this.cboChangeFoodItemType.Text = selectedItem.getFoodType();
                 this.txtChgFoodItemPrice.Value = selectedItem.getPrice();
                 this.cboChangeFoodItemFoodStatus.Text = selectedItem.getStatus();
@@ -159,7 +153,9 @@ namespace RestSYS
             for (int i = 0; i < ds.Tables["ss"].Rows.Count; i++)
             {
                 cboChangeFoodItemType.Items.Add(ds.Tables[0].Rows[i][0].ToString().PadLeft(0) + " : " + ds.Tables[0].Rows[i][1].ToString());
+                cboChangeFoodItemFoodType.Items.Add(ds.Tables[0].Rows[i][0].ToString() + " : " + ds.Tables[0].Rows[i][1].ToString());
             }
+
         }
 
         //Define a method that detect change in fooditemtype combo box and display all the food with that food type on the grid box
@@ -172,7 +168,7 @@ namespace RestSYS
             }
 
             //Retrieve the food type and store the food type inside a variable and pass into the SQL
-            MessageBox.Show("Change Detected!");
+            //MessageBox.Show("Change Detected!");
             string foodType = cboChangeFoodItemType.Text.Substring(0, 1);
 
             //Get the dataset by passing the foodtype as parameter to retrieve selectedFoodItem dataset
@@ -203,6 +199,8 @@ namespace RestSYS
                         grdChangeFoodItemSelectFoodItem.Rows[r].Cells[4].Value = DS.Tables["FoodItems"].Rows[r].ItemArray[4];
                     }*/
             }
+
+            cboChangeFoodItemFoodType.SelectedIndex = cboChangeFoodItemType.SelectedIndex;
         }
 
         private void addFoodTypeToolStripMenuItem_Click(object sender, EventArgs e)
