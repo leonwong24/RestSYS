@@ -118,6 +118,7 @@
             this.Controls.Add(this.btnTable1);
             this.Name = "frmTableInterface";
             this.Text = "Table";
+            this.Load += new System.EventHandler(this.frmTableInterface_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

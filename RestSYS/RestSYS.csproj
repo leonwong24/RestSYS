@@ -124,6 +124,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Staff.cs" />
+    <Compile Include="Table.cs" />
     <EmbeddedResource Include="frmAddFoodItem.resx">
       <DependentUpon>frmAddFoodItem.cs</DependentUpon>
     </EmbeddedResource>

@@ -316,7 +316,7 @@
             this.grpChangeFoodItemChangeFood.Controls.Add(this.lblFoodType);
             this.grpChangeFoodItemChangeFood.Controls.Add(this.lblFoodItemDesc);
             this.grpChangeFoodItemChangeFood.Controls.Add(this.lblFoodItem);
-            this.grpChangeFoodItemChangeFood.Location = new System.Drawing.Point(22, 105);
+            this.grpChangeFoodItemChangeFood.Location = new System.Drawing.Point(12, 85);
             this.grpChangeFoodItemChangeFood.Name = "grpChangeFoodItemChangeFood";
             this.grpChangeFoodItemChangeFood.Size = new System.Drawing.Size(583, 319);
             this.grpChangeFoodItemChangeFood.TabIndex = 35;
