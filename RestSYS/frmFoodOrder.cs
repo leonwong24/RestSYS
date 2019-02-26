@@ -261,5 +261,10 @@ namespace RestSYS
         {
             grpStaffSign.Show();
         }
+
+        private void frmFoodOrder_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

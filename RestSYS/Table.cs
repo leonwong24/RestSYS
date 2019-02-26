@@ -45,7 +45,7 @@ namespace RestSYS
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
             //connection name conn.open()
-            String strSQL = "SELECT * FROM ORDERS WHERE TABLENO = " + tableNo + "AND STATUS LIKE 'U'";
+            String strSQL = "SELECT * FROM ORDERS WHERE TABLENO = " + tableNo + "AND STATUS = 'U'";
             OracleCommand cmd = new OracleCommand(strSQL, conn);
 
             //cmd.CommandType = CommandType.text;

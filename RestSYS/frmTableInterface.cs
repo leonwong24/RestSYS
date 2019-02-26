@@ -22,6 +22,8 @@ namespace RestSYS
 
         private void btnTable1_Click(object sender, EventArgs e)
         {
+            DataSet ds = new DataSet();
+
             this.Hide();
             frmFoodOrder frmFoodOrder = new frmFoodOrder();
             frmFoodOrder.Show();
@@ -46,28 +48,31 @@ namespace RestSYS
             tableButtons.Add(btnTable5);
             tableButtons.Add(btnTable6);
 
+            //tableButtons[4].Text += "\n something on table ";
+
 
             //Define a method that will display all the table price on the table interface
             //if a table has an order, it will display the price, if not if just skip through it
-            int tableIndex = 1;
+            //int tableIndex = 1;
             DataSet ds = new DataSet();
-            for (tableIndex = 1; tableIndex < 7; tableIndex++)
+            for (int tableIndex = 1; tableIndex < 7; tableIndex++)
             {
                 //get selected table order with status U
                 ds = Table.getUnpaidSelectedTableOrder(ds, tableIndex);
 
                 //check if DS has zero record
-                if (ds.Tables[0].Rows.Count == 0)
+                if (ds == null)
                 {
                     return;
                 }
 
-                //dispkay price below the table number
-                else if (ds.Tables[0].Rows.Count == 1)
+                //display price below the table number
+                else if (ds.Tables["Table Order"].Rows.Count == 1)
                 {
-                    tableButtons[tableIndex - 1].Text += "\n" + ds.Tables[0].Rows[0][4];
+                    tableButtons[tableIndex - 1].Text += ("\n" + ds.Tables["Table Order"].Rows[0][4]);
                 }
-                ds.Reset();
+               ds.Clear();
+
             }
         }
     }
