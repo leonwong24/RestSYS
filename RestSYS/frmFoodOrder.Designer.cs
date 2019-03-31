@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnBarMenu = new System.Windows.Forms.Button();
-            this.btnCoffeeMenu = new System.Windows.Forms.Button();
+            this.btnDessert = new System.Windows.Forms.Button();
+            this.btnBeverageMenu = new System.Windows.Forms.Button();
             this.btnMainMenu = new System.Windows.Forms.Button();
             this.btnStarterMenu = new System.Windows.Forms.Button();
             this.btnTableInterface = new System.Windows.Forms.Button();
@@ -75,52 +75,61 @@
             this.btnFoodItem10 = new System.Windows.Forms.Button();
             this.btnFoodItem11 = new System.Windows.Forms.Button();
             this.btnFoodItem12 = new System.Windows.Forms.Button();
+            this.btnChangeMenu = new System.Windows.Forms.Button();
+            this.cboSelectFdItm = new System.Windows.Forms.ComboBox();
+            this.grpChgFdMnu = new System.Windows.Forms.GroupBox();
+            this.lblChgFdItm = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grdOrder)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.grpStaffSign.SuspendLayout();
+            this.grpChgFdMnu.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnBarMenu
+            // btnDessert
             // 
-            this.btnBarMenu.Location = new System.Drawing.Point(722, 27);
-            this.btnBarMenu.Name = "btnBarMenu";
-            this.btnBarMenu.Size = new System.Drawing.Size(75, 56);
-            this.btnBarMenu.TabIndex = 0;
-            this.btnBarMenu.Text = "BAR";
-            this.btnBarMenu.UseVisualStyleBackColor = true;
+            this.btnDessert.Location = new System.Drawing.Point(1112, 27);
+            this.btnDessert.Name = "btnDessert";
+            this.btnDessert.Size = new System.Drawing.Size(136, 85);
+            this.btnDessert.TabIndex = 0;
+            this.btnDessert.Text = "DESSERT";
+            this.btnDessert.UseVisualStyleBackColor = true;
+            this.btnDessert.Click += new System.EventHandler(this.btnDessert_Click);
             // 
-            // btnCoffeeMenu
+            // btnBeverageMenu
             // 
-            this.btnCoffeeMenu.Location = new System.Drawing.Point(641, 27);
-            this.btnCoffeeMenu.Name = "btnCoffeeMenu";
-            this.btnCoffeeMenu.Size = new System.Drawing.Size(75, 56);
-            this.btnCoffeeMenu.TabIndex = 1;
-            this.btnCoffeeMenu.Text = "COFFEE";
-            this.btnCoffeeMenu.UseVisualStyleBackColor = true;
+            this.btnBeverageMenu.Location = new System.Drawing.Point(937, 29);
+            this.btnBeverageMenu.Name = "btnBeverageMenu";
+            this.btnBeverageMenu.Size = new System.Drawing.Size(157, 81);
+            this.btnBeverageMenu.TabIndex = 1;
+            this.btnBeverageMenu.Text = "BEVERAGE";
+            this.btnBeverageMenu.UseVisualStyleBackColor = true;
+            this.btnBeverageMenu.Click += new System.EventHandler(this.btnBeverageMenu_Click);
             // 
             // btnMainMenu
             // 
-            this.btnMainMenu.Location = new System.Drawing.Point(560, 27);
+            this.btnMainMenu.Location = new System.Drawing.Point(746, 27);
             this.btnMainMenu.Name = "btnMainMenu";
-            this.btnMainMenu.Size = new System.Drawing.Size(75, 56);
+            this.btnMainMenu.Size = new System.Drawing.Size(167, 85);
             this.btnMainMenu.TabIndex = 2;
             this.btnMainMenu.Text = "MAIN ";
             this.btnMainMenu.UseVisualStyleBackColor = true;
+            this.btnMainMenu.Click += new System.EventHandler(this.btnMainMenu_Click);
             // 
             // btnStarterMenu
             // 
-            this.btnStarterMenu.Location = new System.Drawing.Point(479, 27);
+            this.btnStarterMenu.Location = new System.Drawing.Point(563, 25);
             this.btnStarterMenu.Name = "btnStarterMenu";
-            this.btnStarterMenu.Size = new System.Drawing.Size(75, 56);
+            this.btnStarterMenu.Size = new System.Drawing.Size(164, 87);
             this.btnStarterMenu.TabIndex = 3;
             this.btnStarterMenu.Text = "STARTER";
             this.btnStarterMenu.UseVisualStyleBackColor = true;
+            this.btnStarterMenu.Click += new System.EventHandler(this.btnStarterMenu_Click);
             // 
             // btnTableInterface
             // 
-            this.btnTableInterface.Location = new System.Drawing.Point(398, 27);
+            this.btnTableInterface.Location = new System.Drawing.Point(436, 27);
             this.btnTableInterface.Name = "btnTableInterface";
-            this.btnTableInterface.Size = new System.Drawing.Size(75, 56);
+            this.btnTableInterface.Size = new System.Drawing.Size(108, 83);
             this.btnTableInterface.TabIndex = 4;
             this.btnTableInterface.Text = "TABLE";
             this.btnTableInterface.UseVisualStyleBackColor = true;
@@ -128,7 +137,7 @@
             // 
             // btnPlaceOrder
             // 
-            this.btnPlaceOrder.Location = new System.Drawing.Point(686, 94);
+            this.btnPlaceOrder.Location = new System.Drawing.Point(1137, 199);
             this.btnPlaceOrder.Name = "btnPlaceOrder";
             this.btnPlaceOrder.Size = new System.Drawing.Size(111, 84);
             this.btnPlaceOrder.TabIndex = 5;
@@ -138,7 +147,7 @@
             // 
             // btnDeleteFoodRow
             // 
-            this.btnDeleteFoodRow.Location = new System.Drawing.Point(685, 184);
+            this.btnDeleteFoodRow.Location = new System.Drawing.Point(1137, 308);
             this.btnDeleteFoodRow.Name = "btnDeleteFoodRow";
             this.btnDeleteFoodRow.Size = new System.Drawing.Size(111, 84);
             this.btnDeleteFoodRow.TabIndex = 6;
@@ -148,7 +157,7 @@
             // 
             // btnPrintBill
             // 
-            this.btnPrintBill.Location = new System.Drawing.Point(685, 274);
+            this.btnPrintBill.Location = new System.Drawing.Point(1137, 416);
             this.btnPrintBill.Name = "btnPrintBill";
             this.btnPrintBill.Size = new System.Drawing.Size(111, 84);
             this.btnPrintBill.TabIndex = 7;
@@ -158,7 +167,7 @@
             // 
             // btnPayBill
             // 
-            this.btnPayBill.Location = new System.Drawing.Point(685, 364);
+            this.btnPayBill.Location = new System.Drawing.Point(1137, 521);
             this.btnPayBill.Name = "btnPayBill";
             this.btnPayBill.Size = new System.Drawing.Size(111, 74);
             this.btnPayBill.TabIndex = 8;
@@ -168,27 +177,27 @@
             // 
             // btnNum0
             // 
-            this.btnNum0.Location = new System.Drawing.Point(135, 407);
+            this.btnNum0.Location = new System.Drawing.Point(129, 545);
             this.btnNum0.Name = "btnNum0";
-            this.btnNum0.Size = new System.Drawing.Size(81, 43);
+            this.btnNum0.Size = new System.Drawing.Size(87, 53);
             this.btnNum0.TabIndex = 9;
             this.btnNum0.Text = "0";
             this.btnNum0.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(231, 407);
+            this.button1.Location = new System.Drawing.Point(231, 545);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 43);
+            this.button1.Size = new System.Drawing.Size(81, 53);
             this.button1.TabIndex = 10;
             this.button1.Text = ".";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // btnNum1
             // 
-            this.btnNum1.Location = new System.Drawing.Point(36, 364);
+            this.btnNum1.Location = new System.Drawing.Point(31, 485);
             this.btnNum1.Name = "btnNum1";
-            this.btnNum1.Size = new System.Drawing.Size(81, 43);
+            this.btnNum1.Size = new System.Drawing.Size(86, 53);
             this.btnNum1.TabIndex = 11;
             this.btnNum1.Text = "1";
             this.btnNum1.UseVisualStyleBackColor = true;
@@ -196,9 +205,9 @@
             // 
             // btnNum2
             // 
-            this.btnNum2.Location = new System.Drawing.Point(135, 364);
+            this.btnNum2.Location = new System.Drawing.Point(129, 483);
             this.btnNum2.Name = "btnNum2";
-            this.btnNum2.Size = new System.Drawing.Size(81, 43);
+            this.btnNum2.Size = new System.Drawing.Size(87, 56);
             this.btnNum2.TabIndex = 12;
             this.btnNum2.Text = "2";
             this.btnNum2.UseVisualStyleBackColor = true;
@@ -206,9 +215,9 @@
             // 
             // btnNum3
             // 
-            this.btnNum3.Location = new System.Drawing.Point(231, 364);
+            this.btnNum3.Location = new System.Drawing.Point(231, 483);
             this.btnNum3.Name = "btnNum3";
-            this.btnNum3.Size = new System.Drawing.Size(81, 43);
+            this.btnNum3.Size = new System.Drawing.Size(81, 56);
             this.btnNum3.TabIndex = 13;
             this.btnNum3.Text = "3";
             this.btnNum3.UseVisualStyleBackColor = true;
@@ -216,57 +225,63 @@
             // 
             // btnNum4
             // 
-            this.btnNum4.Location = new System.Drawing.Point(36, 324);
+            this.btnNum4.Location = new System.Drawing.Point(31, 430);
             this.btnNum4.Name = "btnNum4";
-            this.btnNum4.Size = new System.Drawing.Size(81, 43);
+            this.btnNum4.Size = new System.Drawing.Size(86, 47);
             this.btnNum4.TabIndex = 14;
             this.btnNum4.Text = "4";
             this.btnNum4.UseVisualStyleBackColor = true;
+            this.btnNum4.Click += new System.EventHandler(this.btnNum4_Click);
             // 
             // btnNum5
             // 
-            this.btnNum5.Location = new System.Drawing.Point(135, 324);
+            this.btnNum5.Location = new System.Drawing.Point(129, 429);
             this.btnNum5.Name = "btnNum5";
-            this.btnNum5.Size = new System.Drawing.Size(81, 43);
+            this.btnNum5.Size = new System.Drawing.Size(87, 48);
             this.btnNum5.TabIndex = 15;
             this.btnNum5.Text = "5";
             this.btnNum5.UseVisualStyleBackColor = true;
+            this.btnNum5.Click += new System.EventHandler(this.btnNum5_Click);
             // 
             // btnNum6
             // 
-            this.btnNum6.Location = new System.Drawing.Point(231, 324);
+            this.btnNum6.Location = new System.Drawing.Point(231, 429);
             this.btnNum6.Name = "btnNum6";
-            this.btnNum6.Size = new System.Drawing.Size(81, 43);
+            this.btnNum6.Size = new System.Drawing.Size(81, 48);
             this.btnNum6.TabIndex = 16;
             this.btnNum6.Text = "6";
             this.btnNum6.UseVisualStyleBackColor = true;
+            this.btnNum6.Click += new System.EventHandler(this.btnNum6_Click);
             // 
             // btnNum7
             // 
-            this.btnNum7.Location = new System.Drawing.Point(36, 284);
+            this.btnNum7.Location = new System.Drawing.Point(31, 376);
             this.btnNum7.Name = "btnNum7";
-            this.btnNum7.Size = new System.Drawing.Size(81, 43);
+            this.btnNum7.Size = new System.Drawing.Size(86, 48);
             this.btnNum7.TabIndex = 17;
             this.btnNum7.Text = "7";
             this.btnNum7.UseVisualStyleBackColor = true;
+            this.btnNum7.Click += new System.EventHandler(this.btnNum7_Click);
             // 
             // btnNum8
             // 
-            this.btnNum8.Location = new System.Drawing.Point(135, 284);
+            this.btnNum8.Location = new System.Drawing.Point(129, 379);
             this.btnNum8.Name = "btnNum8";
-            this.btnNum8.Size = new System.Drawing.Size(81, 43);
+            this.btnNum8.Size = new System.Drawing.Size(87, 43);
             this.btnNum8.TabIndex = 18;
             this.btnNum8.Text = "8";
             this.btnNum8.UseVisualStyleBackColor = true;
+            this.btnNum8.Click += new System.EventHandler(this.btnNum8_Click);
             // 
             // btnNum9
             // 
-            this.btnNum9.Location = new System.Drawing.Point(231, 284);
+            this.btnNum9.Location = new System.Drawing.Point(231, 379);
             this.btnNum9.Name = "btnNum9";
             this.btnNum9.Size = new System.Drawing.Size(81, 43);
             this.btnNum9.TabIndex = 19;
             this.btnNum9.Text = "9";
             this.btnNum9.UseVisualStyleBackColor = true;
+            this.btnNum9.Click += new System.EventHandler(this.btnNum9_Click);
             // 
             // grdOrder
             // 
@@ -276,9 +291,9 @@
             this.Quantity,
             this.Price,
             this.Cost});
-            this.grdOrder.Location = new System.Drawing.Point(4, 27);
+            this.grdOrder.Location = new System.Drawing.Point(4, 29);
             this.grdOrder.Name = "grdOrder";
-            this.grdOrder.Size = new System.Drawing.Size(335, 254);
+            this.grdOrder.Size = new System.Drawing.Size(318, 331);
             this.grdOrder.TabIndex = 20;
             // 
             // Item
@@ -317,41 +332,41 @@
             // 
             // btnFoodItem1
             // 
-            this.btnFoodItem1.Location = new System.Drawing.Point(413, 124);
+            this.btnFoodItem1.Location = new System.Drawing.Point(720, 194);
             this.btnFoodItem1.Name = "btnFoodItem1";
-            this.btnFoodItem1.Size = new System.Drawing.Size(76, 69);
+            this.btnFoodItem1.Size = new System.Drawing.Size(120, 94);
             this.btnFoodItem1.TabIndex = 21;
-            this.btnFoodItem1.Text = "Fish and Chips";
+            this.btnFoodItem1.Text = "Button1";
             this.btnFoodItem1.UseVisualStyleBackColor = true;
             this.btnFoodItem1.Click += new System.EventHandler(this.btnFoodItem1_Click);
             // 
             // btnFoodItem2
             // 
-            this.btnFoodItem2.Location = new System.Drawing.Point(413, 199);
+            this.btnFoodItem2.Location = new System.Drawing.Point(720, 308);
             this.btnFoodItem2.Name = "btnFoodItem2";
-            this.btnFoodItem2.Size = new System.Drawing.Size(76, 69);
+            this.btnFoodItem2.Size = new System.Drawing.Size(120, 84);
             this.btnFoodItem2.TabIndex = 22;
-            this.btnFoodItem2.Text = "Beef Steak";
+            this.btnFoodItem2.Text = "Button2";
             this.btnFoodItem2.UseVisualStyleBackColor = true;
             this.btnFoodItem2.Click += new System.EventHandler(this.btnFoodItem2_Click);
             // 
             // btnFoodItem3
             // 
-            this.btnFoodItem3.Location = new System.Drawing.Point(413, 274);
+            this.btnFoodItem3.Location = new System.Drawing.Point(720, 407);
             this.btnFoodItem3.Name = "btnFoodItem3";
-            this.btnFoodItem3.Size = new System.Drawing.Size(76, 69);
+            this.btnFoodItem3.Size = new System.Drawing.Size(120, 85);
             this.btnFoodItem3.TabIndex = 23;
-            this.btnFoodItem3.Text = "Chicken Burger";
+            this.btnFoodItem3.Text = "Button3";
             this.btnFoodItem3.UseVisualStyleBackColor = true;
             this.btnFoodItem3.Click += new System.EventHandler(this.btnFoodItem3_Click);
             // 
             // btnFoodItem4
             // 
-            this.btnFoodItem4.Location = new System.Drawing.Point(413, 351);
+            this.btnFoodItem4.Location = new System.Drawing.Point(720, 514);
             this.btnFoodItem4.Name = "btnFoodItem4";
-            this.btnFoodItem4.Size = new System.Drawing.Size(76, 69);
+            this.btnFoodItem4.Size = new System.Drawing.Size(120, 81);
             this.btnFoodItem4.TabIndex = 24;
-            this.btnFoodItem4.Text = "Salad Bowl";
+            this.btnFoodItem4.Text = "Button4";
             this.btnFoodItem4.UseVisualStyleBackColor = true;
             this.btnFoodItem4.Click += new System.EventHandler(this.btnFoodItem4_Click);
             // 
@@ -388,7 +403,7 @@
             this.backToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1260, 24);
             this.menuStrip1.TabIndex = 28;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -404,7 +419,7 @@
             this.grpStaffSign.Controls.Add(this.btnSignIn);
             this.grpStaffSign.Controls.Add(this.lblStaffSignInName);
             this.grpStaffSign.Controls.Add(this.cboStaffSignIn);
-            this.grpStaffSign.Location = new System.Drawing.Point(0, 27);
+            this.grpStaffSign.Location = new System.Drawing.Point(4, 29);
             this.grpStaffSign.Name = "grpStaffSign";
             this.grpStaffSign.Size = new System.Drawing.Size(342, 254);
             this.grpStaffSign.TabIndex = 29;
@@ -434,11 +449,6 @@
             // cboStaffSignIn
             // 
             this.cboStaffSignIn.FormattingEnabled = true;
-            this.cboStaffSignIn.Items.AddRange(new object[] {
-            "Brian",
-            "Colin",
-            "George",
-            "Jonathon"});
             this.cboStaffSignIn.Location = new System.Drawing.Point(27, 64);
             this.cboStaffSignIn.Name = "cboStaffSignIn";
             this.cboStaffSignIn.Size = new System.Drawing.Size(179, 21);
@@ -449,7 +459,7 @@
             // 
             this.btnPromptSignIn.Location = new System.Drawing.Point(345, 27);
             this.btnPromptSignIn.Name = "btnPromptSignIn";
-            this.btnPromptSignIn.Size = new System.Drawing.Size(46, 58);
+            this.btnPromptSignIn.Size = new System.Drawing.Size(72, 83);
             this.btnPromptSignIn.TabIndex = 30;
             this.btnPromptSignIn.Text = "Sign In";
             this.btnPromptSignIn.UseVisualStyleBackColor = true;
@@ -457,81 +467,124 @@
             // 
             // btnFoodItem5
             // 
-            this.btnFoodItem5.Location = new System.Drawing.Point(506, 124);
+            this.btnFoodItem5.Location = new System.Drawing.Point(870, 194);
             this.btnFoodItem5.Name = "btnFoodItem5";
-            this.btnFoodItem5.Size = new System.Drawing.Size(76, 69);
+            this.btnFoodItem5.Size = new System.Drawing.Size(104, 94);
             this.btnFoodItem5.TabIndex = 31;
             this.btnFoodItem5.Text = "Button 5";
             this.btnFoodItem5.UseVisualStyleBackColor = true;
+            this.btnFoodItem5.Click += new System.EventHandler(this.btnFoodItem5_Click);
             // 
             // btnFoodItem6
             // 
-            this.btnFoodItem6.Location = new System.Drawing.Point(506, 199);
+            this.btnFoodItem6.Location = new System.Drawing.Point(870, 299);
             this.btnFoodItem6.Name = "btnFoodItem6";
-            this.btnFoodItem6.Size = new System.Drawing.Size(76, 69);
+            this.btnFoodItem6.Size = new System.Drawing.Size(104, 93);
             this.btnFoodItem6.TabIndex = 32;
             this.btnFoodItem6.Text = "Button 6";
             this.btnFoodItem6.UseVisualStyleBackColor = true;
             // 
             // btnFoodItem7
             // 
-            this.btnFoodItem7.Location = new System.Drawing.Point(506, 274);
+            this.btnFoodItem7.Location = new System.Drawing.Point(870, 402);
             this.btnFoodItem7.Name = "btnFoodItem7";
-            this.btnFoodItem7.Size = new System.Drawing.Size(76, 69);
+            this.btnFoodItem7.Size = new System.Drawing.Size(104, 94);
             this.btnFoodItem7.TabIndex = 33;
             this.btnFoodItem7.Text = "Button 7";
             this.btnFoodItem7.UseVisualStyleBackColor = true;
             // 
             // btnFoodItem8
             // 
-            this.btnFoodItem8.Location = new System.Drawing.Point(506, 351);
+            this.btnFoodItem8.Location = new System.Drawing.Point(870, 501);
             this.btnFoodItem8.Name = "btnFoodItem8";
-            this.btnFoodItem8.Size = new System.Drawing.Size(76, 69);
+            this.btnFoodItem8.Size = new System.Drawing.Size(104, 97);
             this.btnFoodItem8.TabIndex = 34;
             this.btnFoodItem8.Text = "Button 8";
             this.btnFoodItem8.UseVisualStyleBackColor = true;
             // 
             // btnFoodItem9
             // 
-            this.btnFoodItem9.Location = new System.Drawing.Point(600, 124);
+            this.btnFoodItem9.Location = new System.Drawing.Point(1012, 194);
             this.btnFoodItem9.Name = "btnFoodItem9";
-            this.btnFoodItem9.Size = new System.Drawing.Size(76, 69);
+            this.btnFoodItem9.Size = new System.Drawing.Size(106, 94);
             this.btnFoodItem9.TabIndex = 35;
             this.btnFoodItem9.Text = "Button 9";
             this.btnFoodItem9.UseVisualStyleBackColor = true;
             // 
             // btnFoodItem10
             // 
-            this.btnFoodItem10.Location = new System.Drawing.Point(600, 199);
+            this.btnFoodItem10.Location = new System.Drawing.Point(1012, 299);
             this.btnFoodItem10.Name = "btnFoodItem10";
-            this.btnFoodItem10.Size = new System.Drawing.Size(76, 69);
+            this.btnFoodItem10.Size = new System.Drawing.Size(106, 93);
             this.btnFoodItem10.TabIndex = 36;
             this.btnFoodItem10.Text = "Button 10";
             this.btnFoodItem10.UseVisualStyleBackColor = true;
             // 
             // btnFoodItem11
             // 
-            this.btnFoodItem11.Location = new System.Drawing.Point(600, 274);
+            this.btnFoodItem11.Location = new System.Drawing.Point(1012, 398);
             this.btnFoodItem11.Name = "btnFoodItem11";
-            this.btnFoodItem11.Size = new System.Drawing.Size(76, 69);
+            this.btnFoodItem11.Size = new System.Drawing.Size(106, 94);
             this.btnFoodItem11.TabIndex = 37;
             this.btnFoodItem11.Text = "Button 11";
             this.btnFoodItem11.UseVisualStyleBackColor = true;
             // 
             // btnFoodItem12
             // 
-            this.btnFoodItem12.Location = new System.Drawing.Point(600, 351);
+            this.btnFoodItem12.Location = new System.Drawing.Point(1012, 498);
             this.btnFoodItem12.Name = "btnFoodItem12";
-            this.btnFoodItem12.Size = new System.Drawing.Size(76, 69);
+            this.btnFoodItem12.Size = new System.Drawing.Size(106, 97);
             this.btnFoodItem12.TabIndex = 38;
             this.btnFoodItem12.Text = "Button 12";
             this.btnFoodItem12.UseVisualStyleBackColor = true;
+            // 
+            // btnChangeMenu
+            // 
+            this.btnChangeMenu.Location = new System.Drawing.Point(345, 136);
+            this.btnChangeMenu.Name = "btnChangeMenu";
+            this.btnChangeMenu.Size = new System.Drawing.Size(85, 83);
+            this.btnChangeMenu.TabIndex = 39;
+            this.btnChangeMenu.Text = "Change Menu";
+            this.btnChangeMenu.UseVisualStyleBackColor = true;
+            this.btnChangeMenu.Click += new System.EventHandler(this.btnChangeMenu_Click);
+            // 
+            // cboSelectFdItm
+            // 
+            this.cboSelectFdItm.FormattingEnabled = true;
+            this.cboSelectFdItm.Location = new System.Drawing.Point(22, 61);
+            this.cboSelectFdItm.Name = "cboSelectFdItm";
+            this.cboSelectFdItm.Size = new System.Drawing.Size(155, 21);
+            this.cboSelectFdItm.TabIndex = 40;
+            this.cboSelectFdItm.SelectedIndexChanged += new System.EventHandler(this.cboSelectFdItm_SelectedIndexChange);
+            // 
+            // grpChgFdMnu
+            // 
+            this.grpChgFdMnu.Controls.Add(this.lblChgFdItm);
+            this.grpChgFdMnu.Controls.Add(this.cboSelectFdItm);
+            this.grpChgFdMnu.Location = new System.Drawing.Point(426, 247);
+            this.grpChgFdMnu.Name = "grpChgFdMnu";
+            this.grpChgFdMnu.Size = new System.Drawing.Size(211, 175);
+            this.grpChgFdMnu.TabIndex = 41;
+            this.grpChgFdMnu.TabStop = false;
+            this.grpChgFdMnu.Text = "Change Menu";
+            this.grpChgFdMnu.Visible = false;
+            // 
+            // lblChgFdItm
+            // 
+            this.lblChgFdItm.AutoSize = true;
+            this.lblChgFdItm.Location = new System.Drawing.Point(21, 39);
+            this.lblChgFdItm.Name = "lblChgFdItm";
+            this.lblChgFdItm.Size = new System.Drawing.Size(87, 13);
+            this.lblChgFdItm.TabIndex = 41;
+            this.lblChgFdItm.Text = "Select Food Item";
             // 
             // frmFoodOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1260, 682);
+            this.Controls.Add(this.grpChgFdMnu);
+            this.Controls.Add(this.btnChangeMenu);
             this.Controls.Add(this.btnFoodItem12);
             this.Controls.Add(this.btnFoodItem11);
             this.Controls.Add(this.btnFoodItem10);
@@ -568,8 +621,8 @@
             this.Controls.Add(this.btnTableInterface);
             this.Controls.Add(this.btnStarterMenu);
             this.Controls.Add(this.btnMainMenu);
-            this.Controls.Add(this.btnCoffeeMenu);
-            this.Controls.Add(this.btnBarMenu);
+            this.Controls.Add(this.btnBeverageMenu);
+            this.Controls.Add(this.btnDessert);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmFoodOrder";
@@ -580,6 +633,8 @@
             this.menuStrip1.PerformLayout();
             this.grpStaffSign.ResumeLayout(false);
             this.grpStaffSign.PerformLayout();
+            this.grpChgFdMnu.ResumeLayout(false);
+            this.grpChgFdMnu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -587,8 +642,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnBarMenu;
-        private System.Windows.Forms.Button btnCoffeeMenu;
+        private System.Windows.Forms.Button btnDessert;
+        private System.Windows.Forms.Button btnBeverageMenu;
         private System.Windows.Forms.Button btnMainMenu;
         private System.Windows.Forms.Button btnStarterMenu;
         private System.Windows.Forms.Button btnTableInterface;
@@ -634,5 +689,9 @@
         private System.Windows.Forms.Button btnFoodItem10;
         private System.Windows.Forms.Button btnFoodItem11;
         private System.Windows.Forms.Button btnFoodItem12;
+        private System.Windows.Forms.Button btnChangeMenu;
+        private System.Windows.Forms.ComboBox cboSelectFdItm;
+        private System.Windows.Forms.GroupBox grpChgFdMnu;
+        private System.Windows.Forms.Label lblChgFdItm;
     }
 }

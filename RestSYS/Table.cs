@@ -13,12 +13,56 @@ namespace RestSYS
         //Instance Variables
         private int tableNum;
         private int orderNo;
+        private int status;
 
-        //Define a method that return a dataset when certain table number is input
-        //public Boolean isClear()
-        //{
+        //create array that store all the orderNo
+        public static int[] tableList = new int[7];
 
-        //}
+        public Table(int tableNum, int orderNo, int status)
+        {
+            this.tableNum = tableNum;
+            this.orderNo = orderNo;
+            this.status = status;
+        }
+
+        public bool isTableClear()
+        {
+            bool result = false;
+            if(this.status == 0)
+            {
+                result = true;
+            }
+            else if(this.status == 1)
+            {
+                result = false;
+            }
+            return result;
+        }
+
+        //setters
+        public void setTableStatus(int status)
+        {
+            this.status = status;
+        }
+
+        //define a method that returns all the table in the database
+        public static DataSet getAllTable(DataSet ds)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            //connection name conn.open()
+            String strSQL = "SELECT * FROM OrderTable";
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            //cmd.CommandType = CommandType.text;
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            da.Fill(ds, "All Table");
+
+            conn.Close();
+
+            return ds;
+        }
 
         //define a method that get all the selected table order
         public static DataSet getSelectedTableOrder(DataSet DS, int tableNo)

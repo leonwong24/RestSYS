@@ -213,5 +213,88 @@ namespace RestSYS
             //close DBConnection
             conn.Close();
         }
+
+        public static String getFoodName(int foodId)
+        {
+            String foodName="";
+            //Connect to database
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            //Define SQL query to get food name
+            String strSQL = "SELECT ITEMNAME FROM FOODITEMS WHERE ITEMID = " + foodId;
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            //exceute the SQL Query and put result in OracleDataReader object
+            OracleDataReader dr = cmd.ExecuteReader();
+
+            //read the first (only) value returned by query
+            dr.Read();
+            //if (!dr.IsDBNull(0))
+            //{
+                foodName = Convert.ToString(dr.GetValue(0));
+            //}
+
+            //close db connection
+            conn.Close();
+
+            //return next foodName
+            return foodName;
+        }
+
+        public static DataSet getAvailableFoodItem(DataSet ds,String foodType)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            //connection name conn.open()
+            String strSQL = "SELECT * FROM FoodItems WHERE FoodType LIKE '" + foodType + "' AND STATUS ='A'";
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            //cmd.CommandType = CommandType.text;
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            da.Fill(ds, "FoodItems");
+
+            conn.Close();
+
+            return ds;
+        }
+
+
+        public static FoodItems getFood(int ItemId)
+        {
+            FoodItems fooditem = new FoodItems();
+
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+            //connection name conn.open()
+            String strSQL = "SELECT * FROM FoodItems WHERE ItemId = " + ItemId;
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            //exceute the SQL Query and put result in OracleDataReader object
+            OracleDataReader dr = cmd.ExecuteReader();
+
+            //read the first (only) value returned by query
+            //If first itemId, assign value 1, otherwise add 1 to MAX value
+            dr.Read();
+            if (!dr.IsDBNull(0))
+            {
+                
+                fooditem.setItemId(ItemId);
+                fooditem.setItemName(dr.GetString(1));
+                fooditem.setDescription(dr.GetString(2));
+                fooditem.setFoodType(dr.GetString(3));
+                fooditem.setPrice(dr.GetDecimal(4));
+                fooditem.setStatus(dr.GetString(5));
+            }
+
+            //close db connection
+            conn.Close();
+
+            //return next ItemId
+            return fooditem;
+
+        }
+
     }
 }

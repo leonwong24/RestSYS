@@ -18,25 +18,10 @@ namespace RestSYS
         {
             InitializeComponent();
 
+            //create a char array that stores all the table status
+            char[] tableStatus = new char[6];
         }
 
-        private void btnTable1_Click(object sender, EventArgs e)
-        {
-            DataSet ds = new DataSet();
-
-            this.Hide();
-            frmFoodOrder frmFoodOrder = new frmFoodOrder();
-            frmFoodOrder.Show();
-            frmFoodOrder.lblTableNumber.Text = "1";
-        }
-
-        private void btnTable2_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            frmFoodOrder frmFoodOrder = new frmFoodOrder();
-            frmFoodOrder.Show();
-            frmFoodOrder.lblTableNumber.Text = "2";
-        }
 
         private void frmTableInterface_Load(object sender, EventArgs e)
         {
@@ -63,17 +48,75 @@ namespace RestSYS
                 //check if DS has zero record
                 if (ds == null)
                 {
-                    return;
+                    //set the orderno to 0 in the tableList array
+                    Table.tableList[tableIndex] = 0;
                 }
 
-                //display price below the table number
+                
                 else if (ds.Tables["Table Order"].Rows.Count == 1)
                 {
+                    //display price below the table number
                     tableButtons[tableIndex - 1].Text += ("\n" + ds.Tables["Table Order"].Rows[0][4]);
+
+                    //set the orderno to the corresponding orderno in the tableList array
+                    Table.tableList[tableIndex] = Convert.ToInt32(ds.Tables["Table Order"].Rows[0][1]);
                 }
                ds.Clear();
 
             }
         }
+
+        private void btnTable1_Click(object sender, EventArgs e)
+        {
+            buttonClicked(1);
+        }
+
+        private void btnTable2_Click(object sender, EventArgs e)
+        {
+            buttonClicked(2);
+        }
+
+        private void btnTable3_Click(object sender, EventArgs e)
+        {
+            buttonClicked(3);
+        }
+
+        private void btnTable4_Click(object sender, EventArgs e)
+        {
+            buttonClicked(4);
+        }
+
+        private void btnTable5_Click(object sender, EventArgs e)
+        {
+            buttonClicked(5);
+        }
+
+        private void btnTable6_Click(object sender, EventArgs e)
+        {
+            buttonClicked(6);
+        }
+
+        //method that prompt everything a table button is clicked.
+        private void buttonClicked(int tableNo)
+        {
+            //check the tableList if the table is not empty
+            if (Table.tableList[tableNo] != 0)
+            {
+                int orderNo = Table.tableList[tableNo];
+                //retrieve all the order with the given orderNo, fill the order inside the grdOrder
+                Orders.foodOrder = Orders.getSelectedFoodOrder(Orders.foodOrder,orderNo);
+            }
+
+            frmFoodOrder frmFoodOrder = new frmFoodOrder();
+            frmFoodOrder.lblTableNumber.Text = Convert.ToString(tableNo);
+            Orders.setCurrentPage("S");
+            Orders.state = 1;
+            frmFoodOrder.Show();
+
+            //close the table interface
+            this.Close();
+        }
+
+       
     }
 }

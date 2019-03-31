@@ -65,6 +65,7 @@
             this.btnTable3.TabIndex = 2;
             this.btnTable3.Text = "Table 3";
             this.btnTable3.UseVisualStyleBackColor = true;
+            this.btnTable3.Click += new System.EventHandler(this.btnTable3_Click);
             // 
             // btnTable4
             // 
@@ -74,6 +75,7 @@
             this.btnTable4.TabIndex = 3;
             this.btnTable4.Text = "Table 4";
             this.btnTable4.UseVisualStyleBackColor = true;
+            this.btnTable4.Click += new System.EventHandler(this.btnTable4_Click);
             // 
             // btnTable5
             // 
@@ -83,6 +85,7 @@
             this.btnTable5.TabIndex = 4;
             this.btnTable5.Text = "Table 5";
             this.btnTable5.UseVisualStyleBackColor = true;
+            this.btnTable5.Click += new System.EventHandler(this.btnTable5_Click);
             // 
             // btnTable6
             // 
@@ -92,6 +95,7 @@
             this.btnTable6.TabIndex = 5;
             this.btnTable6.Text = "Table 6";
             this.btnTable6.UseVisualStyleBackColor = true;
+            this.btnTable6.Click += new System.EventHandler(this.btnTable6_Click);
             // 
             // lblCashRegister
             // 
