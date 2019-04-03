@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,10 +17,7 @@ namespace RestSYS
 
         public frmTableInterface()
         {
-            InitializeComponent();
-
-            //create a char array that stores all the table status
-            char[] tableStatus = new char[6];
+            InitializeComponent();   
         }
 
 
@@ -99,18 +97,39 @@ namespace RestSYS
         //method that prompt everything a table button is clicked.
         private void buttonClicked(int tableNo)
         {
+            frmFoodOrder frmFoodOrder = new frmFoodOrder();
             //check the tableList if the table is not empty
             if (Table.tableList[tableNo] != 0)
             {
                 int orderNo = Table.tableList[tableNo];
                 //retrieve all the order with the given orderNo, fill the order inside the grdOrder
                 Orders.foodOrder = Orders.getSelectedFoodOrder(Orders.foodOrder,orderNo);
+                //Add all the order into the orderItems list
+                for(int i = 0; i < Orders.foodOrder.Tables[0].Rows.Count; i++)
+                {
+                    int[] order = new int[2];
+                    order[0] = Convert.ToInt32(Orders.foodOrder.Tables[0].Rows[i][1]);
+                    order[1] = Convert.ToInt32(Orders.foodOrder.Tables[0].Rows[i][2]);
+                    Orders.orderItems.Add(order);
+                }
+                //Orders.valueStore = Convert.ToDecimal(Orders.foodOrder.Tables[0].Rows[0]["Value"]);
+                Orders.orderNoStore = orderNo;
+            }
+            else
+            {
+                Orders.orderNoStore = Orders.NextOrderNo();
             }
 
-            frmFoodOrder frmFoodOrder = new frmFoodOrder();
+            //display all the order on the gridview 
+            for(int i = 0; i < Orders.orderItems.Count; i++)
+            {
+
+            }
             frmFoodOrder.lblTableNumber.Text = Convert.ToString(tableNo);
             Orders.setCurrentPage("S");
             Orders.state = 1;
+            
+            
             frmFoodOrder.Show();
 
             //close the table interface

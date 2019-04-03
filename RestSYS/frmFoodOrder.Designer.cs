@@ -38,7 +38,6 @@
             this.btnPrintBill = new System.Windows.Forms.Button();
             this.btnPayBill = new System.Windows.Forms.Button();
             this.btnNum0 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnNum1 = new System.Windows.Forms.Button();
             this.btnNum2 = new System.Windows.Forms.Button();
             this.btnNum3 = new System.Windows.Forms.Button();
@@ -79,6 +78,8 @@
             this.cboSelectFdItm = new System.Windows.Forms.ComboBox();
             this.grpChgFdMnu = new System.Windows.Forms.GroupBox();
             this.lblChgFdItm = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_OrderNo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grdOrder)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.grpStaffSign.SuspendLayout();
@@ -183,15 +184,7 @@
             this.btnNum0.TabIndex = 9;
             this.btnNum0.Text = "0";
             this.btnNum0.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(231, 545);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 53);
-            this.button1.TabIndex = 10;
-            this.button1.Text = ".";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnNum0.Click += new System.EventHandler(this.btnNum0_Click);
             // 
             // btnNum1
             // 
@@ -578,11 +571,31 @@
             this.lblChgFdItm.TabIndex = 41;
             this.lblChgFdItm.Text = "Select Food Item";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 42;
+            this.label1.Text = "label1";
+            // 
+            // lbl_OrderNo
+            // 
+            this.lbl_OrderNo.AutoSize = true;
+            this.lbl_OrderNo.Location = new System.Drawing.Point(328, 411);
+            this.lbl_OrderNo.Name = "lbl_OrderNo";
+            this.lbl_OrderNo.Size = new System.Drawing.Size(47, 13);
+            this.lbl_OrderNo.TabIndex = 43;
+            this.lbl_OrderNo.Text = "OrderNo";
+            // 
             // frmFoodOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1260, 682);
+            this.Controls.Add(this.lbl_OrderNo);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.grpChgFdMnu);
             this.Controls.Add(this.btnChangeMenu);
             this.Controls.Add(this.btnFoodItem12);
@@ -612,7 +625,6 @@
             this.Controls.Add(this.btnNum3);
             this.Controls.Add(this.btnNum2);
             this.Controls.Add(this.btnNum1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnNum0);
             this.Controls.Add(this.btnPayBill);
             this.Controls.Add(this.btnPrintBill);
@@ -652,7 +664,6 @@
         private System.Windows.Forms.Button btnPrintBill;
         private System.Windows.Forms.Button btnPayBill;
         private System.Windows.Forms.Button btnNum0;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnNum1;
         private System.Windows.Forms.Button btnNum2;
         private System.Windows.Forms.Button btnNum3;
@@ -693,5 +704,7 @@
         private System.Windows.Forms.ComboBox cboSelectFdItm;
         private System.Windows.Forms.GroupBox grpChgFdMnu;
         private System.Windows.Forms.Label lblChgFdItm;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_OrderNo;
     }
 }

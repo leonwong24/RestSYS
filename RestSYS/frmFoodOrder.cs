@@ -18,9 +18,11 @@ namespace RestSYS
         private static int number;
         private static int totalQty = 0;
         private int qtyToDeduct;
-        private static double totalPrice = 0;
-        double valuetoDeduct;
+        private static decimal totalPrice = 0;
+        decimal valuetoDeduct;
         public static List<Button> menuButton = new List<Button> ();
+        private Orders order = new Orders();
+
         public frmFoodOrder()
         {
             InitializeComponent();
@@ -30,15 +32,16 @@ namespace RestSYS
             MyTimer.Tick += new EventHandler(MyTimer_Tick);
             MyTimer.Start();
 
-            /*DataGridRow that displays the total price and total qty of the order
+            //DataGridRow that displays the total price and total qty of the order
             DataGridViewRow gridViewRow = (DataGridViewRow)grdOrder.Rows[0].Clone();
             gridViewRow.Cells[0].Value = "Total";
             gridViewRow.Cells[1].Value = totalQty;
             gridViewRow.Cells[3].Value = totalPrice;
             grdOrder.Rows.Add(gridViewRow);
-            grdOrder.Enabled = false;*/
+            grdOrder.Enabled = false;
             grdOrder.Enabled = true;
-            //displayMenuBtn();
+            
+            lbl_OrderNo.Text = Convert.ToString(Orders.orderNoStore);
         }
 
 
@@ -49,6 +52,11 @@ namespace RestSYS
 
         private void btnTableInterface_Click(object sender, EventArgs e)
         {
+            //clear all the static variable in the order class
+            Orders.orderItems.Clear();
+            totalPrice = 0;
+            totalQty = 0;
+
             menuButton.Clear();
             this.Close();
             frmTableInterface frmTableInterface = new frmTableInterface();
@@ -120,30 +128,91 @@ namespace RestSYS
         private void btnDeleteFoodRow_Click(object sender, EventArgs e)
         {   
             int rowToDelete = grdOrder.CurrentCell.RowIndex;
+            Boolean isEmpty = false;
+            //check if the selected row is empty
+            for(int i = 0; i < grdOrder.Columns.Count; i++)
+            {
+                if(grdOrder.Rows[rowToDelete].Cells[i].Value == null)
+                {
+                    isEmpty = true;
+                    break;
+                }
+                else
+                {
+                    return;
+                }
+            }
 
-            //recalculate the total cost of the table
-            String valueToDeductAsString = grdOrder.Rows[rowToDelete].Cells[3].Value.ToString();
-            double.TryParse(valueToDeductAsString,out valuetoDeduct);
-            totalPrice -= valuetoDeduct;
+           if (!isEmpty)
+            {
+                //remove the selected fooditem from 
 
-            //recalculate the total food item quantity of the table
-            String qtyToDeductAsString = grdOrder.Rows[rowToDelete].Cells[1].Value.ToString();
-            int.TryParse(qtyToDeductAsString, out qtyToDeduct);
-            totalQty -= qtyToDeduct;
+                //recalculate the total cost of the table
+                String valueToDeductAsString = grdOrder.Rows[rowToDelete].Cells[3].Value.ToString();
+                decimal.TryParse(valueToDeductAsString, out valuetoDeduct);
+                totalPrice -= valuetoDeduct;
 
-            //display updated row
-            grdOrder.Rows[0].Cells[1].Value = totalQty;
-            grdOrder.Rows[0].Cells[3].Value = totalPrice;
+                //recalculate the total food item quantity of the table
+                String qtyToDeductAsString = grdOrder.Rows[rowToDelete].Cells[1].Value.ToString();
+                int.TryParse(qtyToDeductAsString, out qtyToDeduct);
+                totalQty -= qtyToDeduct;
 
-            //delete selected row
-            grdOrder.Rows.RemoveAt(rowToDelete);
+                //display updated row
+                grdOrder.Rows[0].Cells[1].Value = totalQty;
+                grdOrder.Rows[0].Cells[3].Value = totalPrice;
+
+                //delete selected row
+                grdOrder.Rows.RemoveAt(rowToDelete);
+            }
+
+            else if(rowToDelete == 0)
+            {
+                MessageBox.Show("You can't remove the first row");
+            }
+            else
+            {
+                MessageBox.Show("You can't remove this empty row");
+            }
+            
         }
 
         private void btnPlaceOrder_Click(object sender, EventArgs e)
         {
-            grdOrder.Rows[0].Cells[1].Value = totalQty;
-            grdOrder.Rows[0].Cells[3].Value = totalPrice;
-            MessageBox.Show("Order placed successfully!");
+            if(Orders.orderItems.Count == 0)
+            {
+                MessageBox.Show("This table doesn't have any order yet!");
+            }
+            else
+            {
+                MessageBox.Show("totalPrice is " + totalPrice);
+                MessageBox.Show("total Qty is" + totalQty);
+                String printoutmsg = "";
+                foreach(int[] order in Orders.orderItems)
+                {
+                    for(int i = 0; i < order.Length; i++)
+                    {
+                        printoutmsg += order[i] + "\t";
+                    }
+                    printoutmsg += "\n";
+                }
+                MessageBox.Show(printoutmsg);
+                //loop through the static List orderItems in the Orders class, create an Insert SQL for OrderItems
+                for (int i = 0; i < Orders.orderItems.Count; i++)
+                {
+
+                }
+                MessageBox.Show("Order placed successfully!");
+
+                if(Table.tableList[Convert.ToInt32(lblTableNumber.Text)] == 0) //if table has no order yet
+                { 
+                    //insert sql command
+
+                }
+                else {  //table already has order
+
+                }
+            }
+            
         }
 
         private void btnPrintBill_Click(object sender, EventArgs e)
@@ -204,6 +273,16 @@ namespace RestSYS
             menuButton.Add(btnFoodItem11);
             menuButton.Add(btnFoodItem12);
             displayMenuBtn();
+            lbl_OrderNo.Text = Convert.ToString(Orders.orderNoStore);
+
+            //load all staff into the dataset and display in the combo box
+            DataSet DS = new DataSet();
+            DS = Staff.getAllStaff(DS);
+
+            for (int i = 0; i < DS.Tables["All Staff"].Rows.Count; i++)
+            {
+                cboStaffSignIn.Items.Add(DS.Tables[0].Rows[i][0].ToString().PadLeft(2, '0') + " : " + DS.Tables[0].Rows[i][1].ToString());
+            }
         }
 
         private void btnChangeMenu_Click(object sender, EventArgs e)
@@ -408,7 +487,7 @@ namespace RestSYS
 
             }
             else if(Orders.state == 1)  //order state
-            {
+            {              
                 if(Orders.menu[Orders.getCurrentPageAsInt(),buttonNum] != 0)
                 {
                     FoodItems fooditem = FoodItems.getFood(Orders.menu[Orders.getCurrentPageAsInt(), buttonNum]);
@@ -424,25 +503,48 @@ namespace RestSYS
                          Int32.TryParse(numberAsString, out number); //parse number as string to int to number
                      }
 
-                     DataGridViewRow gridRow = (DataGridViewRow)grdOrder.Rows[0].Clone();
-                     gridRow.Cells[0].Value = foodItemAsString; //Set the food name column to selected food name
-                     gridRow.Cells[1].Value = number;   //Set the number of food ordered column to number value
-                     gridRow.Cells[2].Value = fooditem.getPrice();    //Set the food price column to food unit price
-                     gridRow.Cells[3].Value = fooditem.getPrice() * number;    //Set the total price of the food
+                    //process on the orders list
+                    int[] order = new int[2];   //[foodid,quantity]
+                    order[0] = Orders.menu[Orders.getCurrentPageAsInt(), buttonNum];   //foodid
+                    order[1] = number;  //food qty
+                    Boolean existed = false;
+                    foreach(int[] orderitem in Orders.orderItems)
+                    {
+                        if (orderitem[0] == order[0])
+                        {   //if found this food already exist in the order(food id co-exist)
+                            //add the extra qty to the current qty                            
+                            orderitem[1] += number;
+                            MessageBox.Show("Food Existed!!");
+                            //working on the gridview order
+                            int storeIndex = Orders.orderItems.IndexOf(orderitem);
+                            int currentNum = Convert.ToInt32(grdOrder.Rows[storeIndex + 1].Cells[1].Value);
+                            grdOrder.Rows[storeIndex + 1].Cells[1].Value = currentNum + number;
+                            grdOrder.Rows[storeIndex + 1].Cells[3].Value = fooditem.getPrice() * Convert.ToInt32(grdOrder.Rows[storeIndex + 1].Cells[1].Value);
+                            existed = true;
+                            break;
+                        }
+                    }
 
-                     //process on the orders list
-                     int[,] order = new int[1, 2];   //[foodid,quantity]
-                     order[0, 0] = Orders.menu[Orders.getCurrentPageAsInt(), buttonNum];   //foodid
-                     order[0, 1] = number;
-                     Orders.orderItems.Add(order);
-
-                     grdOrder.Rows.Add(gridRow);
-                     grdOrder.Enabled = false;
+                    if (!existed)
+                    {
+                        MessageBox.Show("Adding new food!");
+                        Orders.orderItems.Add(order);
+                        DataGridViewRow gridRow = (DataGridViewRow)grdOrder.Rows[0].Clone();
+                        gridRow.Cells[0].Value = foodItemAsString; //Set the food name column to selected food name
+                        gridRow.Cells[1].Value = number;   //Set the number of food ordered column to number value
+                        gridRow.Cells[2].Value = fooditem.getPrice();    //Set the food price column to food unit price
+                        gridRow.Cells[3].Value = fooditem.getPrice() * number;    //Set the total price of the food
+                        grdOrder.Rows.Add(gridRow);
+                    }
+                 
+                     //grdOrder.Enabled = false;
                      grdOrder.Enabled = true;
                      numberAsString = "";
                      totalQty += number;
-                     totalPrice += 20.50 * number;
+                     totalPrice += fooditem.getPrice() * number;
                      grdOrder.Rows[0].Cells[1].Value = totalQty;
+                     grdOrder.Rows[0].Cells[3].Value = totalPrice;
+
                 }
                 else
                 {
@@ -468,5 +570,15 @@ namespace RestSYS
                 }
             }
         }
+
+        private void btnNum0_Click(object sender, EventArgs e)
+        {
+            //number 0
+            if (Orders.state == 1)
+            {
+                numberAsString += "0";
+            }
+        }
+
     }
 }

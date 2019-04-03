@@ -10,40 +10,11 @@ namespace RestSYS
 {
     class Table
     {
-        //Instance Variables
-        private int tableNum;
-        private int orderNo;
-        private int status;
+        //static variable that store all the table status 
+        public static String[] tableStatus = new string[6];
 
         //create array that store all the orderNo
         public static int[] tableList = new int[7];
-
-        public Table(int tableNum, int orderNo, int status)
-        {
-            this.tableNum = tableNum;
-            this.orderNo = orderNo;
-            this.status = status;
-        }
-
-        public bool isTableClear()
-        {
-            bool result = false;
-            if(this.status == 0)
-            {
-                result = true;
-            }
-            else if(this.status == 1)
-            {
-                result = false;
-            }
-            return result;
-        }
-
-        //setters
-        public void setTableStatus(int status)
-        {
-            this.status = status;
-        }
 
         //define a method that returns all the table in the database
         public static DataSet getAllTable(DataSet ds)

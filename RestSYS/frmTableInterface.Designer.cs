@@ -101,7 +101,7 @@
             // 
             this.lblCashRegister.AutoSize = true;
             this.lblCashRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCashRegister.Location = new System.Drawing.Point(328, 339);
+            this.lblCashRegister.Location = new System.Drawing.Point(351, 296);
             this.lblCashRegister.Name = "lblCashRegister";
             this.lblCashRegister.Padding = new System.Windows.Forms.Padding(40);
             this.lblCashRegister.Size = new System.Drawing.Size(302, 113);
