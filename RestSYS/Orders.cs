@@ -19,6 +19,7 @@ namespace RestSYS
         public static int state;    //1 = order 2 = staff 3 = changeFood
         public static int changeFoodItemId = 0;
         public static List<int[]> orderItems = new List<int[]>();
+        public static Boolean staffSignin = false;
 
         //attribute that stores temporary data
         public static int orderNoStore;
@@ -96,7 +97,7 @@ namespace RestSYS
         }
 
         //generate next orderNo
-        public static int NextOrderNo()
+        public static int nextOrderNo()
         {
             //variable to hold value to be returned
             int intNextOrderNo = 1;
@@ -119,7 +120,7 @@ namespace RestSYS
             if (!dr.IsDBNull(0))
             {
                 //intNextItemId = dr.GetInt32(0) + 1;
-                intNextOrderNo = Convert.ToInt32(dr.GetValue(0)) + 1;
+                intNextOrderNo = dr.GetInt32(0)+1;
             }
 
             //close db connection
@@ -127,6 +128,22 @@ namespace RestSYS
 
             //return next ItemId
             return intNextOrderNo;
+        }
+
+        public static void insertOrder(String sql)
+        {
+            //Connect to the database
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            //execute the command
+            OracleCommand cmd = new OracleCommand(sql, conn);
+
+            cmd.ExecuteNonQuery();
+
+            //close DBConnection
+            conn.Close();
+
         }
 
         //update a new row of order

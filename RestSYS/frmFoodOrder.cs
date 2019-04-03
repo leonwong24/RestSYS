@@ -41,7 +41,6 @@ namespace RestSYS
             grdOrder.Enabled = false;
             grdOrder.Enabled = true;
             
-            lbl_OrderNo.Text = Convert.ToString(Orders.orderNoStore);
         }
 
 
@@ -182,6 +181,11 @@ namespace RestSYS
             {
                 MessageBox.Show("This table doesn't have any order yet!");
             }
+
+            else if (!Orders.staffSignin)
+            {
+                MessageBox.Show("Staff haven't sign in");
+            }
             else
             {
                 MessageBox.Show("totalPrice is " + totalPrice);
@@ -196,17 +200,42 @@ namespace RestSYS
                     printoutmsg += "\n";
                 }
                 MessageBox.Show(printoutmsg);
-                //loop through the static List orderItems in the Orders class, create an Insert SQL for OrderItems
-                for (int i = 0; i < Orders.orderItems.Count; i++)
-                {
-
-                }
-                MessageBox.Show("Order placed successfully!");
+               
 
                 if(Table.tableList[Convert.ToInt32(lblTableNumber.Text)] == 0) //if table has no order yet
-                { 
-                    //insert sql command
+                {
+                    //insert sql command into OrderItems Table
+                    String sql = "INSERT ALL ";
+                    foreach(int[] order in Orders.orderItems)
+                    {
+                        sql += "INTO OrderItems(OrderNo,ItemId,Qty,Price) VALUES ";
+                        sql += "("+lbl_OrderNo.Text +","; //orderNo
+                        sql += order[0] +","; //itemId
+                        sql += order[1] + ","; //qty
+                        FoodItems fooditem = FoodItems.getFood(order[0]);
+                        sql += fooditem.getPrice() * order[1] +")";
 
+                    }
+                    sql += "SELECT 1 FROM DUAL";
+                    MessageBox.Show(sql);
+                    //Orders.insertOrder(sql);
+                    MessageBox.Show("Lanjiao order items inserted");
+
+                    //insert sql command into Orders Table
+                    sql = "INSERT INTO Orders (OrderNo,OrderDate,OrderTime,TableNo,Value,StaffId,Status) VALUES(";
+                    sql += lbl_OrderNo.Text.Trim() + ", "; //orderNo
+                    sql += "CURRENT_DATE,"; //current date
+                    sql += "CURRENT_TIMESTAMP,";    //current time
+                    sql += lblTableNumber.Text.Trim() + ",";   //tableNo
+                    sql += "(SELECT SUM(PRICE) FROM OrderItems WHERE OrderItems.OrderNo = " + lbl_OrderNo.Text.Trim() + "),"; //total table value
+                    sql += Convert.ToInt32(lblStaffName.Text.Substring(0,3))+","; //staff id
+                    MessageBox.Show(lblStaffName.Text.Substring(0, 3));
+                    sql += "'U')"; //status , unpaid
+
+                    MessageBox.Show(sql);
+                    Orders.insertOrder(sql);
+
+                    MessageBox.Show("Order placed successfully!");
                 }
                 else {  //table already has order
 
@@ -230,7 +259,7 @@ namespace RestSYS
 
         private void btnPayBill_Click(object sender, EventArgs e)
         {
-            if(totalQty == 0 && totalPrice == 0)
+            if(Orders.orderItems.Count == 0)
             {
                 MessageBox.Show("This table has no any order yet!");
             }
@@ -248,6 +277,7 @@ namespace RestSYS
             grdOrder.Visible = true;
             //set state to order
             Orders.state = 1;
+            Orders.staffSignin = true;
         }
 
         private void btnPromptSignIn_Click(object sender, EventArgs e)
@@ -260,6 +290,7 @@ namespace RestSYS
 
         private void frmFoodOrder_Load(object sender, EventArgs e)
         {
+            MessageBox.Show(Convert.ToString(Orders.nextOrderNo()));
             menuButton.Add(btnFoodItem1);
             menuButton.Add(btnFoodItem2);
             menuButton.Add(btnFoodItem3);
@@ -273,13 +304,12 @@ namespace RestSYS
             menuButton.Add(btnFoodItem11);
             menuButton.Add(btnFoodItem12);
             displayMenuBtn();
-            lbl_OrderNo.Text = Convert.ToString(Orders.orderNoStore);
 
-            //load all staff into the dataset and display in the combo box
+            //load all available staff into the dataset and display in the combo box
             DataSet DS = new DataSet();
-            DS = Staff.getAllStaff(DS);
+            DS = Staff.getAllWorkingStaff(DS);
 
-            for (int i = 0; i < DS.Tables["All Staff"].Rows.Count; i++)
+            for (int i = 0; i < DS.Tables["All Working Staff"].Rows.Count; i++)
             {
                 cboStaffSignIn.Items.Add(DS.Tables[0].Rows[i][0].ToString().PadLeft(2, '0') + " : " + DS.Tables[0].Rows[i][1].ToString());
             }

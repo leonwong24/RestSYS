@@ -57,7 +57,7 @@ namespace RestSYS
                     tableButtons[tableIndex - 1].Text += ("\n" + ds.Tables["Table Order"].Rows[0][4]);
 
                     //set the orderno to the corresponding orderno in the tableList array
-                    Table.tableList[tableIndex] = Convert.ToInt32(ds.Tables["Table Order"].Rows[0][1]);
+                    Table.tableList[tableIndex] = Convert.ToInt32(ds.Tables["Table Order"].Rows[0][0]);
                 }
                ds.Clear();
 
@@ -113,23 +113,27 @@ namespace RestSYS
                     Orders.orderItems.Add(order);
                 }
                 //Orders.valueStore = Convert.ToDecimal(Orders.foodOrder.Tables[0].Rows[0]["Value"]);
-                Orders.orderNoStore = orderNo;
+                frmFoodOrder.lbl_OrderNo.Text = Convert.ToString(orderNo);
             }
             else
             {
-                Orders.orderNoStore = Orders.NextOrderNo();
+                frmFoodOrder.lbl_OrderNo.Text = Convert.ToString(Orders.nextOrderNo());
+
             }
 
             //display all the order on the gridview 
             for(int i = 0; i < Orders.orderItems.Count; i++)
             {
-
+                //DataGridViewRow gridViewRow = (DataGridViewRow)frmFoodOrder.grdOrder.Rows[0].Clone();
+                //gridViewRow.Cells[0].Value = "Total";
+                //gridViewRow.Cells[1].Value = totalQty;
+                //gridViewRow.Cells[3].Value = totalPrice;
+                //grdOrder.Rows.Add(gridViewRow);
             }
             frmFoodOrder.lblTableNumber.Text = Convert.ToString(tableNo);
             Orders.setCurrentPage("S");
             Orders.state = 1;
-            
-            
+   
             frmFoodOrder.Show();
 
             //close the table interface

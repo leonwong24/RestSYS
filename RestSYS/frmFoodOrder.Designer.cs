@@ -78,7 +78,6 @@
             this.cboSelectFdItm = new System.Windows.Forms.ComboBox();
             this.grpChgFdMnu = new System.Windows.Forms.GroupBox();
             this.lblChgFdItm = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.lbl_OrderNo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grdOrder)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -412,7 +411,7 @@
             this.grpStaffSign.Controls.Add(this.btnSignIn);
             this.grpStaffSign.Controls.Add(this.lblStaffSignInName);
             this.grpStaffSign.Controls.Add(this.cboStaffSignIn);
-            this.grpStaffSign.Location = new System.Drawing.Point(4, 29);
+            this.grpStaffSign.Location = new System.Drawing.Point(0, 88);
             this.grpStaffSign.Name = "grpStaffSign";
             this.grpStaffSign.Size = new System.Drawing.Size(342, 254);
             this.grpStaffSign.TabIndex = 29;
@@ -571,15 +570,6 @@
             this.lblChgFdItm.TabIndex = 41;
             this.lblChgFdItm.Text = "Select Food Item";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 42;
-            this.label1.Text = "label1";
-            // 
             // lbl_OrderNo
             // 
             this.lbl_OrderNo.AutoSize = true;
@@ -595,7 +585,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1260, 682);
             this.Controls.Add(this.lbl_OrderNo);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.grpChgFdMnu);
             this.Controls.Add(this.btnChangeMenu);
             this.Controls.Add(this.btnFoodItem12);
@@ -673,7 +662,7 @@
         private System.Windows.Forms.Button btnNum7;
         private System.Windows.Forms.Button btnNum8;
         private System.Windows.Forms.Button btnNum9;
-        private System.Windows.Forms.DataGridView grdOrder;
+        public System.Windows.Forms.DataGridView grdOrder;
         private System.Windows.Forms.DataGridViewTextBoxColumn Item;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
@@ -704,7 +693,6 @@
         private System.Windows.Forms.ComboBox cboSelectFdItm;
         private System.Windows.Forms.GroupBox grpChgFdMnu;
         private System.Windows.Forms.Label lblChgFdItm;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lbl_OrderNo;
+        public System.Windows.Forms.Label lbl_OrderNo;
     }
 }

@@ -78,6 +78,26 @@ namespace RestSYS
             return DS;
         }
 
+        //define a static method to get all available staff
+        public static DataSet getAllWorkingStaff(DataSet DS)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            //connection name conn.open()
+            String strSQL = "SELECT * FROM STAFF WHERE STATUS = 'W' ";
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            //cmd.commandtype = CommandType.Text
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            da.Fill(DS, "All Working Staff");
+
+            conn.Close();
+
+            return DS;
+
+        }
+
         public static DataSet getSelectedStaff(DataSet DS, int staffId)
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
