@@ -13,7 +13,7 @@ namespace RestSYS
     {
 
         //static attribute
-        public static DataSet foodOrder;
+        public static DataSet foodOrder = new DataSet();
         public static int[,] menu = new int[4, 13];
         private static string currentPage = "S";
         public static int state;    //1 = order 2 = staff 3 = changeFood
@@ -57,7 +57,7 @@ namespace RestSYS
 
             OracleDataAdapter da = new OracleDataAdapter(cmd);
 
-            da.Fill(ds, "FoodOrder");
+            da.Fill(ds,"Selected Food Order");
 
             conn.Close();
 

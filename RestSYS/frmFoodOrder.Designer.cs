@@ -411,7 +411,7 @@
             this.grpStaffSign.Controls.Add(this.btnSignIn);
             this.grpStaffSign.Controls.Add(this.lblStaffSignInName);
             this.grpStaffSign.Controls.Add(this.cboStaffSignIn);
-            this.grpStaffSign.Location = new System.Drawing.Point(0, 88);
+            this.grpStaffSign.Location = new System.Drawing.Point(4, 25);
             this.grpStaffSign.Name = "grpStaffSign";
             this.grpStaffSign.Size = new System.Drawing.Size(342, 254);
             this.grpStaffSign.TabIndex = 29;

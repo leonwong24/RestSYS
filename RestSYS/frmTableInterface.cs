@@ -122,18 +122,24 @@ namespace RestSYS
             }
 
             //display all the order on the gridview 
-            for(int i = 0; i < Orders.orderItems.Count; i++)
+            foreach(int[] orderitem in Orders.orderItems)
             {
-                //DataGridViewRow gridViewRow = (DataGridViewRow)frmFoodOrder.grdOrder.Rows[0].Clone();
-                //gridViewRow.Cells[0].Value = "Total";
-                //gridViewRow.Cells[1].Value = totalQty;
-                //gridViewRow.Cells[3].Value = totalPrice;
-                //grdOrder.Rows.Add(gridViewRow);
+                DataGridViewRow gridViewRow = (DataGridViewRow)frmFoodOrder.grdOrder.Rows[0].Clone();
+                FoodItems fooditem = FoodItems.getFood(orderitem[0]);
+                gridViewRow.Cells[0].Value = fooditem.getItemName() ; //Set the food name column to selected food name
+                gridViewRow.Cells[1].Value = orderitem[1];   //Set the number of food ordered column to number value
+                gridViewRow.Cells[2].Value = fooditem.getPrice();    //Set the food price column to food unit price
+                gridViewRow.Cells[3].Value = fooditem.getPrice() * orderitem[1];    //Set the total price of the food
+                frmFoodOrder.grdOrder.Rows.Add(gridViewRow);
+                frmFoodOrder.totalPrice += Convert.ToDecimal(gridViewRow.Cells[3].Value);
+                frmFoodOrder.totalQty += Convert.ToInt32(gridViewRow.Cells[1].Value);
             }
             frmFoodOrder.lblTableNumber.Text = Convert.ToString(tableNo);
+            frmFoodOrder.grdOrder.Rows[0].Cells[1].Value = frmFoodOrder.totalQty;
+            frmFoodOrder.grdOrder.Rows[0].Cells[3].Value = frmFoodOrder.totalPrice;
             Orders.setCurrentPage("S");
             Orders.state = 1;
-   
+            
             frmFoodOrder.Show();
 
             //close the table interface

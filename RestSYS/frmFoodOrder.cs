@@ -16,9 +16,9 @@ namespace RestSYS
         private static String foodItemAsString;
         //int row = -1; //order data grid row
         private static int number;
-        private static int totalQty = 0;
+        public static int totalQty;
         private int qtyToDeduct;
-        private static decimal totalPrice = 0;
+        public static decimal totalPrice;
         decimal valuetoDeduct;
         public static List<Button> menuButton = new List<Button> ();
         private Orders order = new Orders();
@@ -236,6 +236,7 @@ namespace RestSYS
                     Orders.insertOrder(sql);
 
                     MessageBox.Show("Order placed successfully!");
+                    Table.tableList[Convert.ToInt32(lblTableNumber.Text.Trim())] = Convert.ToInt32(lbl_OrderNo.Text.Trim());
                 }
                 else {  //table already has order
 
