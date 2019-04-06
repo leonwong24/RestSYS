@@ -17,11 +17,11 @@ namespace RestSYS
         //int row = -1; //order data grid row
         private static int number;
         public static int totalQty;
-        private int qtyToDeduct;
         public static decimal totalPrice;
-        decimal valuetoDeduct;
         public static List<Button> menuButton = new List<Button> ();
         private Orders order = new Orders();
+
+        internal Orders Order { get => order; set => order = value; }
 
         public frmFoodOrder()
         {
@@ -127,41 +127,39 @@ namespace RestSYS
         private void btnDeleteFoodRow_Click(object sender, EventArgs e)
         {   
             int rowToDelete = grdOrder.CurrentCell.RowIndex;
+            MessageBox.Show(Convert.ToString(rowToDelete));
             Boolean isEmpty = false;
             //check if the selected row is empty
             for(int i = 0; i < grdOrder.Columns.Count; i++)
             {
-                if(grdOrder.Rows[rowToDelete].Cells[i].Value == null)
+                if(Convert.ToString(grdOrder.Rows[rowToDelete].Cells[i].Value).Equals(""))
                 {
                     isEmpty = true;
                     break;
-                }
-                else
-                {
-                    return;
                 }
             }
 
            if (!isEmpty)
             {
-                //remove the selected fooditem from 
+                MessageBox.Show("HALO");
+                //remove the selected fooditem from the gridview
 
                 //recalculate the total cost of the table
-                String valueToDeductAsString = grdOrder.Rows[rowToDelete].Cells[3].Value.ToString();
-                decimal.TryParse(valueToDeductAsString, out valuetoDeduct);
-                totalPrice -= valuetoDeduct;
+                totalPrice -= Convert.ToDecimal(grdOrder.Rows[rowToDelete].Cells[3].Value);
 
                 //recalculate the total food item quantity of the table
-                String qtyToDeductAsString = grdOrder.Rows[rowToDelete].Cells[1].Value.ToString();
-                int.TryParse(qtyToDeductAsString, out qtyToDeduct);
-                totalQty -= qtyToDeduct;
+                totalQty -= Convert.ToInt32(grdOrder.Rows[rowToDelete].Cells[1].Value);
 
                 //display updated row
                 grdOrder.Rows[0].Cells[1].Value = totalQty;
                 grdOrder.Rows[0].Cells[3].Value = totalPrice;
+                order.Value = totalPrice;
 
                 //delete selected row
                 grdOrder.Rows.RemoveAt(rowToDelete);
+
+                //remove the food from the Orders.orderItems
+                Orders.orderItems.RemoveAt(rowToDelete - 1);
             }
 
             else if(rowToDelete == 0)
@@ -182,7 +180,7 @@ namespace RestSYS
                 MessageBox.Show("This table doesn't have any order yet!");
             }
 
-            else if (!Orders.staffSignin)
+            else if (order.StaffId == 0)
             {
                 MessageBox.Show("Staff haven't sign in");
             }
@@ -204,6 +202,7 @@ namespace RestSYS
 
                 if(Table.tableList[Convert.ToInt32(lblTableNumber.Text)] == 0) //if table has no order yet
                 {
+                    MessageBox.Show("new order!");
                     //insert sql command into OrderItems Table
                     String sql = "INSERT ALL ";
                     foreach(int[] order in Orders.orderItems)
@@ -218,28 +217,42 @@ namespace RestSYS
                     }
                     sql += "SELECT 1 FROM DUAL";
                     MessageBox.Show(sql);
-                    //Orders.insertOrder(sql);
-                    MessageBox.Show("Lanjiao order items inserted");
+                    Orders.runSQL(sql);
 
                     //insert sql command into Orders Table
-                    sql = "INSERT INTO Orders (OrderNo,OrderDate,OrderTime,TableNo,Value,StaffId,Status) VALUES(";
-                    sql += lbl_OrderNo.Text.Trim() + ", "; //orderNo
-                    sql += "CURRENT_DATE,"; //current date
-                    sql += "CURRENT_TIMESTAMP,";    //current time
-                    sql += lblTableNumber.Text.Trim() + ",";   //tableNo
-                    sql += "(SELECT SUM(PRICE) FROM OrderItems WHERE OrderItems.OrderNo = " + lbl_OrderNo.Text.Trim() + "),"; //total table value
-                    sql += Convert.ToInt32(lblStaffName.Text.Substring(0,3))+","; //staff id
-                    MessageBox.Show(lblStaffName.Text.Substring(0, 3));
-                    sql += "'U')"; //status , unpaid
-
-                    MessageBox.Show(sql);
-                    Orders.insertOrder(sql);
+                    Orders.insertOrders(order);
 
                     MessageBox.Show("Order placed successfully!");
                     Table.tableList[Convert.ToInt32(lblTableNumber.Text.Trim())] = Convert.ToInt32(lbl_OrderNo.Text.Trim());
                 }
                 else {  //table already has order
+                    MessageBox.Show("Table already has order");
+                    //delete all the order with its orderNo and reload with the new one
+                    String deleteSql = "DELETE FROM OrderItems WHERE OrderNo = " + Convert.ToString(lbl_OrderNo.Text.Trim());
+                    Orders.runSQL(deleteSql);
+                    MessageBox.Show("Orders Item deleted");
+                    //insert sql command into OrderItems Table
+                    //Orders orderTable = new Orders(Convert.ToInt32(lbl_OrderNo.Text.Trim()), Convert.ToInt32(lblTableNumber.Text.Trim()), totalPrice, Convert.ToInt32(lblStaffName.Text.Trim().Substring(0,3)), "U");
+                    String sql = "INSERT ALL ";
+                    foreach (int[] order in Orders.orderItems)
+                    {
+                        sql += "INTO OrderItems(OrderNo,ItemId,Qty,Price) VALUES ";
+                        sql += "(" + lbl_OrderNo.Text + ","; //orderNo
+                        sql += order[0] + ","; //itemId
+                        sql += order[1] + ","; //qty
+                        FoodItems fooditem = FoodItems.getFood(order[0]);
+                        sql += fooditem.getPrice() * order[1] + ")";
 
+                    }
+                    sql += "SELECT 1 FROM DUAL";
+                    MessageBox.Show(sql);
+                    //Insert into Orders Item Table
+                    Orders.runSQL(sql);
+
+                    //update Orders Table
+                    order.Value = totalPrice;
+                    Orders.updateOrder(Order);
+                    MessageBox.Show("update order");
                 }
             }
             
@@ -254,8 +267,7 @@ namespace RestSYS
             else
             {
                 MessageBox.Show("Bill printed!");
-            }
-            
+            }   
         }
 
         private void btnPayBill_Click(object sender, EventArgs e)
@@ -266,6 +278,10 @@ namespace RestSYS
             }
             else
             {
+                //set the order status = 'P'
+                Orders.payOrder(Convert.ToInt32(lbl_OrderNo.Text.Trim()));
+
+                Table.tableList[Convert.ToInt32(lbl_OrderNo.Text.Trim())] = 0;
                 MessageBox.Show("Table pay.");
             }
             
@@ -274,11 +290,11 @@ namespace RestSYS
         private void btnSignIn_Click(object sender, EventArgs e)
         {
             lblStaffName.Text = cboStaffSignIn.Text;
+            order.StaffId = Convert.ToInt32(lblStaffName.Text.Trim().Substring(0, 2));
             grpStaffSign.Hide();
             grdOrder.Visible = true;
             //set state to order
             Orders.state = 1;
-            Orders.staffSignin = true;
         }
 
         private void btnPromptSignIn_Click(object sender, EventArgs e)
@@ -575,7 +591,6 @@ namespace RestSYS
                      totalPrice += fooditem.getPrice() * number;
                      grdOrder.Rows[0].Cells[1].Value = totalQty;
                      grdOrder.Rows[0].Cells[3].Value = totalPrice;
-
                 }
                 else
                 {

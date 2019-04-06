@@ -114,11 +114,13 @@ namespace RestSYS
                 }
                 //Orders.valueStore = Convert.ToDecimal(Orders.foodOrder.Tables[0].Rows[0]["Value"]);
                 frmFoodOrder.lbl_OrderNo.Text = Convert.ToString(orderNo);
+                frmFoodOrder.Order.OrderNo = orderNo;
+
             }
             else
             {
                 frmFoodOrder.lbl_OrderNo.Text = Convert.ToString(Orders.nextOrderNo());
-
+                frmFoodOrder.Order.OrderNo = Orders.nextOrderNo();
             }
 
             //display all the order on the gridview 
@@ -135,6 +137,7 @@ namespace RestSYS
                 frmFoodOrder.totalQty += Convert.ToInt32(gridViewRow.Cells[1].Value);
             }
             frmFoodOrder.lblTableNumber.Text = Convert.ToString(tableNo);
+            frmFoodOrder.Order.TableNo = tableNo;
             frmFoodOrder.grdOrder.Rows[0].Cells[1].Value = frmFoodOrder.totalQty;
             frmFoodOrder.grdOrder.Rows[0].Cells[3].Value = frmFoodOrder.totalPrice;
             Orders.setCurrentPage("S");
