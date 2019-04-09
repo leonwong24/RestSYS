@@ -39,7 +39,7 @@ namespace RestSYS
             else
             {
                 //Save staff details into staff
-                Staff newStaff = new Staff(Convert.ToInt32(txtStaffId.Text), txtStaffName.Text,cboStaffStatus.Text.Substring(0,1));
+                Staff newStaff = new Staff(Convert.ToInt32(txtStaffId.Text), txtStaffName.Text.Trim(),cboStaffStatus.Text.Trim().Substring(0,1));
 
                 //Execute Insert command
                 newStaff.addNewStaff();

@@ -116,6 +116,7 @@ namespace RestSYS
                 frmFoodOrder.lbl_OrderNo.Text = Convert.ToString(orderNo);
                 frmFoodOrder.Order.OrderNo = orderNo;
 
+                Orders.foodOrder.Clear();
             }
             else
             {
@@ -149,6 +150,12 @@ namespace RestSYS
             this.Close();
         }
 
-       
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+            frmHomeInterface frmHome = new frmHomeInterface();
+            frmHome.Show();
+
+            this.Close();
+        }
     }
 }

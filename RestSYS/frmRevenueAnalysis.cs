@@ -12,14 +12,12 @@ namespace RestSYS
 {
     public partial class frmRevenueAnalysis : Form
     {
+        private String yearSelected;
+        private String monthSelected;
+        private String weekSelected;
         public frmRevenueAnalysis()
         {
             InitializeComponent();
-            this.grdRevnAnalys.Rows.Add("2018", "1", "1", "800.30");
-            this.grdRevnAnalys.Rows.Add("2018", "1", "2", "500.10");
-            this.grdRevnAnalys.Rows.Add("2018", "1", "3", "1300.40");
-            this.grdRevnAnalys.Rows.Add("2018", "1", "4", "1500.20");
-
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
@@ -89,6 +87,111 @@ namespace RestSYS
             this.Hide();
             frmRemoveStaff frmRemoveStaff = new frmRemoveStaff();
             frmRemoveStaff.Show();
+        }
+
+        private void frmRevenueAnalysis_Load(object sender, EventArgs e)
+        {
+            //load the year combo box with the year
+            DataSet ds = new DataSet();
+            ds = Revenue.loadYear(ds);
+
+            //load year
+            for (int i = 0; i < ds.Tables["year"].Rows.Count; i++)
+            {
+                cboYear.Items.Add(ds.Tables[0].Rows[i][0].ToString());
+            }
+        }
+
+        private void cboYear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //if resetting combo, ignore...
+            if (cboYear.SelectedIndex == -1)
+            {
+                return;
+            }
+            else
+            {
+                //reset the grdview
+                grdRevnAnalys.Rows.Clear();
+
+                //reset other combo
+                cboMonth.Items.Clear();
+                cboWeek.Items.Clear();
+
+                yearSelected = cboYear.Text.Trim();
+                //display or reload the month combo box
+                DataSet ds = new DataSet();
+                ds = Revenue.loadMonth(ds, yearSelected);
+                //load month combo box
+                for (int i = 0; i < ds.Tables["month"].Rows.Count; i++)
+                {
+                    cboMonth.Items.Add(ds.Tables[0].Rows[i][0].ToString());
+                }
+
+                //display on the gridbox
+                ds = Revenue.displayAnnualRecord(ds);
+                for(int i = 0; i < ds.Tables["annual"].Rows.Count; i++)
+                {
+                    DataGridViewRow row = (DataGridViewRow)grdRevnAnalys.Rows[0].Clone();
+                    row.Cells[0].Value = ds.Tables["annual"].Rows[i][0].ToString();
+                    row.Cells[1].Value = "";
+                    row.Cells[2].Value = "";
+                    row.Cells[3].Value = ds.Tables["annual"].Rows[i][1].ToString();
+                    grdRevnAnalys.Rows.Add(row);
+                }
+            }
+        }
+
+        private void cboMonth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //reset the grdView
+            grdRevnAnalys.Rows.Clear();
+
+            //reset the comboBox
+            cboWeek.Items.Clear();
+
+            monthSelected = cboMonth.Text.Trim();
+            //display or reload the week combo box
+            DataSet ds = new DataSet();
+            ds = Revenue.loadWeek(ds, yearSelected, monthSelected);
+            //load week combo box
+            for(int i = 0; i < ds.Tables["week"].Rows.Count; i++)
+            {
+                cboWeek.Items.Add(ds.Tables[0].Rows[i][0].ToString());
+            }
+
+            //display on the gridbox
+            ds = Revenue.displayMonthlyRecord(ds,yearSelected);
+            for (int i = 0; i < ds.Tables["monthly"].Rows.Count; i++)
+            {
+                DataGridViewRow row = (DataGridViewRow)grdRevnAnalys.Rows[0].Clone();
+                row.Cells[0].Value = yearSelected;
+                row.Cells[1].Value = ds.Tables["monthly"].Rows[i][0].ToString();
+                row.Cells[2].Value = "";
+                row.Cells[3].Value = ds.Tables["monthly"].Rows[i][1].ToString();
+                grdRevnAnalys.Rows.Add(row);
+            }
+        }
+
+        private void cboWeek_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //reset the grdView
+            grdRevnAnalys.Rows.Clear();
+
+            weekSelected = cboMonth.Text.Trim();
+
+            //display on the gridbox
+            DataSet ds = new DataSet();
+            ds = Revenue.displayWeeklyRecord(ds, yearSelected,monthSelected);
+            for (int i = 0; i < ds.Tables["weekly"].Rows.Count; i++)
+            {
+                DataGridViewRow row = (DataGridViewRow)grdRevnAnalys.Rows[0].Clone();
+                row.Cells[0].Value = yearSelected;
+                row.Cells[1].Value = monthSelected;
+                row.Cells[2].Value = ds.Tables["weekly"].Rows[i][0].ToString();
+                row.Cells[3].Value = ds.Tables["weekly"].Rows[i][1].ToString();
+                grdRevnAnalys.Rows.Add(row);
+            }
         }
     }
 }

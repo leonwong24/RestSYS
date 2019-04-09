@@ -35,6 +35,7 @@
             this.btnTable5 = new System.Windows.Forms.Button();
             this.btnTable6 = new System.Windows.Forms.Button();
             this.lblCashRegister = new System.Windows.Forms.Label();
+            this.btn_back = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnTable1
@@ -108,11 +109,22 @@
             this.lblCashRegister.TabIndex = 6;
             this.lblCashRegister.Text = "Cash Register ";
             // 
+            // btn_back
+            // 
+            this.btn_back.Location = new System.Drawing.Point(-1, 0);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(75, 23);
+            this.btn_back.TabIndex = 7;
+            this.btn_back.Text = "Back";
+            this.btn_back.UseVisualStyleBackColor = true;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
+            // 
             // frmTableInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_back);
             this.Controls.Add(this.lblCashRegister);
             this.Controls.Add(this.btnTable6);
             this.Controls.Add(this.btnTable5);
@@ -137,5 +149,6 @@
         private System.Windows.Forms.Button btnTable5;
         private System.Windows.Forms.Button btnTable6;
         private System.Windows.Forms.Label lblCashRegister;
+        private System.Windows.Forms.Button btn_back;
     }
 }

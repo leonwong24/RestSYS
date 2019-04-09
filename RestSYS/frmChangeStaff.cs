@@ -30,7 +30,7 @@ namespace RestSYS
                 //MessageBox.Show(cboStaffName.Text.Substring(0, 2));
                 ds = Staff.getSelectedStaff(ds, Convert.ToInt32(cboStaffName.Text.Substring(0,2)));
                 //set the staff name text box from the combo box 
-                txtStaffName.Text = ds.Tables["Selected Staff"].Rows[0][1].ToString();
+                txtStaffName.Text = ds.Tables["Selected Staff"].Rows[0][1].ToString().Trim();
 
                 //load the appropriate staff status .
                 if(ds.Tables["Selected Staff"].Rows[0][2].ToString() == "W")
@@ -69,7 +69,7 @@ namespace RestSYS
                 MessageBox.Show("Staff details changed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 //Save staff details into new staff
-                Staff changedStaff = new Staff(Convert.ToInt32(cboStaffName.Text.Substring(0,2)),txtStaffName.Text,cboStaffName.Text.Substring(0,1));
+                Staff changedStaff = new Staff(Convert.ToInt32(cboStaffName.Text.Trim().Substring(0,2)),txtStaffName.Text,cboStaffStatus.Text.Trim().Substring(0,1));
 
                 //Update staff details;
                 changedStaff.updateStaff();
@@ -159,7 +159,7 @@ namespace RestSYS
         }
 
         //Define a method that will extract the staff details and store inside the staff
-        private void cboAddFoodItemType_SelectedIndexChange(object sender, EventArgs e)
+        private void cboStaffName_SelectedIndexChange(object sender, EventArgs e)
         {
             //if resetting combo, ignore...
             if (cboStaffName.SelectedIndex == -1)
@@ -169,10 +169,10 @@ namespace RestSYS
 
             //find food type details , create a new fooditems and store the food type details into food item
             Staff staff = new Staff();
-            staff.setStaffId(Convert.ToInt32(cboStaffName.Text.Substring(0, 2)));
+            staff.setStaffId(Convert.ToInt32(cboStaffName.Text.Trim().Substring(0, 2)));
            // MessageBox.Show(cboStaffName.Text.Substring(0, 2));
 
-            //Validation to prevent the food type is empty
+            //Validation to prevent the staffId is empty
             if (staff.getStaffId() == -1)
             {
                 MessageBox.Show("No staff selected", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);

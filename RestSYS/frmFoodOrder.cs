@@ -53,6 +53,7 @@ namespace RestSYS
         {
             //clear all the static variable in the order class
             Orders.orderItems.Clear();
+            grdOrder.Rows.Clear();
             totalPrice = 0;
             totalQty = 0;
 
@@ -119,9 +120,20 @@ namespace RestSYS
 
         private void backToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //clear all the static variable in the order class
+            Orders.orderItems.Clear();
+            grdOrder.Rows.Clear();
+
+            //reset the totalPrice and totalQty
+            totalPrice = 0;
+            totalQty = 0;
+
+            //remove the button from the list
+            menuButton.Clear();
             this.Close();
-            frmHomeInterface frmHomeInterface = new frmHomeInterface();
-            frmHomeInterface.Show();
+            frmTableInterface frmTableInterface = new frmTableInterface();
+            frmTableInterface.Show();
+
         }
 
         private void btnDeleteFoodRow_Click(object sender, EventArgs e)
@@ -281,7 +293,7 @@ namespace RestSYS
                 //set the order status = 'P'
                 Orders.payOrder(Convert.ToInt32(lbl_OrderNo.Text.Trim()));
 
-                Table.tableList[Convert.ToInt32(lbl_OrderNo.Text.Trim())] = 0;
+                Table.tableList[Convert.ToInt32(lblTableNumber.Text.Trim())] = 0;
                 MessageBox.Show("Table pay.");
             }
             
@@ -514,7 +526,7 @@ namespace RestSYS
 
         private void btnFoodItem5_Click(object sender, EventArgs e)
         {
-
+            clickOnBtn(5, menuButton[4], grdOrder);
         }
 
         private static void clickOnBtn(int buttonNum,Button btn,DataGridView grdOrder)
@@ -626,5 +638,39 @@ namespace RestSYS
             }
         }
 
+        private void btnFoodItem6_Click(object sender, EventArgs e)
+        {
+            clickOnBtn(6, menuButton[5], grdOrder);
+        }
+
+        private void btnFoodItem7_Click(object sender, EventArgs e)
+        {
+            clickOnBtn(7, menuButton[6], grdOrder);
+        }
+
+        private void btnFoodItem8_Click(object sender, EventArgs e)
+        {
+            clickOnBtn(8, menuButton[7], grdOrder);
+        }
+
+        private void btnFoodItem9_Click(object sender, EventArgs e)
+        {
+            clickOnBtn(9, menuButton[8], grdOrder);
+        }
+
+        private void btnFoodItem10_Click(object sender, EventArgs e)
+        {
+            clickOnBtn(10, menuButton[9], grdOrder);
+        }
+
+        private void btnFoodItem11_Click(object sender, EventArgs e)
+        {
+            clickOnBtn(11, menuButton[10], grdOrder);
+        }
+
+        private void btnFoodItem12_Click(object sender, EventArgs e)
+        {
+            clickOnBtn(12, menuButton[11], grdOrder);
+        }
     }
 }

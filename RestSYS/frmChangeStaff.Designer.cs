@@ -83,7 +83,7 @@
             this.cboStaffName.Name = "cboStaffName";
             this.cboStaffName.Size = new System.Drawing.Size(172, 21);
             this.cboStaffName.TabIndex = 0;
-            this.cboStaffName.SelectedIndexChanged += new System.EventHandler(this.cboAddFoodItemType_SelectedIndexChange);
+            this.cboStaffName.SelectedIndexChanged += new System.EventHandler(this.cboStaffName_SelectedIndexChange);
             // 
             // grpChangeStaff
             // 
@@ -92,7 +92,7 @@
             this.grpChangeStaff.Controls.Add(this.btnChange);
             this.grpChangeStaff.Controls.Add(this.txtStaffName);
             this.grpChangeStaff.Controls.Add(this.lblStaffName);
-            this.grpChangeStaff.Location = new System.Drawing.Point(12, 56);
+            this.grpChangeStaff.Location = new System.Drawing.Point(35, 43);
             this.grpChangeStaff.Name = "grpChangeStaff";
             this.grpChangeStaff.Size = new System.Drawing.Size(482, 306);
             this.grpChangeStaff.TabIndex = 1;

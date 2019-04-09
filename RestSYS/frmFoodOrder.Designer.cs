@@ -475,6 +475,7 @@
             this.btnFoodItem6.TabIndex = 32;
             this.btnFoodItem6.Text = "Button 6";
             this.btnFoodItem6.UseVisualStyleBackColor = true;
+            this.btnFoodItem6.Click += new System.EventHandler(this.btnFoodItem6_Click);
             // 
             // btnFoodItem7
             // 
@@ -484,6 +485,7 @@
             this.btnFoodItem7.TabIndex = 33;
             this.btnFoodItem7.Text = "Button 7";
             this.btnFoodItem7.UseVisualStyleBackColor = true;
+            this.btnFoodItem7.Click += new System.EventHandler(this.btnFoodItem7_Click);
             // 
             // btnFoodItem8
             // 
@@ -493,6 +495,7 @@
             this.btnFoodItem8.TabIndex = 34;
             this.btnFoodItem8.Text = "Button 8";
             this.btnFoodItem8.UseVisualStyleBackColor = true;
+            this.btnFoodItem8.Click += new System.EventHandler(this.btnFoodItem8_Click);
             // 
             // btnFoodItem9
             // 
@@ -502,6 +505,7 @@
             this.btnFoodItem9.TabIndex = 35;
             this.btnFoodItem9.Text = "Button 9";
             this.btnFoodItem9.UseVisualStyleBackColor = true;
+            this.btnFoodItem9.Click += new System.EventHandler(this.btnFoodItem9_Click);
             // 
             // btnFoodItem10
             // 
@@ -511,6 +515,7 @@
             this.btnFoodItem10.TabIndex = 36;
             this.btnFoodItem10.Text = "Button 10";
             this.btnFoodItem10.UseVisualStyleBackColor = true;
+            this.btnFoodItem10.Click += new System.EventHandler(this.btnFoodItem10_Click);
             // 
             // btnFoodItem11
             // 
@@ -520,6 +525,7 @@
             this.btnFoodItem11.TabIndex = 37;
             this.btnFoodItem11.Text = "Button 11";
             this.btnFoodItem11.UseVisualStyleBackColor = true;
+            this.btnFoodItem11.Click += new System.EventHandler(this.btnFoodItem11_Click);
             // 
             // btnFoodItem12
             // 
@@ -529,6 +535,7 @@
             this.btnFoodItem12.TabIndex = 38;
             this.btnFoodItem12.Text = "Button 12";
             this.btnFoodItem12.UseVisualStyleBackColor = true;
+            this.btnFoodItem12.Click += new System.EventHandler(this.btnFoodItem12_Click);
             // 
             // btnChangeMenu
             // 
