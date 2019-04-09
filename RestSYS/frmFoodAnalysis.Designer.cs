@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.grdFdAnlys = new System.Windows.Forms.DataGridView();
+            this.Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Month = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FoodType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FoodItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoldQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpFilter = new System.Windows.Forms.GroupBox();
             this.chkStarter = new System.Windows.Forms.CheckBox();
             this.chkBeverage = new System.Windows.Forms.CheckBox();
@@ -50,11 +55,6 @@
             this.addStaffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItmModifyStaff = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItmRemoveStaff = new System.Windows.Forms.ToolStripMenuItem();
-            this.Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Month = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FoodType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FoodItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoldQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdFdAnlys)).BeginInit();
             this.grpFilter.SuspendLayout();
             this.mnuFdAnlys.SuspendLayout();
@@ -73,6 +73,37 @@
             this.grdFdAnlys.Name = "grdFdAnlys";
             this.grdFdAnlys.Size = new System.Drawing.Size(626, 326);
             this.grdFdAnlys.TabIndex = 0;
+            // 
+            // Year
+            // 
+            this.Year.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Year.HeaderText = "Year";
+            this.Year.Name = "Year";
+            // 
+            // Month
+            // 
+            this.Month.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Month.HeaderText = "Month";
+            this.Month.Name = "Month";
+            // 
+            // FoodType
+            // 
+            this.FoodType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FoodType.HeaderText = "Food Type";
+            this.FoodType.MinimumWidth = 3;
+            this.FoodType.Name = "FoodType";
+            // 
+            // FoodItem
+            // 
+            this.FoodItem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FoodItem.HeaderText = "Food Item";
+            this.FoodItem.Name = "FoodItem";
+            // 
+            // SoldQty
+            // 
+            this.SoldQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SoldQty.HeaderText = "Sold Quantity";
+            this.SoldQty.Name = "SoldQty";
             // 
             // grpFilter
             // 
@@ -130,6 +161,7 @@
             this.chkMain.TabIndex = 2;
             this.chkMain.Text = "Main";
             this.chkMain.UseVisualStyleBackColor = true;
+            this.chkMain.CheckedChanged += new System.EventHandler(this.chkMain_CheckedChanged);
             // 
             // cboMonth
             // 
@@ -166,6 +198,7 @@
             this.cboYear.Size = new System.Drawing.Size(97, 21);
             this.cboYear.TabIndex = 0;
             this.cboYear.Text = "Year";
+            this.cboYear.SelectedIndexChanged += new System.EventHandler(this.cboYear_SelectedIndexChanged);
             // 
             // btnPrint
             // 
@@ -281,37 +314,6 @@
             this.mnuItmRemoveStaff.Text = "Remove Staff";
             this.mnuItmRemoveStaff.Click += new System.EventHandler(this.mnuItmRemoveStaff_Click);
             // 
-            // Year
-            // 
-            this.Year.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Year.HeaderText = "Year";
-            this.Year.Name = "Year";
-            // 
-            // Month
-            // 
-            this.Month.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Month.HeaderText = "Month";
-            this.Month.Name = "Month";
-            // 
-            // FoodType
-            // 
-            this.FoodType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FoodType.HeaderText = "Food Type";
-            this.FoodType.MinimumWidth = 3;
-            this.FoodType.Name = "FoodType";
-            // 
-            // FoodItem
-            // 
-            this.FoodItem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FoodItem.HeaderText = "Food Item";
-            this.FoodItem.Name = "FoodItem";
-            // 
-            // SoldQty
-            // 
-            this.SoldQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SoldQty.HeaderText = "Sold Quantity";
-            this.SoldQty.Name = "SoldQty";
-            // 
             // frmFoodAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -324,6 +326,7 @@
             this.MainMenuStrip = this.mnuFdAnlys;
             this.Name = "frmFoodAnalysis";
             this.Text = "frmFoodAnalysis";
+            this.Load += new System.EventHandler(this.frmFoodAnalysis_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdFdAnlys)).EndInit();
             this.grpFilter.ResumeLayout(false);
             this.grpFilter.PerformLayout();

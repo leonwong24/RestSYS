@@ -482,7 +482,7 @@ namespace RestSYS
             //number 6
             if (Orders.state == 1)
             {
-                numberAsString += "5";
+                numberAsString += "6";
             }
         }
 
@@ -499,7 +499,7 @@ namespace RestSYS
             //number 7
             if (Orders.state == 1)
             {
-                numberAsString += "1";
+                numberAsString += "7";
             }
         }
 

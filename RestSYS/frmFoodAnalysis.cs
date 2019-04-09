@@ -89,5 +89,28 @@ namespace RestSYS
             frmRemoveStaff frmRemoveStaff = new frmRemoveStaff();
             frmRemoveStaff.Show();
         }
+
+        private void frmFoodAnalysis_Load(object sender, EventArgs e)
+        {
+            //load the year combo box with the year
+            DataSet ds = new DataSet();
+            ds = Revenue.loadYear(ds);
+
+            //load year
+            for (int i = 0; i < ds.Tables["year"].Rows.Count; i++)
+            {
+                cboYear.Items.Add(ds.Tables[0].Rows[i][0].ToString());
+            }
+        }
+
+        private void cboYear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkMain_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
