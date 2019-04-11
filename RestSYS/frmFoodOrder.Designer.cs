@@ -679,7 +679,7 @@
         private System.Windows.Forms.Button btnFoodItem3;
         private System.Windows.Forms.Button btnFoodItem4;
         public System.Windows.Forms.Label lblTableNumber;
-        private System.Windows.Forms.Label lblStaffName;
+        public System.Windows.Forms.Label lblStaffName;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem backToolStripMenuItem;

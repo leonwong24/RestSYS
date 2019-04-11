@@ -124,6 +124,13 @@ namespace RestSYS
                 frmFoodOrder.Order.OrderNo = Orders.nextOrderNo();
             }
 
+            if (Orders.staff != null)//if theres staff signed in
+            {
+                frmFoodOrder.lblStaffName.Text = Convert.ToString(Orders.staff);
+                frmFoodOrder.Order.StaffId = Convert.ToInt32(frmFoodOrder.lblStaffName.Text.Trim().Substring(0, 2));
+
+            }
+
             //display all the order on the gridview 
             foreach(int[] orderitem in Orders.orderItems)
             {

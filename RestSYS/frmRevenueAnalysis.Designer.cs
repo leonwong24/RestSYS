@@ -47,13 +47,14 @@
             this.cboMonth = new System.Windows.Forms.ComboBox();
             this.cboYear = new System.Windows.Forms.ComboBox();
             this.grdRevnAnalys = new System.Windows.Forms.DataGridView();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Month = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Week = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Day = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnPrint = new System.Windows.Forms.Button();
-            this.btn_chart = new System.Windows.Forms.Button();
-            this.grp_Chart = new System.Windows.Forms.GroupBox();
+            this.cboWeek = new System.Windows.Forms.ComboBox();
+            this.btnReset = new System.Windows.Forms.Button();
             this.mnuRevenueAnalysis.SuspendLayout();
             this.grpFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdRevnAnalys)).BeginInit();
@@ -170,6 +171,7 @@
             // 
             // grpFilter
             // 
+            this.grpFilter.Controls.Add(this.cboWeek);
             this.grpFilter.Controls.Add(this.cboMonth);
             this.grpFilter.Controls.Add(this.cboYear);
             this.grpFilter.Location = new System.Drawing.Point(12, 38);
@@ -206,12 +208,23 @@
             this.Year,
             this.Month,
             this.Week,
+            this.Day,
             this.Cost});
             this.grdRevnAnalys.Location = new System.Drawing.Point(18, 124);
             this.grdRevnAnalys.Name = "grdRevnAnalys";
             this.grdRevnAnalys.RowHeadersWidth = 30;
-            this.grdRevnAnalys.Size = new System.Drawing.Size(603, 278);
+            this.grdRevnAnalys.Size = new System.Drawing.Size(661, 314);
             this.grdRevnAnalys.TabIndex = 3;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(688, 379);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(100, 59);
+            this.btnPrint.TabIndex = 4;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // Year
             // 
@@ -231,47 +244,43 @@
             this.Week.HeaderText = "Week";
             this.Week.Name = "Week";
             // 
+            // Day
+            // 
+            this.Day.HeaderText = "Day";
+            this.Day.Name = "Day";
+            // 
             // Cost
             // 
             this.Cost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Cost.HeaderText = "Cost";
             this.Cost.Name = "Cost";
             // 
-            // btnPrint
+            // cboWeek
             // 
-            this.btnPrint.Location = new System.Drawing.Point(627, 390);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(145, 59);
-            this.btnPrint.TabIndex = 4;
-            this.btnPrint.Text = "Print";
-            this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            this.cboWeek.FormattingEnabled = true;
+            this.cboWeek.Location = new System.Drawing.Point(226, 33);
+            this.cboWeek.Name = "cboWeek";
+            this.cboWeek.Size = new System.Drawing.Size(92, 21);
+            this.cboWeek.TabIndex = 2;
+            this.cboWeek.Text = "Week";
+            this.cboWeek.SelectedIndexChanged += new System.EventHandler(this.cboWeek_SelectedIndexChanged);
             // 
-            // btn_chart
+            // btnReset
             // 
-            this.btn_chart.Location = new System.Drawing.Point(627, 310);
-            this.btn_chart.Name = "btn_chart";
-            this.btn_chart.Size = new System.Drawing.Size(145, 58);
-            this.btn_chart.TabIndex = 5;
-            this.btn_chart.Text = "Chart";
-            this.btn_chart.UseVisualStyleBackColor = true;
-            // 
-            // grp_Chart
-            // 
-            this.grp_Chart.Location = new System.Drawing.Point(630, 93);
-            this.grp_Chart.Name = "grp_Chart";
-            this.grp_Chart.Size = new System.Drawing.Size(141, 125);
-            this.grp_Chart.TabIndex = 6;
-            this.grp_Chart.TabStop = false;
-            this.grp_Chart.Text = "Chart";
+            this.btnReset.Location = new System.Drawing.Point(688, 313);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(100, 50);
+            this.btnReset.TabIndex = 5;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // frmRevenueAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.grp_Chart);
-            this.Controls.Add(this.btn_chart);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.grdRevnAnalys);
             this.Controls.Add(this.grpFilter);
@@ -313,8 +322,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Year;
         private System.Windows.Forms.DataGridViewTextBoxColumn Month;
         private System.Windows.Forms.DataGridViewTextBoxColumn Week;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Day;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cost;
-        private System.Windows.Forms.Button btn_chart;
-        private System.Windows.Forms.GroupBox grp_Chart;
+        private System.Windows.Forms.ComboBox cboWeek;
+        private System.Windows.Forms.Button btnReset;
     }
 }

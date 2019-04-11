@@ -295,6 +295,16 @@ namespace RestSYS
 
                 Table.tableList[Convert.ToInt32(lblTableNumber.Text.Trim())] = 0;
                 MessageBox.Show("Table pay.");
+
+                //clear everything
+                grdOrder.Rows.Clear();
+                Orders.orderItems.Clear();
+                lbl_OrderNo.Text = Convert.ToString(Orders.nextOrderNo());
+                totalPrice = 0;
+                totalQty = 0;
+                order.OrderNo = Orders.nextOrderNo();
+                order.Value = totalPrice;
+                order.Status = "U";
             }
             
         }
@@ -303,6 +313,7 @@ namespace RestSYS
         {
             lblStaffName.Text = cboStaffSignIn.Text;
             order.StaffId = Convert.ToInt32(lblStaffName.Text.Trim().Substring(0, 2));
+            Orders.staff = lblStaffName.Text;
             grpStaffSign.Hide();
             grdOrder.Visible = true;
             //set state to order

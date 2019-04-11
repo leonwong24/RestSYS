@@ -58,6 +58,28 @@ namespace RestSYS
             return ds;
         }
 
+        public static DataSet loadWeek(DataSet ds, String selectedYear,String selectedMonth)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            //connection name conn.open()
+            String strSQL = "SELECT to_Char(OrderDate,'W') " +
+                            "FROM Orders " +
+                             "WHERE to_Char(OrderDate,'YYYY-MM') LIKE '" + selectedYear + "-" + selectedMonth + "%'" +
+                             "GROUP BY to_Char(OrderDate,'W') " +
+                            "ORDER BY to_Char(OrderDate,'W')";
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            //cmd.CommandType = CommandType.Text;
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            da.Fill(ds, "week");
+
+            conn.Close();
+
+            return ds;
+        }
+
         public static DataSet displayAnnualRecord(DataSet ds)
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
@@ -118,6 +140,30 @@ namespace RestSYS
             OracleDataAdapter da = new OracleDataAdapter(cmd);
 
             da.Fill(ds, "weekly");
+
+            conn.Close();
+
+            return ds;
+        }
+
+        public static DataSet displayDailyRecord(DataSet ds, String selectedYear, String selectedMonth , String selectedWeek)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            //connection name conn.open()
+            String strSQL = "SELECT to_Char(OrderDate,'DD') , SUM(VALUE) AS COST " +
+                                "FROM ORDERS " +
+                                "WHERE to_Char(OrderDate,'YYYY') = " + selectedYear +
+                                "AND to_Char(OrderDate,'MM') = " + selectedMonth +
+                                "AND to_Char(OrderDate,'W') = " +selectedWeek +
+                                "GROUP BY to_Char(OrderDate, 'DD') " +
+                                "ORDER BY to_Char(OrderDate, 'DD') ";
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            //cmd.CommandType = CommandType.Text;
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            da.Fill(ds, "daily");
 
             conn.Close();
 

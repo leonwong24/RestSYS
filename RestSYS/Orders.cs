@@ -19,6 +19,7 @@ namespace RestSYS
         public static int state;    //1 = order 2 = staff 3 = changeFood
         public static int changeFoodItemId = 0;
         public static List<int[]> orderItems = new List<int[]>();
+        public static String staff;
 
         //attribute that stores temporary data
         //public static int orderNoStore;
