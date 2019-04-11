@@ -12,14 +12,12 @@ namespace RestSYS
 {
     public partial class frmFoodAnalysis : Form
     {
+        private static String yearSelected = null;
+        private static String monthSelected = null;
+        private static List<String> selectedFoodType = new List<string>();
         public frmFoodAnalysis()
         {
             InitializeComponent();
-            //Assume it retrieve data from the Order Items file and Food Items File
-            this.grdFdAnlys.Rows.Add("2018", "1", "M", "Fish and Chips", "20");
-            this.grdFdAnlys.Rows.Add("2018", "1", "M", "Chicken Burger", "18");
-            this.grdFdAnlys.Rows.Add("2018", "1", "M", "Beef Steak", "15");
-            this.grdFdAnlys.Rows.Add("2018", "1", "M", "Salad Bowl", "7");
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
@@ -101,16 +99,135 @@ namespace RestSYS
             {
                 cboYear.Items.Add(ds.Tables[0].Rows[i][0].ToString());
             }
+
+            //load month
+            ds = Revenue.loadMonth(ds, yearSelected);
+            for (int i = 0; i < ds.Tables["month"].Rows.Count; i++)
+            {
+                cboMonth.Items.Add(ds.Tables["month"].Rows[i][0].ToString());
+            }
+
+            //display analysis
+            displayAnalysis(grdFdAnlys);
         }
 
         private void cboYear_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //if resetting combo, ignore...
+            if (cboYear.SelectedIndex == -1)
+            {
+                return;
+            }
 
+            else
+            {
+                //reset the month combo box
+                cboMonth.Items.Clear();
+
+                monthSelected = null;
+
+                yearSelected = cboYear.Text.Trim();
+
+                //display or reload the month combo box
+                DataSet ds = new DataSet();
+                ds = Revenue.loadMonth(ds, yearSelected);
+                //load month combo box
+                for (int i = 0; i < ds.Tables["month"].Rows.Count; i++)
+                {
+                    cboMonth.Items.Add(ds.Tables[0].Rows[i][0].ToString());
+                }
+
+                //display on the gridbox
+                displayAnalysis(grdFdAnlys);
+            }
         }
 
         private void chkMain_CheckedChanged(object sender, EventArgs e)
         {
+            if (selectedFoodType.Contains("M"))
+            {
+                selectedFoodType.Remove("M");
+            }
+            else
+            {
+                selectedFoodType.Add("M");
+            }
 
+            displayAnalysis(grdFdAnlys);
+        }
+
+        private void chkBeverage_CheckedChanged(object sender, EventArgs e)
+        {
+            if (selectedFoodType.Contains("B"))
+            {
+                selectedFoodType.Remove("B");
+            }
+            else
+            {
+                selectedFoodType.Add("B");
+            }
+
+            displayAnalysis(grdFdAnlys);
+        }
+
+        private void chkDessert_CheckedChanged(object sender, EventArgs e)
+        {
+            if (selectedFoodType.Contains("D"))
+            {
+                selectedFoodType.Remove("D");
+            }
+            else
+            {
+                selectedFoodType.Add("D");
+            }
+
+            displayAnalysis(grdFdAnlys);
+        }
+
+        private void chkStarter_CheckedChanged(object sender, EventArgs e)
+        {
+            if (selectedFoodType.Contains("S"))
+            {
+                selectedFoodType.Remove("S");
+            }
+            else
+            {
+                selectedFoodType.Add("S");
+            }
+
+            displayAnalysis(grdFdAnlys);
+        }
+
+        private static void displayAnalysis(DataGridView grdView)
+        {
+            grdView.Rows.Clear();
+            DataSet ds = new DataSet();
+            ds = FoodAnalysis.loadFdAnalysis(ds, yearSelected, monthSelected, selectedFoodType);
+            for (int i = 0; i < ds.Tables["foodAnalysis"].Rows.Count; i++)
+            {
+                DataGridViewRow row = (DataGridViewRow)grdView.Rows[0].Clone();
+                row.Cells[0].Value = ds.Tables["foodAnalysis"].Rows[i][0].ToString();
+                row.Cells[1].Value = ds.Tables["foodAnalysis"].Rows[i][1].ToString();
+                row.Cells[2].Value = ds.Tables["foodAnalysis"].Rows[i][2].ToString();
+                row.Cells[3].Value = ds.Tables["foodAnalysis"].Rows[i][3].ToString();
+                row.Cells[4].Value = ds.Tables["foodAnalysis"].Rows[i][4].ToString();
+                grdView.Rows.Add(row);
+            }
+        }
+
+        private void cboMonth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //if resetting combo, ignore...
+            if (cboYear.SelectedIndex == -1)
+            {
+                return;
+            }
+            else
+            {
+                monthSelected = cboMonth.Text.Trim();
+            }
+
+            displayAnalysis(grdFdAnlys);
         }
     }
 }

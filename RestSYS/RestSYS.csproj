@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBConnect.cs" />
+    <Compile Include="FoodAnalysis.cs" />
     <Compile Include="FoodItems.cs" />
     <Compile Include="FoodTypes.cs" />
     <Compile Include="frmAddFoodItem.cs">

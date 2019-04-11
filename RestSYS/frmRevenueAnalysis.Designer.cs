@@ -44,7 +44,6 @@
             this.mnuItmRemoveStaff = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.grpFilter = new System.Windows.Forms.GroupBox();
-            this.cboWeek = new System.Windows.Forms.ComboBox();
             this.cboMonth = new System.Windows.Forms.ComboBox();
             this.cboYear = new System.Windows.Forms.ComboBox();
             this.grdRevnAnalys = new System.Windows.Forms.DataGridView();
@@ -171,7 +170,6 @@
             // 
             // grpFilter
             // 
-            this.grpFilter.Controls.Add(this.cboWeek);
             this.grpFilter.Controls.Add(this.cboMonth);
             this.grpFilter.Controls.Add(this.cboYear);
             this.grpFilter.Location = new System.Drawing.Point(12, 38);
@@ -180,16 +178,6 @@
             this.grpFilter.TabIndex = 2;
             this.grpFilter.TabStop = false;
             this.grpFilter.Text = "Filter Option";
-            // 
-            // cboWeek
-            // 
-            this.cboWeek.FormattingEnabled = true;
-            this.cboWeek.Location = new System.Drawing.Point(225, 33);
-            this.cboWeek.Name = "cboWeek";
-            this.cboWeek.Size = new System.Drawing.Size(114, 21);
-            this.cboWeek.TabIndex = 2;
-            this.cboWeek.Text = "Week";
-            this.cboWeek.SelectedIndexChanged += new System.EventHandler(this.cboWeek_SelectedIndexChanged);
             // 
             // cboMonth
             // 
@@ -316,7 +304,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuItmAddStaff;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.GroupBox grpFilter;
-        private System.Windows.Forms.ComboBox cboWeek;
         private System.Windows.Forms.ComboBox cboMonth;
         private System.Windows.Forms.ComboBox cboYear;
         private System.Windows.Forms.DataGridView grdRevnAnalys;

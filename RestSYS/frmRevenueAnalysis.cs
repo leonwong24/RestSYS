@@ -14,7 +14,6 @@ namespace RestSYS
     {
         private String yearSelected;
         private String monthSelected;
-        private String weekSelected;
         public frmRevenueAnalysis()
         {
             InitializeComponent();
@@ -100,6 +99,18 @@ namespace RestSYS
             {
                 cboYear.Items.Add(ds.Tables[0].Rows[i][0].ToString());
             }
+
+            //display on the gridbox
+            ds = Revenue.displayAnnualRecord(ds);
+            for (int i = 0; i < ds.Tables["annual"].Rows.Count; i++)
+            {
+                DataGridViewRow row = (DataGridViewRow)grdRevnAnalys.Rows[0].Clone();
+                row.Cells[0].Value = ds.Tables["annual"].Rows[i][0].ToString();
+                row.Cells[1].Value = "";
+                row.Cells[2].Value = "";
+                row.Cells[3].Value = ds.Tables["annual"].Rows[i][1].ToString();
+                grdRevnAnalys.Rows.Add(row);
+            }
         }
 
         private void cboYear_SelectedIndexChanged(object sender, EventArgs e)
@@ -116,7 +127,6 @@ namespace RestSYS
 
                 //reset other combo
                 cboMonth.Items.Clear();
-                cboWeek.Items.Clear();
 
                 yearSelected = cboYear.Text.Trim();
                 //display or reload the month combo box
@@ -129,14 +139,14 @@ namespace RestSYS
                 }
 
                 //display on the gridbox
-                ds = Revenue.displayAnnualRecord(ds);
-                for(int i = 0; i < ds.Tables["annual"].Rows.Count; i++)
+                ds = Revenue.displayMonthlyRecord(ds, yearSelected);
+                for (int i = 0; i < ds.Tables["monthly"].Rows.Count; i++)
                 {
                     DataGridViewRow row = (DataGridViewRow)grdRevnAnalys.Rows[0].Clone();
-                    row.Cells[0].Value = ds.Tables["annual"].Rows[i][0].ToString();
-                    row.Cells[1].Value = "";
+                    row.Cells[0].Value = yearSelected;
+                    row.Cells[1].Value = ds.Tables["monthly"].Rows[i][0].ToString();
                     row.Cells[2].Value = "";
-                    row.Cells[3].Value = ds.Tables["annual"].Rows[i][1].ToString();
+                    row.Cells[3].Value = ds.Tables["monthly"].Rows[i][1].ToString();
                     grdRevnAnalys.Rows.Add(row);
                 }
             }
@@ -148,41 +158,12 @@ namespace RestSYS
             grdRevnAnalys.Rows.Clear();
 
             //reset the comboBox
-            cboWeek.Items.Clear();
 
             monthSelected = cboMonth.Text.Trim();
-            //display or reload the week combo box
-            DataSet ds = new DataSet();
-            ds = Revenue.loadWeek(ds, yearSelected, monthSelected);
-            //load week combo box
-            for(int i = 0; i < ds.Tables["week"].Rows.Count; i++)
-            {
-                cboWeek.Items.Add(ds.Tables[0].Rows[i][0].ToString());
-            }
-
-            //display on the gridbox
-            ds = Revenue.displayMonthlyRecord(ds,yearSelected);
-            for (int i = 0; i < ds.Tables["monthly"].Rows.Count; i++)
-            {
-                DataGridViewRow row = (DataGridViewRow)grdRevnAnalys.Rows[0].Clone();
-                row.Cells[0].Value = yearSelected;
-                row.Cells[1].Value = ds.Tables["monthly"].Rows[i][0].ToString();
-                row.Cells[2].Value = "";
-                row.Cells[3].Value = ds.Tables["monthly"].Rows[i][1].ToString();
-                grdRevnAnalys.Rows.Add(row);
-            }
-        }
-
-        private void cboWeek_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //reset the grdView
-            grdRevnAnalys.Rows.Clear();
-
-            weekSelected = cboMonth.Text.Trim();
 
             //display on the gridbox
             DataSet ds = new DataSet();
-            ds = Revenue.displayWeeklyRecord(ds, yearSelected,monthSelected);
+            ds = Revenue.displayWeeklyRecord(ds, yearSelected, monthSelected);
             for (int i = 0; i < ds.Tables["weekly"].Rows.Count; i++)
             {
                 DataGridViewRow row = (DataGridViewRow)grdRevnAnalys.Rows[0].Clone();

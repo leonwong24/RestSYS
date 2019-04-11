@@ -129,6 +129,7 @@
             this.chkStarter.TabIndex = 5;
             this.chkStarter.Text = "Starter";
             this.chkStarter.UseVisualStyleBackColor = true;
+            this.chkStarter.CheckedChanged += new System.EventHandler(this.chkStarter_CheckedChanged);
             // 
             // chkBeverage
             // 
@@ -139,6 +140,7 @@
             this.chkBeverage.TabIndex = 4;
             this.chkBeverage.Text = "Beverage";
             this.chkBeverage.UseVisualStyleBackColor = true;
+            this.chkBeverage.CheckedChanged += new System.EventHandler(this.chkBeverage_CheckedChanged);
             // 
             // chkDessert
             // 
@@ -149,12 +151,11 @@
             this.chkDessert.TabIndex = 3;
             this.chkDessert.Text = "Dessert";
             this.chkDessert.UseVisualStyleBackColor = true;
+            this.chkDessert.CheckedChanged += new System.EventHandler(this.chkDessert_CheckedChanged);
             // 
             // chkMain
             // 
             this.chkMain.AutoSize = true;
-            this.chkMain.Checked = true;
-            this.chkMain.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkMain.Location = new System.Drawing.Point(251, 17);
             this.chkMain.Name = "chkMain";
             this.chkMain.Size = new System.Drawing.Size(49, 17);
@@ -166,33 +167,17 @@
             // cboMonth
             // 
             this.cboMonth.FormattingEnabled = true;
-            this.cboMonth.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12"});
             this.cboMonth.Location = new System.Drawing.Point(116, 29);
             this.cboMonth.MaxDropDownItems = 12;
             this.cboMonth.Name = "cboMonth";
             this.cboMonth.Size = new System.Drawing.Size(90, 21);
             this.cboMonth.TabIndex = 1;
             this.cboMonth.Text = "Month";
+            this.cboMonth.SelectedIndexChanged += new System.EventHandler(this.cboMonth_SelectedIndexChanged);
             // 
             // cboYear
             // 
             this.cboYear.FormattingEnabled = true;
-            this.cboYear.Items.AddRange(new object[] {
-            "2018",
-            "2017",
-            "2016"});
             this.cboYear.Location = new System.Drawing.Point(9, 28);
             this.cboYear.Name = "cboYear";
             this.cboYear.Size = new System.Drawing.Size(97, 21);
@@ -338,8 +323,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView grdFdAnlys;
         private System.Windows.Forms.GroupBox grpFilter;
         private System.Windows.Forms.ComboBox cboMonth;
         private System.Windows.Forms.ComboBox cboYear;
@@ -366,5 +349,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FoodType;
         private System.Windows.Forms.DataGridViewTextBoxColumn FoodItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoldQty;
+        private System.Windows.Forms.DataGridView grdFdAnlys;
     }
 }
