@@ -49,7 +49,6 @@
             this.mnuItmFoodAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItmAddStaff = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItmChangeStaffDetails = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuItmRemoveStaff = new System.Windows.Forms.ToolStripMenuItem();
             this.grpSelectStaff.SuspendLayout();
             this.grpChangeStaff.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -211,8 +210,7 @@
             this.mnuItmRevenueAnalysis,
             this.mnuItmFoodAnalysis,
             this.mnuItmAddStaff,
-            this.mnuItmChangeStaffDetails,
-            this.mnuItmRemoveStaff});
+            this.mnuItmChangeStaffDetails});
             this.mnuAdmin.Name = "mnuAdmin";
             this.mnuAdmin.Size = new System.Drawing.Size(55, 20);
             this.mnuAdmin.Text = "Admin";
@@ -220,36 +218,29 @@
             // mnuItmRevenueAnalysis
             // 
             this.mnuItmRevenueAnalysis.Name = "mnuItmRevenueAnalysis";
-            this.mnuItmRevenueAnalysis.Size = new System.Drawing.Size(177, 22);
+            this.mnuItmRevenueAnalysis.Size = new System.Drawing.Size(180, 22);
             this.mnuItmRevenueAnalysis.Text = "Revenue Analysis";
             this.mnuItmRevenueAnalysis.Click += new System.EventHandler(this.mnuItmRevenueAnalysis_Click);
             // 
             // mnuItmFoodAnalysis
             // 
             this.mnuItmFoodAnalysis.Name = "mnuItmFoodAnalysis";
-            this.mnuItmFoodAnalysis.Size = new System.Drawing.Size(177, 22);
+            this.mnuItmFoodAnalysis.Size = new System.Drawing.Size(180, 22);
             this.mnuItmFoodAnalysis.Text = "Food Analysis";
             this.mnuItmFoodAnalysis.Click += new System.EventHandler(this.mnuItmFoodAnalysis_Click);
             // 
             // mnuItmAddStaff
             // 
             this.mnuItmAddStaff.Name = "mnuItmAddStaff";
-            this.mnuItmAddStaff.Size = new System.Drawing.Size(177, 22);
+            this.mnuItmAddStaff.Size = new System.Drawing.Size(180, 22);
             this.mnuItmAddStaff.Text = "Add Staff";
             this.mnuItmAddStaff.Click += new System.EventHandler(this.mnuItmAddStaff_Click);
             // 
             // mnuItmChangeStaffDetails
             // 
             this.mnuItmChangeStaffDetails.Name = "mnuItmChangeStaffDetails";
-            this.mnuItmChangeStaffDetails.Size = new System.Drawing.Size(177, 22);
+            this.mnuItmChangeStaffDetails.Size = new System.Drawing.Size(180, 22);
             this.mnuItmChangeStaffDetails.Text = "Modify Staff Details";
-            // 
-            // mnuItmRemoveStaff
-            // 
-            this.mnuItmRemoveStaff.Name = "mnuItmRemoveStaff";
-            this.mnuItmRemoveStaff.Size = new System.Drawing.Size(177, 22);
-            this.mnuItmRemoveStaff.Text = "Remove Staff";
-            this.mnuItmRemoveStaff.Click += new System.EventHandler(this.mnuItmRemoveStaff_Click);
             // 
             // frmChangeStaff
             // 
@@ -294,7 +285,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuItmFoodAnalysis;
         private System.Windows.Forms.ToolStripMenuItem mnuItmAddStaff;
         private System.Windows.Forms.ToolStripMenuItem mnuItmChangeStaffDetails;
-        private System.Windows.Forms.ToolStripMenuItem mnuItmRemoveStaff;
         private System.Windows.Forms.ComboBox cboStaffStatus;
         private System.Windows.Forms.Label lblStatus;
     }

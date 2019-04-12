@@ -41,7 +41,6 @@
             this.mnuItmFoodAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItmAddStaff = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItmModifyStaff = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuItmRemoveStaff = new System.Windows.Forms.ToolStripMenuItem();
             this.lblFoodItem = new System.Windows.Forms.Label();
             this.lblFoodItemDesc = new System.Windows.Forms.Label();
             this.lblFoodType = new System.Windows.Forms.Label();
@@ -132,8 +131,7 @@
             this.mnuItmRevenueAnalysis,
             this.mnuItmFoodAnalysis,
             this.mnuItmAddStaff,
-            this.mnuItmModifyStaff,
-            this.mnuItmRemoveStaff});
+            this.mnuItmModifyStaff});
             this.mnuAdmin.Name = "mnuAdmin";
             this.mnuAdmin.Size = new System.Drawing.Size(55, 20);
             this.mnuAdmin.Text = "Admin";
@@ -165,13 +163,6 @@
             this.mnuItmModifyStaff.Size = new System.Drawing.Size(165, 22);
             this.mnuItmModifyStaff.Text = "Modify Staff";
             this.mnuItmModifyStaff.Click += new System.EventHandler(this.mnuItmModifyStaff_Click);
-            // 
-            // mnuItmRemoveStaff
-            // 
-            this.mnuItmRemoveStaff.Name = "mnuItmRemoveStaff";
-            this.mnuItmRemoveStaff.Size = new System.Drawing.Size(165, 22);
-            this.mnuItmRemoveStaff.Text = "Remove Staff";
-            this.mnuItmRemoveStaff.Click += new System.EventHandler(this.mnuItmRemoveStaff_Click);
             // 
             // lblFoodItem
             // 
@@ -229,7 +220,7 @@
             // txtAddFoodItemDesc
             // 
             this.txtAddFoodItemDesc.Location = new System.Drawing.Point(90, 149);
-            this.txtAddFoodItemDesc.MaxLength = 100;
+            this.txtAddFoodItemDesc.MaxLength = 30;
             this.txtAddFoodItemDesc.Name = "txtAddFoodItemDesc";
             this.txtAddFoodItemDesc.Size = new System.Drawing.Size(387, 20);
             this.txtAddFoodItemDesc.TabIndex = 14;
@@ -346,7 +337,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuItmFoodAnalysis;
         private System.Windows.Forms.ToolStripMenuItem mnuItmAddStaff;
         private System.Windows.Forms.ToolStripMenuItem mnuItmModifyStaff;
-        private System.Windows.Forms.ToolStripMenuItem mnuItmRemoveStaff;
         private System.Windows.Forms.Label lblFoodItemId;
         private System.Windows.Forms.TextBox txtNextItemId;
         private System.Windows.Forms.NumericUpDown txtAddFoodItemPrice;

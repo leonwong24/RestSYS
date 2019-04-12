@@ -87,9 +87,10 @@
             // 
             // btnDessert
             // 
-            this.btnDessert.Location = new System.Drawing.Point(1112, 27);
+            this.btnDessert.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDessert.Location = new System.Drawing.Point(1102, 27);
             this.btnDessert.Name = "btnDessert";
-            this.btnDessert.Size = new System.Drawing.Size(136, 85);
+            this.btnDessert.Size = new System.Drawing.Size(133, 97);
             this.btnDessert.TabIndex = 0;
             this.btnDessert.Text = "DESSERT";
             this.btnDessert.UseVisualStyleBackColor = true;
@@ -97,9 +98,10 @@
             // 
             // btnBeverageMenu
             // 
-            this.btnBeverageMenu.Location = new System.Drawing.Point(937, 29);
+            this.btnBeverageMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBeverageMenu.Location = new System.Drawing.Point(921, 29);
             this.btnBeverageMenu.Name = "btnBeverageMenu";
-            this.btnBeverageMenu.Size = new System.Drawing.Size(157, 81);
+            this.btnBeverageMenu.Size = new System.Drawing.Size(158, 95);
             this.btnBeverageMenu.TabIndex = 1;
             this.btnBeverageMenu.Text = "BEVERAGE";
             this.btnBeverageMenu.UseVisualStyleBackColor = true;
@@ -107,9 +109,10 @@
             // 
             // btnMainMenu
             // 
-            this.btnMainMenu.Location = new System.Drawing.Point(746, 27);
+            this.btnMainMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMainMenu.Location = new System.Drawing.Point(737, 27);
             this.btnMainMenu.Name = "btnMainMenu";
-            this.btnMainMenu.Size = new System.Drawing.Size(167, 85);
+            this.btnMainMenu.Size = new System.Drawing.Size(169, 97);
             this.btnMainMenu.TabIndex = 2;
             this.btnMainMenu.Text = "MAIN ";
             this.btnMainMenu.UseVisualStyleBackColor = true;
@@ -117,9 +120,10 @@
             // 
             // btnStarterMenu
             // 
+            this.btnStarterMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStarterMenu.Location = new System.Drawing.Point(563, 25);
             this.btnStarterMenu.Name = "btnStarterMenu";
-            this.btnStarterMenu.Size = new System.Drawing.Size(164, 87);
+            this.btnStarterMenu.Size = new System.Drawing.Size(165, 99);
             this.btnStarterMenu.TabIndex = 3;
             this.btnStarterMenu.Text = "STARTER";
             this.btnStarterMenu.UseVisualStyleBackColor = true;
@@ -137,9 +141,9 @@
             // 
             // btnPlaceOrder
             // 
-            this.btnPlaceOrder.Location = new System.Drawing.Point(1137, 199);
+            this.btnPlaceOrder.Location = new System.Drawing.Point(1102, 178);
             this.btnPlaceOrder.Name = "btnPlaceOrder";
-            this.btnPlaceOrder.Size = new System.Drawing.Size(111, 84);
+            this.btnPlaceOrder.Size = new System.Drawing.Size(133, 105);
             this.btnPlaceOrder.TabIndex = 5;
             this.btnPlaceOrder.Text = "PLACE ORDER";
             this.btnPlaceOrder.UseVisualStyleBackColor = true;
@@ -147,9 +151,9 @@
             // 
             // btnDeleteFoodRow
             // 
-            this.btnDeleteFoodRow.Location = new System.Drawing.Point(1137, 308);
+            this.btnDeleteFoodRow.Location = new System.Drawing.Point(1102, 311);
             this.btnDeleteFoodRow.Name = "btnDeleteFoodRow";
-            this.btnDeleteFoodRow.Size = new System.Drawing.Size(111, 84);
+            this.btnDeleteFoodRow.Size = new System.Drawing.Size(133, 94);
             this.btnDeleteFoodRow.TabIndex = 6;
             this.btnDeleteFoodRow.Text = "DELETE ";
             this.btnDeleteFoodRow.UseVisualStyleBackColor = true;
@@ -157,9 +161,9 @@
             // 
             // btnPrintBill
             // 
-            this.btnPrintBill.Location = new System.Drawing.Point(1137, 416);
+            this.btnPrintBill.Location = new System.Drawing.Point(1102, 434);
             this.btnPrintBill.Name = "btnPrintBill";
-            this.btnPrintBill.Size = new System.Drawing.Size(111, 84);
+            this.btnPrintBill.Size = new System.Drawing.Size(133, 99);
             this.btnPrintBill.TabIndex = 7;
             this.btnPrintBill.Text = "PRINT BILL";
             this.btnPrintBill.UseVisualStyleBackColor = true;
@@ -167,9 +171,9 @@
             // 
             // btnPayBill
             // 
-            this.btnPayBill.Location = new System.Drawing.Point(1137, 521);
+            this.btnPayBill.Location = new System.Drawing.Point(1102, 560);
             this.btnPayBill.Name = "btnPayBill";
-            this.btnPayBill.Size = new System.Drawing.Size(111, 74);
+            this.btnPayBill.Size = new System.Drawing.Size(133, 103);
             this.btnPayBill.TabIndex = 8;
             this.btnPayBill.Text = "PAY";
             this.btnPayBill.UseVisualStyleBackColor = true;
@@ -177,7 +181,7 @@
             // 
             // btnNum0
             // 
-            this.btnNum0.Location = new System.Drawing.Point(129, 545);
+            this.btnNum0.Location = new System.Drawing.Point(129, 617);
             this.btnNum0.Name = "btnNum0";
             this.btnNum0.Size = new System.Drawing.Size(87, 53);
             this.btnNum0.TabIndex = 9;
@@ -187,7 +191,7 @@
             // 
             // btnNum1
             // 
-            this.btnNum1.Location = new System.Drawing.Point(31, 485);
+            this.btnNum1.Location = new System.Drawing.Point(31, 545);
             this.btnNum1.Name = "btnNum1";
             this.btnNum1.Size = new System.Drawing.Size(86, 53);
             this.btnNum1.TabIndex = 11;
@@ -197,7 +201,7 @@
             // 
             // btnNum2
             // 
-            this.btnNum2.Location = new System.Drawing.Point(129, 483);
+            this.btnNum2.Location = new System.Drawing.Point(129, 543);
             this.btnNum2.Name = "btnNum2";
             this.btnNum2.Size = new System.Drawing.Size(87, 56);
             this.btnNum2.TabIndex = 12;
@@ -207,9 +211,9 @@
             // 
             // btnNum3
             // 
-            this.btnNum3.Location = new System.Drawing.Point(231, 483);
+            this.btnNum3.Location = new System.Drawing.Point(231, 543);
             this.btnNum3.Name = "btnNum3";
-            this.btnNum3.Size = new System.Drawing.Size(81, 56);
+            this.btnNum3.Size = new System.Drawing.Size(91, 56);
             this.btnNum3.TabIndex = 13;
             this.btnNum3.Text = "3";
             this.btnNum3.UseVisualStyleBackColor = true;
@@ -217,7 +221,7 @@
             // 
             // btnNum4
             // 
-            this.btnNum4.Location = new System.Drawing.Point(31, 430);
+            this.btnNum4.Location = new System.Drawing.Point(31, 489);
             this.btnNum4.Name = "btnNum4";
             this.btnNum4.Size = new System.Drawing.Size(86, 47);
             this.btnNum4.TabIndex = 14;
@@ -227,7 +231,7 @@
             // 
             // btnNum5
             // 
-            this.btnNum5.Location = new System.Drawing.Point(129, 429);
+            this.btnNum5.Location = new System.Drawing.Point(129, 489);
             this.btnNum5.Name = "btnNum5";
             this.btnNum5.Size = new System.Drawing.Size(87, 48);
             this.btnNum5.TabIndex = 15;
@@ -237,9 +241,9 @@
             // 
             // btnNum6
             // 
-            this.btnNum6.Location = new System.Drawing.Point(231, 429);
+            this.btnNum6.Location = new System.Drawing.Point(231, 489);
             this.btnNum6.Name = "btnNum6";
-            this.btnNum6.Size = new System.Drawing.Size(81, 48);
+            this.btnNum6.Size = new System.Drawing.Size(91, 48);
             this.btnNum6.TabIndex = 16;
             this.btnNum6.Text = "6";
             this.btnNum6.UseVisualStyleBackColor = true;
@@ -247,7 +251,7 @@
             // 
             // btnNum7
             // 
-            this.btnNum7.Location = new System.Drawing.Point(31, 376);
+            this.btnNum7.Location = new System.Drawing.Point(31, 434);
             this.btnNum7.Name = "btnNum7";
             this.btnNum7.Size = new System.Drawing.Size(86, 48);
             this.btnNum7.TabIndex = 17;
@@ -257,9 +261,9 @@
             // 
             // btnNum8
             // 
-            this.btnNum8.Location = new System.Drawing.Point(129, 379);
+            this.btnNum8.Location = new System.Drawing.Point(129, 434);
             this.btnNum8.Name = "btnNum8";
-            this.btnNum8.Size = new System.Drawing.Size(87, 43);
+            this.btnNum8.Size = new System.Drawing.Size(87, 48);
             this.btnNum8.TabIndex = 18;
             this.btnNum8.Text = "8";
             this.btnNum8.UseVisualStyleBackColor = true;
@@ -267,9 +271,9 @@
             // 
             // btnNum9
             // 
-            this.btnNum9.Location = new System.Drawing.Point(231, 379);
+            this.btnNum9.Location = new System.Drawing.Point(231, 434);
             this.btnNum9.Name = "btnNum9";
-            this.btnNum9.Size = new System.Drawing.Size(81, 43);
+            this.btnNum9.Size = new System.Drawing.Size(91, 48);
             this.btnNum9.TabIndex = 19;
             this.btnNum9.Text = "9";
             this.btnNum9.UseVisualStyleBackColor = true;
@@ -324,9 +328,9 @@
             // 
             // btnFoodItem1
             // 
-            this.btnFoodItem1.Location = new System.Drawing.Point(720, 194);
+            this.btnFoodItem1.Location = new System.Drawing.Point(575, 174);
             this.btnFoodItem1.Name = "btnFoodItem1";
-            this.btnFoodItem1.Size = new System.Drawing.Size(120, 94);
+            this.btnFoodItem1.Size = new System.Drawing.Size(141, 105);
             this.btnFoodItem1.TabIndex = 21;
             this.btnFoodItem1.Text = "Button1";
             this.btnFoodItem1.UseVisualStyleBackColor = true;
@@ -334,9 +338,9 @@
             // 
             // btnFoodItem2
             // 
-            this.btnFoodItem2.Location = new System.Drawing.Point(720, 308);
+            this.btnFoodItem2.Location = new System.Drawing.Point(575, 309);
             this.btnFoodItem2.Name = "btnFoodItem2";
-            this.btnFoodItem2.Size = new System.Drawing.Size(120, 84);
+            this.btnFoodItem2.Size = new System.Drawing.Size(141, 96);
             this.btnFoodItem2.TabIndex = 22;
             this.btnFoodItem2.Text = "Button2";
             this.btnFoodItem2.UseVisualStyleBackColor = true;
@@ -344,9 +348,9 @@
             // 
             // btnFoodItem3
             // 
-            this.btnFoodItem3.Location = new System.Drawing.Point(720, 407);
+            this.btnFoodItem3.Location = new System.Drawing.Point(575, 434);
             this.btnFoodItem3.Name = "btnFoodItem3";
-            this.btnFoodItem3.Size = new System.Drawing.Size(120, 85);
+            this.btnFoodItem3.Size = new System.Drawing.Size(141, 102);
             this.btnFoodItem3.TabIndex = 23;
             this.btnFoodItem3.Text = "Button3";
             this.btnFoodItem3.UseVisualStyleBackColor = true;
@@ -354,9 +358,9 @@
             // 
             // btnFoodItem4
             // 
-            this.btnFoodItem4.Location = new System.Drawing.Point(720, 514);
+            this.btnFoodItem4.Location = new System.Drawing.Point(575, 564);
             this.btnFoodItem4.Name = "btnFoodItem4";
-            this.btnFoodItem4.Size = new System.Drawing.Size(120, 81);
+            this.btnFoodItem4.Size = new System.Drawing.Size(141, 95);
             this.btnFoodItem4.TabIndex = 24;
             this.btnFoodItem4.Text = "Button4";
             this.btnFoodItem4.UseVisualStyleBackColor = true;
@@ -395,7 +399,7 @@
             this.backToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1260, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1266, 24);
             this.menuStrip1.TabIndex = 28;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -413,7 +417,7 @@
             this.grpStaffSign.Controls.Add(this.cboStaffSignIn);
             this.grpStaffSign.Location = new System.Drawing.Point(4, 25);
             this.grpStaffSign.Name = "grpStaffSign";
-            this.grpStaffSign.Size = new System.Drawing.Size(342, 254);
+            this.grpStaffSign.Size = new System.Drawing.Size(318, 254);
             this.grpStaffSign.TabIndex = 29;
             this.grpStaffSign.TabStop = false;
             this.grpStaffSign.Text = "Staff Sign In";
@@ -459,9 +463,9 @@
             // 
             // btnFoodItem5
             // 
-            this.btnFoodItem5.Location = new System.Drawing.Point(870, 194);
+            this.btnFoodItem5.Location = new System.Drawing.Point(737, 175);
             this.btnFoodItem5.Name = "btnFoodItem5";
-            this.btnFoodItem5.Size = new System.Drawing.Size(104, 94);
+            this.btnFoodItem5.Size = new System.Drawing.Size(131, 108);
             this.btnFoodItem5.TabIndex = 31;
             this.btnFoodItem5.Text = "Button 5";
             this.btnFoodItem5.UseVisualStyleBackColor = true;
@@ -469,9 +473,9 @@
             // 
             // btnFoodItem6
             // 
-            this.btnFoodItem6.Location = new System.Drawing.Point(870, 299);
+            this.btnFoodItem6.Location = new System.Drawing.Point(737, 308);
             this.btnFoodItem6.Name = "btnFoodItem6";
-            this.btnFoodItem6.Size = new System.Drawing.Size(104, 93);
+            this.btnFoodItem6.Size = new System.Drawing.Size(131, 97);
             this.btnFoodItem6.TabIndex = 32;
             this.btnFoodItem6.Text = "Button 6";
             this.btnFoodItem6.UseVisualStyleBackColor = true;
@@ -479,9 +483,9 @@
             // 
             // btnFoodItem7
             // 
-            this.btnFoodItem7.Location = new System.Drawing.Point(870, 402);
+            this.btnFoodItem7.Location = new System.Drawing.Point(737, 434);
             this.btnFoodItem7.Name = "btnFoodItem7";
-            this.btnFoodItem7.Size = new System.Drawing.Size(104, 94);
+            this.btnFoodItem7.Size = new System.Drawing.Size(131, 103);
             this.btnFoodItem7.TabIndex = 33;
             this.btnFoodItem7.Text = "Button 7";
             this.btnFoodItem7.UseVisualStyleBackColor = true;
@@ -489,9 +493,9 @@
             // 
             // btnFoodItem8
             // 
-            this.btnFoodItem8.Location = new System.Drawing.Point(870, 501);
+            this.btnFoodItem8.Location = new System.Drawing.Point(737, 564);
             this.btnFoodItem8.Name = "btnFoodItem8";
-            this.btnFoodItem8.Size = new System.Drawing.Size(104, 97);
+            this.btnFoodItem8.Size = new System.Drawing.Size(131, 97);
             this.btnFoodItem8.TabIndex = 34;
             this.btnFoodItem8.Text = "Button 8";
             this.btnFoodItem8.UseVisualStyleBackColor = true;
@@ -499,9 +503,9 @@
             // 
             // btnFoodItem9
             // 
-            this.btnFoodItem9.Location = new System.Drawing.Point(1012, 194);
+            this.btnFoodItem9.Location = new System.Drawing.Point(887, 174);
             this.btnFoodItem9.Name = "btnFoodItem9";
-            this.btnFoodItem9.Size = new System.Drawing.Size(106, 94);
+            this.btnFoodItem9.Size = new System.Drawing.Size(130, 109);
             this.btnFoodItem9.TabIndex = 35;
             this.btnFoodItem9.Text = "Button 9";
             this.btnFoodItem9.UseVisualStyleBackColor = true;
@@ -509,9 +513,9 @@
             // 
             // btnFoodItem10
             // 
-            this.btnFoodItem10.Location = new System.Drawing.Point(1012, 299);
+            this.btnFoodItem10.Location = new System.Drawing.Point(887, 312);
             this.btnFoodItem10.Name = "btnFoodItem10";
-            this.btnFoodItem10.Size = new System.Drawing.Size(106, 93);
+            this.btnFoodItem10.Size = new System.Drawing.Size(130, 93);
             this.btnFoodItem10.TabIndex = 36;
             this.btnFoodItem10.Text = "Button 10";
             this.btnFoodItem10.UseVisualStyleBackColor = true;
@@ -519,9 +523,9 @@
             // 
             // btnFoodItem11
             // 
-            this.btnFoodItem11.Location = new System.Drawing.Point(1012, 398);
+            this.btnFoodItem11.Location = new System.Drawing.Point(887, 434);
             this.btnFoodItem11.Name = "btnFoodItem11";
-            this.btnFoodItem11.Size = new System.Drawing.Size(106, 94);
+            this.btnFoodItem11.Size = new System.Drawing.Size(130, 103);
             this.btnFoodItem11.TabIndex = 37;
             this.btnFoodItem11.Text = "Button 11";
             this.btnFoodItem11.UseVisualStyleBackColor = true;
@@ -529,9 +533,9 @@
             // 
             // btnFoodItem12
             // 
-            this.btnFoodItem12.Location = new System.Drawing.Point(1012, 498);
+            this.btnFoodItem12.Location = new System.Drawing.Point(887, 562);
             this.btnFoodItem12.Name = "btnFoodItem12";
-            this.btnFoodItem12.Size = new System.Drawing.Size(106, 97);
+            this.btnFoodItem12.Size = new System.Drawing.Size(130, 99);
             this.btnFoodItem12.TabIndex = 38;
             this.btnFoodItem12.Text = "Button 12";
             this.btnFoodItem12.UseVisualStyleBackColor = true;
@@ -560,9 +564,9 @@
             // 
             this.grpChgFdMnu.Controls.Add(this.lblChgFdItm);
             this.grpChgFdMnu.Controls.Add(this.cboSelectFdItm);
-            this.grpChgFdMnu.Location = new System.Drawing.Point(426, 247);
+            this.grpChgFdMnu.Location = new System.Drawing.Point(0, 17);
             this.grpChgFdMnu.Name = "grpChgFdMnu";
-            this.grpChgFdMnu.Size = new System.Drawing.Size(211, 175);
+            this.grpChgFdMnu.Size = new System.Drawing.Size(318, 343);
             this.grpChgFdMnu.TabIndex = 41;
             this.grpChgFdMnu.TabStop = false;
             this.grpChgFdMnu.Text = "Change Menu";
@@ -590,7 +594,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1260, 682);
+            this.ClientSize = new System.Drawing.Size(1266, 682);
             this.Controls.Add(this.lbl_OrderNo);
             this.Controls.Add(this.grpChgFdMnu);
             this.Controls.Add(this.btnChangeMenu);

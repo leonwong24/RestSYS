@@ -198,7 +198,7 @@ namespace RestSYS
             }
             else
             {
-                MessageBox.Show("totalPrice is " + totalPrice);
+                /*MessageBox.Show("totalPrice is " + totalPrice);
                 MessageBox.Show("total Qty is" + totalQty);
                 String printoutmsg = "";
                 foreach(int[] order in Orders.orderItems)
@@ -209,12 +209,12 @@ namespace RestSYS
                     }
                     printoutmsg += "\n";
                 }
-                MessageBox.Show(printoutmsg);
+                MessageBox.Show(printoutmsg);*/
                
 
                 if(Table.tableList[Convert.ToInt32(lblTableNumber.Text)] == 0) //if table has no order yet
                 {
-                    MessageBox.Show("new order!");
+                    //MessageBox.Show("new order!");
                     //insert sql command into OrderItems Table
                     String sql = "INSERT ALL ";
                     foreach(int[] order in Orders.orderItems)
@@ -228,7 +228,7 @@ namespace RestSYS
 
                     }
                     sql += "SELECT 1 FROM DUAL";
-                    MessageBox.Show(sql);
+                    //MessageBox.Show(sql);
                     Orders.runSQL(sql);
 
                     //insert sql command into Orders Table
@@ -257,7 +257,7 @@ namespace RestSYS
 
                     }
                     sql += "SELECT 1 FROM DUAL";
-                    MessageBox.Show(sql);
+                    //MessageBox.Show(sql);
                     //Insert into Orders Item Table
                     Orders.runSQL(sql);
 
@@ -290,11 +290,35 @@ namespace RestSYS
             }
             else
             {
-                //set the order status = 'P'
-                Orders.payOrder(Convert.ToInt32(lbl_OrderNo.Text.Trim()));
+                if (Orders.checkOrderNo(order.OrderNo))   //havent have order yet
+                {
+                    MessageBox.Show("new order!");
+                    //insert sql command into OrderItems Table
+                    String sql = "INSERT ALL ";
+                    foreach (int[] order in Orders.orderItems)
+                    {
+                        sql += "INTO OrderItems(OrderNo,ItemId,Qty,Price) VALUES ";
+                        sql += "(" + lbl_OrderNo.Text + ","; //orderNo
+                        sql += order[0] + ","; //itemId
+                        sql += order[1] + ","; //qty
+                        FoodItems fooditem = FoodItems.getFood(order[0]);
+                        sql += fooditem.getPrice() * order[1] + ")";
 
-                Table.tableList[Convert.ToInt32(lblTableNumber.Text.Trim())] = 0;
-                MessageBox.Show("Table pay.");
+                    }
+                    sql += "SELECT 1 FROM DUAL";
+                    //MessageBox.Show(sql);
+                    Orders.runSQL(sql);
+
+                    Orders.payNewOrder(order);
+                }
+                else
+                {
+                    //set the order status = 'P'
+                    Orders.payOrder(Convert.ToInt32(lbl_OrderNo.Text.Trim()));
+
+                    Table.tableList[Convert.ToInt32(lblTableNumber.Text.Trim())] = 0;
+                    MessageBox.Show("Table pay.");                  
+                }
 
                 //clear everything
                 grdOrder.Rows.Clear();
@@ -305,27 +329,39 @@ namespace RestSYS
                 order.OrderNo = Orders.nextOrderNo();
                 order.Value = totalPrice;
                 order.Status = "U";
+
             }
             
         }
 
         private void btnSignIn_Click(object sender, EventArgs e)
         {
-            lblStaffName.Text = cboStaffSignIn.Text;
-            order.StaffId = Convert.ToInt32(lblStaffName.Text.Trim().Substring(0, 2));
-            Orders.staff = lblStaffName.Text;
-            grpStaffSign.Hide();
-            grdOrder.Visible = true;
-            //set state to order
-            Orders.state = 1;
+            if(cboStaffSignIn.SelectedIndex != -1)
+            {
+                lblStaffName.Text = cboStaffSignIn.Text;
+                order.StaffId = Convert.ToInt32(lblStaffName.Text.Trim().Substring(0, 2));
+                Orders.staff = lblStaffName.Text;
+                grpStaffSign.Hide();
+                grdOrder.Visible = true;
+                //set state to order
+                Orders.state = 1;
+            }
+            
         }
 
         private void btnPromptSignIn_Click(object sender, EventArgs e)
         {
-            //set state to sign in
-            Orders.state = 2;
-            grpStaffSign.Show();
-            grdOrder.Visible = false;
+            if(Orders.state == 1)
+            {
+                //set state to sign in
+                Orders.state = 2;
+                grpStaffSign.Show();
+                grdOrder.Visible = false;
+            }
+            else if(Orders.state == 3)
+            {
+                MessageBox.Show("You cannot sign in when changing food menu");
+            }
         }
 
         private void frmFoodOrder_Load(object sender, EventArgs e)

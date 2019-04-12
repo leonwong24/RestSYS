@@ -190,6 +190,26 @@ namespace RestSYS
             conn.Close();
         }
 
+        //Method to pay non existing order
+        public static void payNewOrder(Orders order)
+        {
+            //Connect to the database
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            //insert order
+            insertOrders(order);
+
+            String sql = "UPDATE Orders SET STATUS = 'P' WHERE OrderNo = " + order.OrderNo;
+            //execute the command
+            OracleCommand cmd = new OracleCommand(sql, conn);
+
+            cmd.ExecuteNonQuery();
+
+            //close DBConnection
+            conn.Close();
+        }
+
         public static void insertOrders(Orders order)
         {
             //insert sql command into Orders Table
@@ -217,6 +237,34 @@ namespace RestSYS
 
             MessageBox.Show("Order inserted");
             Table.tableList[order.tableNo] = order.tableNo;
+        }
+
+        public static Boolean checkOrderNo(int OrderNo)
+        {
+            DataSet ds = new DataSet();
+            String sql = "Select OrderNo FROM ORDERS WHERE OrderNo = " + OrderNo;
+
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            //execute the command
+            OracleCommand cmd = new OracleCommand(sql, conn);
+
+            //cmd.CommandType = CommandType.text;
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            da.Fill(ds, "checkOrderNo");
+
+            conn.Close();
+
+            if(ds.Tables["checkOrderNo"].Rows.Count == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

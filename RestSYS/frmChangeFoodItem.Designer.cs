@@ -49,7 +49,6 @@
             this.foodAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItmAddStaff = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItmChangeStaff = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuItmRemoveStaff = new System.Windows.Forms.ToolStripMenuItem();
             this.lblChangeFdItemTitle = new System.Windows.Forms.Label();
             this.cboChangeFoodItemType = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -202,8 +201,7 @@
             this.revenueAnalysisToolStripMenuItem,
             this.foodAnalysisToolStripMenuItem,
             this.mnuItmAddStaff,
-            this.mnuItmChangeStaff,
-            this.mnuItmRemoveStaff});
+            this.mnuItmChangeStaff});
             this.mnuAdmin.Name = "mnuAdmin";
             this.mnuAdmin.Size = new System.Drawing.Size(55, 20);
             this.mnuAdmin.Text = "Admin";
@@ -235,13 +233,6 @@
             this.mnuItmChangeStaff.Size = new System.Drawing.Size(165, 22);
             this.mnuItmChangeStaff.Text = "Modify Staff";
             this.mnuItmChangeStaff.Click += new System.EventHandler(this.mnuItmChangeStaff_Click);
-            // 
-            // mnuItmRemoveStaff
-            // 
-            this.mnuItmRemoveStaff.Name = "mnuItmRemoveStaff";
-            this.mnuItmRemoveStaff.Size = new System.Drawing.Size(165, 22);
-            this.mnuItmRemoveStaff.Text = "Remove Staff";
-            this.mnuItmRemoveStaff.Click += new System.EventHandler(this.mnuItmRemoveStaff_Click);
             // 
             // lblChangeFdItemTitle
             // 
@@ -289,7 +280,7 @@
             this.grdChangeFoodItemSelectFoodItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdChangeFoodItemSelectFoodItem.Location = new System.Drawing.Point(32, 65);
             this.grdChangeFoodItemSelectFoodItem.Name = "grdChangeFoodItemSelectFoodItem";
-            this.grdChangeFoodItemSelectFoodItem.Size = new System.Drawing.Size(671, 88);
+            this.grdChangeFoodItemSelectFoodItem.Size = new System.Drawing.Size(671, 195);
             this.grdChangeFoodItemSelectFoodItem.TabIndex = 36;
             // 
             // btnChangeFoodItemSelectFoodItemButton
@@ -415,7 +406,6 @@
         private System.Windows.Forms.ToolStripMenuItem foodAnalysisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnuItmAddStaff;
         private System.Windows.Forms.ToolStripMenuItem mnuItmChangeStaff;
-        private System.Windows.Forms.ToolStripMenuItem mnuItmRemoveStaff;
         private System.Windows.Forms.DataGridView grdChangeFoodItemSelectFoodItem;
         private System.Windows.Forms.NumericUpDown txtChgFoodItemPrice;
         private System.Windows.Forms.TextBox txtChangeFoodItemId;

@@ -40,7 +40,6 @@
             this.mnuItmFoodAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItmAddStaff = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItmChangeStaff = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuItmDeleteStaff = new System.Windows.Forms.ToolStripMenuItem();
             this.lblStaffName = new System.Windows.Forms.Label();
             this.txtStaffName = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
@@ -115,8 +114,7 @@
             this.mnuItmRevenueAnalysis,
             this.mnuItmFoodAnalysis,
             this.mnuItmAddStaff,
-            this.mnuItmChangeStaff,
-            this.mnuItmDeleteStaff});
+            this.mnuItmChangeStaff});
             this.mnuAdmin.Name = "mnuAdmin";
             this.mnuAdmin.Size = new System.Drawing.Size(55, 20);
             this.mnuAdmin.Text = "Admin";
@@ -147,12 +145,6 @@
             this.mnuItmChangeStaff.Size = new System.Drawing.Size(180, 22);
             this.mnuItmChangeStaff.Text = "Change Staff Details";
             this.mnuItmChangeStaff.Click += new System.EventHandler(this.mnuItmChangeStaff_Click);
-            // 
-            // mnuItmDeleteStaff
-            // 
-            this.mnuItmDeleteStaff.Name = "mnuItmDeleteStaff";
-            this.mnuItmDeleteStaff.Size = new System.Drawing.Size(180, 22);
-            this.mnuItmDeleteStaff.Text = "Delete Staff";
             // 
             // lblStaffName
             // 
@@ -259,7 +251,6 @@
         private System.Windows.Forms.TextBox txtStaffName;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.ToolStripMenuItem mnuItmChangeStaff;
-        private System.Windows.Forms.ToolStripMenuItem mnuItmDeleteStaff;
         private System.Windows.Forms.Label lblStaffId;
         private System.Windows.Forms.TextBox txtStaffId;
         private System.Windows.Forms.Label lblStaffStatus;

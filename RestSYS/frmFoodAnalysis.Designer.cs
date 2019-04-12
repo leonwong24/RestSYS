@@ -54,7 +54,6 @@
             this.mnuItemFoodAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.addStaffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItmModifyStaff = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuItmRemoveStaff = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.grdFdAnlys)).BeginInit();
             this.grpFilter.SuspendLayout();
             this.mnuFdAnlys.SuspendLayout();
@@ -259,8 +258,7 @@
             this.mnuItmRevenueAnalysis,
             this.mnuItemFoodAnalysis,
             this.addStaffToolStripMenuItem,
-            this.mnuItmModifyStaff,
-            this.mnuItmRemoveStaff});
+            this.mnuItmModifyStaff});
             this.mnuAdmin.Name = "mnuAdmin";
             this.mnuAdmin.Size = new System.Drawing.Size(55, 20);
             this.mnuAdmin.Text = "Admin";
@@ -268,36 +266,29 @@
             // mnuItmRevenueAnalysis
             // 
             this.mnuItmRevenueAnalysis.Name = "mnuItmRevenueAnalysis";
-            this.mnuItmRevenueAnalysis.Size = new System.Drawing.Size(165, 22);
+            this.mnuItmRevenueAnalysis.Size = new System.Drawing.Size(180, 22);
             this.mnuItmRevenueAnalysis.Text = "Revenue Analysis";
             this.mnuItmRevenueAnalysis.Click += new System.EventHandler(this.mnuItmRevenueAnalysis_Click);
             // 
             // mnuItemFoodAnalysis
             // 
             this.mnuItemFoodAnalysis.Name = "mnuItemFoodAnalysis";
-            this.mnuItemFoodAnalysis.Size = new System.Drawing.Size(165, 22);
+            this.mnuItemFoodAnalysis.Size = new System.Drawing.Size(180, 22);
             this.mnuItemFoodAnalysis.Text = "Food Analysis";
             // 
             // addStaffToolStripMenuItem
             // 
             this.addStaffToolStripMenuItem.Name = "addStaffToolStripMenuItem";
-            this.addStaffToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.addStaffToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addStaffToolStripMenuItem.Text = "Add Staff";
             this.addStaffToolStripMenuItem.Click += new System.EventHandler(this.addStaffToolStripMenuItem_Click);
             // 
             // mnuItmModifyStaff
             // 
             this.mnuItmModifyStaff.Name = "mnuItmModifyStaff";
-            this.mnuItmModifyStaff.Size = new System.Drawing.Size(165, 22);
+            this.mnuItmModifyStaff.Size = new System.Drawing.Size(180, 22);
             this.mnuItmModifyStaff.Text = "Modify Staff";
             this.mnuItmModifyStaff.Click += new System.EventHandler(this.mnuItmModifyStaff_Click);
-            // 
-            // mnuItmRemoveStaff
-            // 
-            this.mnuItmRemoveStaff.Name = "mnuItmRemoveStaff";
-            this.mnuItmRemoveStaff.Size = new System.Drawing.Size(165, 22);
-            this.mnuItmRemoveStaff.Text = "Remove Staff";
-            this.mnuItmRemoveStaff.Click += new System.EventHandler(this.mnuItmRemoveStaff_Click);
             // 
             // frmFoodAnalysis
             // 
@@ -343,7 +334,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuItmChangeFoodItem;
         private System.Windows.Forms.ToolStripMenuItem addStaffToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnuItmModifyStaff;
-        private System.Windows.Forms.ToolStripMenuItem mnuItmRemoveStaff;
         private System.Windows.Forms.DataGridViewTextBoxColumn Year;
         private System.Windows.Forms.DataGridViewTextBoxColumn Month;
         private System.Windows.Forms.DataGridViewTextBoxColumn FoodType;

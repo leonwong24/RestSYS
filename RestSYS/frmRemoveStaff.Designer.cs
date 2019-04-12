@@ -44,7 +44,6 @@
             this.mnuItmFoodAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItmAddStaff = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuItmModifyStaff = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuItmRemoveStaff = new System.Windows.Forms.ToolStripMenuItem();
             this.grpRemoveStaff.SuspendLayout();
             this.mnuRemoveStaff.SuspendLayout();
             this.SuspendLayout();
@@ -157,8 +156,7 @@
             this.mnuItmRevenueAnalysis,
             this.mnuItmFoodAnalysis,
             this.mnuItmAddStaff,
-            this.mnuItmModifyStaff,
-            this.mnuItmRemoveStaff});
+            this.mnuItmModifyStaff});
             this.mnuAdmin.Name = "mnuAdmin";
             this.mnuAdmin.Size = new System.Drawing.Size(55, 20);
             this.mnuAdmin.Text = "Admin";
@@ -190,12 +188,6 @@
             this.mnuItmModifyStaff.Size = new System.Drawing.Size(180, 22);
             this.mnuItmModifyStaff.Text = "Modify Staff";
             this.mnuItmModifyStaff.Click += new System.EventHandler(this.mnuItmModifyStaff_Click);
-            // 
-            // mnuItmRemoveStaff
-            // 
-            this.mnuItmRemoveStaff.Name = "mnuItmRemoveStaff";
-            this.mnuItmRemoveStaff.Size = new System.Drawing.Size(180, 22);
-            this.mnuItmRemoveStaff.Text = "Remove Staff";
             // 
             // frmRemoveStaff
             // 
@@ -234,6 +226,5 @@
         private System.Windows.Forms.ToolStripMenuItem mnuItmFoodAnalysis;
         private System.Windows.Forms.ToolStripMenuItem mnuItmAddStaff;
         private System.Windows.Forms.ToolStripMenuItem mnuItmModifyStaff;
-        private System.Windows.Forms.ToolStripMenuItem mnuItmRemoveStaff;
     }
 }
