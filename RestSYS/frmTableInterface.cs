@@ -115,6 +115,7 @@ namespace RestSYS
                 //Orders.valueStore = Convert.ToDecimal(Orders.foodOrder.Tables[0].Rows[0]["Value"]);
                 frmFoodOrder.lbl_OrderNo.Text = Convert.ToString(orderNo);
                 frmFoodOrder.Order.OrderNo = orderNo;
+                frmFoodOrder.setOrderPlaced(true);
 
                 Orders.foodOrder.Clear();
             }

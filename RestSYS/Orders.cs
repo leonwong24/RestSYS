@@ -34,6 +34,7 @@ namespace RestSYS
         private int staffId;
         private String status;
         private decimal value;
+        private List<int[]> tableOrderItems;
 
         public int OrderNo { get => orderNo; set => orderNo = value; }
         public string OrderDate { get => orderDate; set => orderDate = value; }
@@ -55,6 +56,23 @@ namespace RestSYS
 
         public Orders()
         {
+        }
+
+        public static DataSet getSelectedOrder(DataSet ds, int orderNo)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            //connetion name conn.open()
+            String strSQL = "SELECT * FROM Orders WHERE OrderNo = " + orderNo;
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            da.Fill(ds, "Selected Order");
+
+            conn.Close();
+
+            return ds;
         }
 
         public static DataSet getSelectedFoodOrder(DataSet ds,int orderNo)

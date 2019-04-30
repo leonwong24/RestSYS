@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace RestSYS
         public static int totalQty;
         public static decimal totalPrice;
         public static List<Button> menuButton = new List<Button> ();
+        public static Boolean OrderPlaced;
         private Orders order = new Orders();
 
         internal Orders Order { get => order; set => order = value; }
@@ -43,6 +45,10 @@ namespace RestSYS
             
         }
 
+        public static void setOrderPlaced(Boolean boolean)
+        {
+            OrderPlaced = boolean;
+        }
 
         private void MyTimer_Tick(object sender, EventArgs e)
         {
@@ -139,7 +145,7 @@ namespace RestSYS
         private void btnDeleteFoodRow_Click(object sender, EventArgs e)
         {   
             int rowToDelete = grdOrder.CurrentCell.RowIndex;
-            MessageBox.Show(Convert.ToString(rowToDelete));
+            //MessageBox.Show(Convert.ToString(rowToDelete));
             Boolean isEmpty = false;
             //check if the selected row is empty
             for(int i = 0; i < grdOrder.Columns.Count; i++)
@@ -153,7 +159,7 @@ namespace RestSYS
 
            if (!isEmpty)
             {
-                MessageBox.Show("HALO");
+                //MessageBox.Show("HALO");
                 //remove the selected fooditem from the gridview
 
                 //recalculate the total cost of the table
@@ -196,6 +202,16 @@ namespace RestSYS
             {
                 MessageBox.Show("Staff haven't sign in");
             }
+
+            else if(Orders.state == 2)
+            {
+                MessageBox.Show("You are only allowed to order when you quit change staff state");
+            }
+
+            else if (Orders.state == 3)
+            {
+                MessageBox.Show("You are only allowed to order when you quit change menu state");
+            }
             else
             {
                 /*MessageBox.Show("totalPrice is " + totalPrice);
@@ -236,6 +252,8 @@ namespace RestSYS
 
                     MessageBox.Show("Order placed successfully!");
                     Table.tableList[Convert.ToInt32(lblTableNumber.Text.Trim())] = Convert.ToInt32(lbl_OrderNo.Text.Trim());
+
+                    OrderPlaced = true;
                 }
                 else {  //table already has order
                     MessageBox.Show("Table already has order");
@@ -265,6 +283,7 @@ namespace RestSYS
                     order.Value = totalPrice;
                     Orders.updateOrder(Order);
                     MessageBox.Show("update order");
+                    OrderPlaced = true;
                 }
             }
             
@@ -272,14 +291,99 @@ namespace RestSYS
 
         private void btnPrintBill_Click(object sender, EventArgs e)
         {
-            if(totalQty == 0 && totalPrice == 0)
+            if(!OrderPlaced)
             {
-                MessageBox.Show("This table has no any order yet!");
+                MessageBox.Show("This table has no any order yet or hasn't hold the order");
             }
             else
             {
-                MessageBox.Show("Bill printed!");
+                //MessageBox.Show("Bill printed!");
+                printBill();
             }   
+        }
+
+        private void printBill()
+        {
+            
+            PrintDialog printDialog= new PrintDialog();
+
+            PrintDocument printDoc = new PrintDocument();
+
+            printDialog.Document = printDoc;
+
+            printDoc.PrintPage += PrintDoc_PrintPage;
+
+            DialogResult result = printDialog.ShowDialog();
+
+            if(result == DialogResult.OK)
+            {
+                printDoc.Print();
+            }
+        }
+
+        private void PrintDoc_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            DataSet ds = new DataSet();
+            ds = Orders.getSelectedOrder(ds, Convert.ToInt32(lbl_OrderNo.Text.Trim()));
+            Orders order1 = new Orders();
+
+            for (int i = 0; i < ds.Tables["Selected Order"].Rows.Count; i++)
+            {
+                order1.OrderNo = Convert.ToInt32(ds.Tables[0].Rows[i][0].ToString());
+                order1.OrderDate = ds.Tables[0].Rows[i][1].ToString();
+                order1.OrderTime = ds.Tables[0].Rows[i][2].ToString();
+                order1.TableNo = Convert.ToInt32(ds.Tables[0].Rows[i][3].ToString());
+                order1.Value = Convert.ToDecimal(ds.Tables[0].Rows[i][4].ToString());
+                order1.StaffId = Convert.ToInt32(ds.Tables[0].Rows[i][5].ToString());
+                order1.Status = ds.Tables[0].Rows[i][6].ToString();
+
+            }
+
+            Graphics graphics = e.Graphics;
+
+            Font font = new Font("Courier New", 12);
+
+            float fontHeight = font.GetHeight();
+
+            int startX = 50;
+            int startY = 40;
+            int offSet = 40;
+
+            graphics.DrawString("Thanks for coming to the restaurant", new Font("Courier New", 20), new SolidBrush(Color.Black), startX + 100, startY);
+
+            startY += offSet;
+
+            graphics.DrawString(("Table Num: " + order1.TableNo).PadRight(20), font, new SolidBrush(Color.Black), startX, startY);
+            graphics.DrawString(("Order No: " + order1.OrderNo).PadRight(20), font, new SolidBrush(Color.Black), startX + 300, startY);
+
+            startY += offSet;
+
+            graphics.DrawString(("Staff Name: " + Staff.getStaffName(order1.StaffId)).PadRight(20), font, new SolidBrush(Color.Black), startX, startY);
+            graphics.DrawString(("Order Time:" + order1.OrderTime).PadRight(20), font, new SolidBrush(Color.Black), startX + 300, startY);
+
+            startY += offSet;
+
+            graphics.DrawString(("Order Item       Qty        Price        Cost").PadRight(20), font, new SolidBrush(Color.Black), startX, startY);
+
+
+            for(int i = 1; i < grdOrder.Rows.Count-1; i++)
+            {
+                String fooditem = grdOrder.Rows[i].Cells[0].Value.ToString();
+                String qty = grdOrder.Rows[i].Cells[1].Value.ToString().PadRight(8);
+                String price= grdOrder.Rows[i].Cells[2].Value.ToString().PadRight(10);
+                String cost= grdOrder.Rows[i].Cells[3].Value.ToString().PadRight(5);
+
+                String productLine = fooditem + "  " + qty + "   " + price + "   " + cost;
+
+                graphics.DrawString(productLine, font, new SolidBrush(Color.Black), startX, startY + offSet);
+
+                offSet = offSet + (int)fontHeight + 5;
+            }
+
+            offSet += 30;
+
+            graphics.DrawString("Total to pay ".PadRight(20) + order1.Value.ToString("#.##"), font, new SolidBrush(Color.Black), startX, startY+offSet);
+
         }
 
         private void btnPayBill_Click(object sender, EventArgs e)
@@ -358,9 +462,15 @@ namespace RestSYS
                 grpStaffSign.Show();
                 grdOrder.Visible = false;
             }
+
             else if(Orders.state == 3)
             {
                 MessageBox.Show("You cannot sign in when changing food menu");
+            }
+
+            else
+            {
+                MessageBox.Show("You haven't change sign in staff");
             }
         }
 
@@ -393,7 +503,7 @@ namespace RestSYS
 
         private void btnChangeMenu_Click(object sender, EventArgs e)
         {
-            if (grpChgFdMnu.Visible)
+            if (Orders.state == 3)
             {
                 //set state to order
                 Orders.state = 1;
@@ -402,6 +512,11 @@ namespace RestSYS
                 grpChgFdMnu.Visible = false;
                 grdOrder.Visible = true;
 
+            }
+
+            else if (Orders.state == 2)
+            {
+                MessageBox.Show("Please quit change staff state before you want to change menu");
             }
             else
             {
@@ -421,79 +536,117 @@ namespace RestSYS
 
         private void btnStarterMenu_Click(object sender, EventArgs e)
         {
-            if (!Orders.getCurrentPage().Equals("S"))
+            if(Orders.state == 2)
             {
-                //Set the current page to starter
-                Orders.setCurrentPage("S");
-                if (Orders.state == 3 )
-                {
-                    //clear the combo box 
-                    cboSelectFdItm.Items.Clear();
-                    //update the combo box
-                    updateCboSelectFrdItm();
-                }
-
-
-                //change the menu
-                displayMenuBtn();
+                MessageBox.Show("Please quit change staff state before you do this");
             }
+
+            else
+            {
+                if (!Orders.getCurrentPage().Equals("S"))
+                {
+                    //Set the current page to starter
+                    Orders.setCurrentPage("S");
+                    if (Orders.state == 3 )
+                    {
+                        //clear the combo box 
+                        cboSelectFdItm.Items.Clear();
+                        //update the combo box
+                        updateCboSelectFrdItm();
+                    }
+
+
+                    //change the menu
+                    displayMenuBtn();
+                }
+            }
+
+            
 
         }
 
         private void btnMainMenu_Click(object sender, EventArgs e)
         {
-            if (!Orders.getCurrentPage().Equals("M"))
+            if (Orders.state == 2)
             {
-                //Set the current page to main
-                Orders.setCurrentPage("M");
-                
-                if (Orders.state == 3)
-                {
-                    //clear the combo box 
-                    cboSelectFdItm.Items.Clear();
-                    //update the combo box
-                    updateCboSelectFrdItm();
-                }
-                //change the menu
-                displayMenuBtn();
+                MessageBox.Show("Please quit change staff state before you do this");
             }
+            else
+            {
+                if (!Orders.getCurrentPage().Equals("M"))
+                            {
+                                //Set the current page to main
+                                Orders.setCurrentPage("M");
+                
+                                if (Orders.state == 3)
+                                {
+                                    //clear the combo box 
+                                    cboSelectFdItm.Items.Clear();
+                                    //update the combo box
+                                    updateCboSelectFrdItm();
+                                }
+                                //change the menu
+                                displayMenuBtn();
+                            }
+            }
+            
         }
 
         private void btnBeverageMenu_Click(object sender, EventArgs e)
         {
-            if (!Orders.getCurrentPage().Equals("B"))
+            if (Orders.state == 2)
             {
-                //Set the current page to beverage
-                Orders.setCurrentPage("B");
-                
-                if (Orders.state == 3)
-                {
-                    //clear the combo box 
-                    cboSelectFdItm.Items.Clear();
-                    //update the combo box
-                    updateCboSelectFrdItm();
-                }
-                //change the menu
-                displayMenuBtn();
+                MessageBox.Show("Please quit change staff state before you do this");
             }
+
+            else
+            {
+                if (!Orders.getCurrentPage().Equals("B"))
+                            {
+                                //Set the current page to beverage
+                                Orders.setCurrentPage("B");
+                
+                                if (Orders.state == 3)
+                                {
+                                    //clear the combo box 
+                                    cboSelectFdItm.Items.Clear();
+                                    //update the combo box
+                                    updateCboSelectFrdItm();
+                                }
+                                //change the menu
+                                displayMenuBtn();
+                            }
+
+            }
+            
         }
 
         private void btnDessert_Click(object sender, EventArgs e)
         {
-            if (!Orders.getCurrentPage().Equals("D"))
+            if (Orders.state == 2)
             {
-                //Set the current page to dessert
-                Orders.setCurrentPage("D");
-                displayMenuBtn();
-                if (Orders.state == 3)
-                {
-                    //clear the combo box 
-                    cboSelectFdItm.Items.Clear();
-                    //update the combo box
-                    updateCboSelectFrdItm();
-                }
-                //change the menu
+                MessageBox.Show("Please quit change staff state before you do this");
             }
+
+            else
+            {
+                if (!Orders.getCurrentPage().Equals("D"))
+                            {
+                                //Set the current page to dessert
+                                Orders.setCurrentPage("D");
+                                displayMenuBtn();
+                                if (Orders.state == 3)
+                                {
+                                    //clear the combo box 
+                                    cboSelectFdItm.Items.Clear();
+                                    //update the combo box
+                                    updateCboSelectFrdItm();
+                                }
+                                //change the menu
+                            }
+
+            }
+            
         }
 
         private void updateCboSelectFrdItm()
@@ -656,6 +809,11 @@ namespace RestSYS
                     MessageBox.Show("Button hasn't applied to any food yet");
                 }
                 
+            }
+
+            else
+            {
+                MessageBox.Show("Please quit change staff state before you want to order");
             }
 
         }

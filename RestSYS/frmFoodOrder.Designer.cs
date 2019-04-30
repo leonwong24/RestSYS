@@ -161,7 +161,7 @@
             // 
             // btnPrintBill
             // 
-            this.btnPrintBill.Location = new System.Drawing.Point(1102, 434);
+            this.btnPrintBill.Location = new System.Drawing.Point(1102, 438);
             this.btnPrintBill.Name = "btnPrintBill";
             this.btnPrintBill.Size = new System.Drawing.Size(133, 99);
             this.btnPrintBill.TabIndex = 7;

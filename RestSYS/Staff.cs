@@ -98,6 +98,33 @@ namespace RestSYS
 
         }
 
+        public static String getStaffName(int staffId)
+        {
+            String staffName;
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            //connection name conn.open()
+            String strSQL = "SELECT StaffName FROM STAFF WHERE StaffId = "+staffId;
+            OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+            //exceute the SQL Query and put result in OracleDataReader object
+            OracleDataReader dr = cmd.ExecuteReader();
+
+            //read the first (only) value returned by query
+            dr.Read();
+            //if (!dr.IsDBNull(0))
+            //{
+            staffName = Convert.ToString(dr.GetValue(0));
+            //}
+
+            //close db connection
+            conn.Close();
+
+            //return staffName
+            return staffName;
+        }
+
         public static DataSet getSelectedStaff(DataSet DS, int staffId)
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);

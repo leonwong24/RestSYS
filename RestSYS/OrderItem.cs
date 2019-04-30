@@ -13,7 +13,6 @@ namespace RestSYS
         private int itemId;
         private int qty;
         private decimal price;
-
         public int OrderNo { get => orderNo; set => orderNo = value; }
         public int ItemId { get => itemId; set => itemId = value; }
         public int Qty { get => qty; set => qty = value; }
