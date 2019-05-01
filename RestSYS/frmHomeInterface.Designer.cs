@@ -72,7 +72,7 @@
             this.Controls.Add(this.btnHomeToManager);
             this.Controls.Add(this.lblHomeInterfaceTitle);
             this.Name = "frmHomeInterface";
-            this.Text = "frmHomeInterface";
+            this.Text = "Restaurant System";
             this.ResumeLayout(false);
             this.PerformLayout();
 

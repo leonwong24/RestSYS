@@ -20,7 +20,7 @@ namespace RestSYS
         public static int totalQty;
         public static decimal totalPrice;
         public static List<Button> menuButton = new List<Button> ();
-        public static Boolean OrderPlaced;
+        public static Boolean OrderPlaced = false;
         private Orders order = new Orders();
 
         internal Orders Order { get => order; set => order = value; }
