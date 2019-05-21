@@ -99,7 +99,7 @@ namespace RestSYS
                 //clear everything
                 txtChangeFoodItem.Clear();
                 txtChangeFoodItemDesc.Clear();
-                txtChgFoodItemPrice.ResetText();
+                txtChgFoodItemPrice.Value = 0;
                 cboChangeFoodItemFoodStatus.SelectedIndex = -1;
                 //cboChangeFoodItemFoodType.SelectedIndex = -1;
                 grpChangeFoodItemSelectFood.Visible = true;

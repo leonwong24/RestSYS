@@ -9,8 +9,8 @@ namespace RestSYS
 {
     class DBConnect
     {
-        //public const string oradb = "Data Source oracle/orcl; User Id = t00198005; Password = h9jsmc44;";
+        public const string oradb = "Data Source=oracle/orcl; User Id = t00198005; Password = h9jsmc44;";
 
-        public const string oradb = "User Id=HR; password=h9jsmc44; Data Source=localhost:1521/orcl;";
+        //public const string oradb = "User Id=HR; password=h9jsmc44; Data Source=localhost:1521/orcl;";
     }
 }

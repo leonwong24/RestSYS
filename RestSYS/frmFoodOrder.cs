@@ -210,11 +210,11 @@ namespace RestSYS
                     OrderPlaced = true;
                 }
                 else {  //table already has order
-                    MessageBox.Show("Table already has order");
+                    //MessageBox.Show("Table already has order");
                     //delete all the order with its orderNo and reload with the new one
                     String deleteSql = "DELETE FROM OrderItems WHERE OrderNo = " + Convert.ToString(lbl_OrderNo.Text.Trim());
                     Orders.runSQL(deleteSql);
-                    MessageBox.Show("Orders Item deleted");
+                    //MessageBox.Show("Orders Item deleted");
                     //insert sql command into OrderItems Table
                     //Orders orderTable = new Orders(Convert.ToInt32(lbl_OrderNo.Text.Trim()), Convert.ToInt32(lblTableNumber.Text.Trim()), totalPrice, Convert.ToInt32(lblStaffName.Text.Trim().Substring(0,3)), "U");
                     String sql = "INSERT ALL ";
@@ -236,7 +236,7 @@ namespace RestSYS
                     //update Orders Table
                     order.Value = totalPrice;
                     Orders.updateOrder(Order);
-                    MessageBox.Show("update order");
+                    //MessageBox.Show("update order");
                     OrderPlaced = true;
                 }
             }
@@ -350,24 +350,32 @@ namespace RestSYS
             {
                 if (Orders.checkOrderNo(order.OrderNo))   //havent have order yet
                 {
-                    MessageBox.Show("new order!");
-                    //insert sql command into OrderItems Table
-                    String sql = "INSERT ALL ";
-                    foreach (int[] order in Orders.orderItems)
+                    if (order.StaffId == 0)
                     {
-                        sql += "INTO OrderItems(OrderNo,ItemId,Qty,Price) VALUES ";
-                        sql += "(" + lbl_OrderNo.Text + ","; //orderNo
-                        sql += order[0] + ","; //itemId
-                        sql += order[1] + ","; //qty
-                        FoodItems fooditem = FoodItems.getFood(order[0]);
-                        sql += fooditem.getPrice() * order[1] + ")";
-
+                        MessageBox.Show("Staff haven't sign in");
+                        return;
                     }
-                    sql += "SELECT 1 FROM DUAL";
-                    //MessageBox.Show(sql);
-                    Orders.runSQL(sql);
+                    else
+                    {
+                        MessageBox.Show("new order!");
+                        //insert sql command into OrderItems Table
+                        String sql = "INSERT ALL ";
+                        foreach (int[] order in Orders.orderItems)
+                        {
+                            sql += "INTO OrderItems(OrderNo,ItemId,Qty,Price) VALUES ";
+                            sql += "(" + lbl_OrderNo.Text + ","; //orderNo
+                            sql += order[0] + ","; //itemId
+                            sql += order[1] + ","; //qty
+                            FoodItems fooditem = FoodItems.getFood(order[0]);
+                            sql += fooditem.getPrice() * order[1] + ")";
 
-                    Orders.payNewOrder(order);
+                        }
+                        sql += "SELECT 1 FROM DUAL";
+                        //MessageBox.Show(sql);
+                        Orders.runSQL(sql);
+
+                        Orders.payNewOrder(order);
+                    }        
                 }
                 else
                 {
@@ -431,7 +439,7 @@ namespace RestSYS
 
         private void frmFoodOrder_Load(object sender, EventArgs e)
         {
-            MessageBox.Show(Convert.ToString(Orders.nextOrderNo()));
+            //MessageBox.Show(Convert.ToString(Orders.nextOrderNo()));
             displayMenuBtn();
 
             //load all available staff into the dataset and display in the combo box
@@ -711,7 +719,7 @@ namespace RestSYS
 
                     if (!existed)
                     {
-                        MessageBox.Show("Adding new food!");
+                        //MessageBox.Show("Adding new food!");
                         Orders.orderItems.Add(order);
                         DataGridViewRow gridRow = (DataGridViewRow)grdOrder.Rows[0].Clone();
                         gridRow.Cells[0].Value = foodItemAsString; //Set the food name column to selected food name
@@ -848,7 +856,7 @@ namespace RestSYS
 
                 if (!existed)
                 {
-                    MessageBox.Show("Adding new food!");
+                    //MessageBox.Show("Adding new food!");
                     Orders.orderItems.Add(order);
                     DataGridViewRow gridRow = (DataGridViewRow)grdOrder.Rows[0].Clone();
                     gridRow.Cells[0].Value = foodItemAsString; //Set the food name column to selected food name
