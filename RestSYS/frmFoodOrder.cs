@@ -42,7 +42,9 @@ namespace RestSYS
             grdOrder.Rows.Add(gridViewRow);
             grdOrder.Enabled = false;
             grdOrder.Enabled = true;
-            
+            updateCboSelectFrdItm();
+            activeBtnColor();
+
         }
 
         public static void setOrderPlaced(Boolean boolean)
@@ -69,59 +71,11 @@ namespace RestSYS
             frmTableInterface.Show();
         }
 
-        private void btnNum2_Click(object sender, EventArgs e)
-        {
-            //Number 2 
-            if (Orders.state == 1)
-            {
-                numberAsString += "2";
-            }
-        }
-
-        private void btnNum1_Click(object sender, EventArgs e)
-        {
-            //Number 1
-            if(Orders.state == 1)
-            {
-                numberAsString += "1";
-            }
-        }
-
-        private void btnNum3_Click(object sender, EventArgs e)
-        {
-            if (Orders.state == 1)
-            {
-                numberAsString += "3";
-            }
-        }
-
         //A method that set the gridview data from the given orderNo store in Orders.foodOrder
         private void setGrdOrderDataFromOrderItems(DataSet ds)
         {
             //not done yet
             grdOrder.DataSource = ds.Tables[0];
-        }
-
-        //Assume it retrieve all the avaliable food item from food items file
-
-        private void btnFoodItem1_Click(object sender, EventArgs e) 
-        {
-            clickOnBtn(1,menuButton[0],grdOrder);
-        }
-
-        private void btnFoodItem2_Click(object sender, EventArgs e) 
-        {
-            clickOnBtn(2, menuButton[1], grdOrder);
-        }
-
-        private void btnFoodItem3_Click(object sender, EventArgs e)
-        {
-            clickOnBtn(3, menuButton[2], grdOrder);
-        }
-
-        private void btnFoodItem4_Click(object sender, EventArgs e)
-        {
-            clickOnBtn(4, menuButton[3], grdOrder);
         }
 
         private void backToolStripMenuItem_Click(object sender, EventArgs e)
@@ -446,7 +400,7 @@ namespace RestSYS
                 order.StaffId = Convert.ToInt32(lblStaffName.Text.Trim().Substring(0, 2));
                 Orders.staff = lblStaffName.Text;
                 grpStaffSign.Hide();
-                grdOrder.Visible = true;
+                grpOrder.Visible = true;
                 //set state to order
                 Orders.state = 1;
             }
@@ -460,7 +414,8 @@ namespace RestSYS
                 //set state to sign in
                 Orders.state = 2;
                 grpStaffSign.Show();
-                grdOrder.Visible = false;
+                grpOrder.Visible = false;
+
             }
 
             else if(Orders.state == 3)
@@ -477,18 +432,6 @@ namespace RestSYS
         private void frmFoodOrder_Load(object sender, EventArgs e)
         {
             MessageBox.Show(Convert.ToString(Orders.nextOrderNo()));
-            menuButton.Add(btnFoodItem1);
-            menuButton.Add(btnFoodItem2);
-            menuButton.Add(btnFoodItem3);
-            menuButton.Add(btnFoodItem4);
-            menuButton.Add(btnFoodItem5);
-            menuButton.Add(btnFoodItem6);
-            menuButton.Add(btnFoodItem7);
-            menuButton.Add(btnFoodItem8);
-            menuButton.Add(btnFoodItem9);
-            menuButton.Add(btnFoodItem10);
-            menuButton.Add(btnFoodItem11);
-            menuButton.Add(btnFoodItem12);
             displayMenuBtn();
 
             //load all available staff into the dataset and display in the combo box
@@ -509,7 +452,7 @@ namespace RestSYS
                 Orders.state = 1;
 
                 //hide change menu group box
-                grpChgFdMnu.Visible = false;
+                grpOrder.Visible = false;
                 grdOrder.Visible = true;
 
             }
@@ -525,7 +468,7 @@ namespace RestSYS
                 grdOrder.Visible = false;
                 cboSelectFdItm.Items.Clear();
                 //display the change menu group box 
-                grpChgFdMnu.Visible = true;
+                grpOrder.Visible = true;
                 //update the combo box
                 updateCboSelectFrdItm();
             }
@@ -541,20 +484,21 @@ namespace RestSYS
                 MessageBox.Show("Please quit change staff state before you do this");
             }
 
-            else
+            else //order state == 1
             {
                 if (!Orders.getCurrentPage().Equals("S"))
                 {
                     //Set the current page to starter
                     Orders.setCurrentPage("S");
-                    if (Orders.state == 3 )
-                    {
-                        //clear the combo box 
-                        cboSelectFdItm.Items.Clear();
-                        //update the combo box
-                        updateCboSelectFrdItm();
-                    }
+                    activeBtnColor();
+                    //clear the combo box 
+                    cboSelectFdItm.Items.Clear();
 
+                    //clear the combo box text
+                    cboSelectFdItm.Text = "";
+                    cboSelectFdItm.SelectedIndex = -1;
+                    //update the combo box
+                    updateCboSelectFrdItm();
 
                     //change the menu
                     displayMenuBtn();
@@ -574,22 +518,56 @@ namespace RestSYS
             else
             {
                 if (!Orders.getCurrentPage().Equals("M"))
-                            {
-                                //Set the current page to main
-                                Orders.setCurrentPage("M");
-                
-                                if (Orders.state == 3)
-                                {
-                                    //clear the combo box 
-                                    cboSelectFdItm.Items.Clear();
-                                    //update the combo box
-                                    updateCboSelectFrdItm();
-                                }
-                                //change the menu
-                                displayMenuBtn();
-                            }
+                {
+                   //Set the current page to main
+                   Orders.setCurrentPage("M");
+                    activeBtnColor();
+                    //clear the combo box 
+                    cboSelectFdItm.Items.Clear();
+                    cboSelectFdItm.Text = "";
+                    cboSelectFdItm.SelectedIndex = -1;
+                    //update the combo box
+                    updateCboSelectFrdItm();
+                    //change the menu
+                    displayMenuBtn();
+                }
             }
             
+        }
+
+        private void activeBtnColor()
+        {
+            String page = Orders.getCurrentPage();
+            switch (page)
+            {
+                case "S":
+                    btnStarterMenu.ForeColor = Color.Red;
+                    btnMainMenu.ForeColor = Color.Black;
+                    btnDessert.ForeColor = Color.Black;
+                    btnBeverageMenu.ForeColor = Color.Black;
+                    break;
+
+                case "M":
+                    btnStarterMenu.ForeColor = Color.Black;
+                    btnMainMenu.ForeColor = Color.Red;
+                    btnDessert.ForeColor = Color.Black;
+                    btnBeverageMenu.ForeColor = Color.Black;
+                    break;
+
+                case "D":
+                    btnStarterMenu.ForeColor = Color.Black;
+                    btnMainMenu.ForeColor = Color.Black;
+                    btnDessert.ForeColor = Color.Red;
+                    btnBeverageMenu.ForeColor = Color.Black;
+                    break;
+
+                case "B":
+                    btnStarterMenu.ForeColor = Color.Black;
+                    btnMainMenu.ForeColor = Color.Black;
+                    btnDessert.ForeColor = Color.Black;
+                    btnBeverageMenu.ForeColor = Color.Red;
+                    break;
+            }
         }
 
         private void btnBeverageMenu_Click(object sender, EventArgs e)
@@ -602,21 +580,19 @@ namespace RestSYS
             else
             {
                 if (!Orders.getCurrentPage().Equals("B"))
-                            {
-                                //Set the current page to beverage
-                                Orders.setCurrentPage("B");
-                
-                                if (Orders.state == 3)
-                                {
-                                    //clear the combo box 
-                                    cboSelectFdItm.Items.Clear();
-                                    //update the combo box
-                                    updateCboSelectFrdItm();
-                                }
-                                //change the menu
-                                displayMenuBtn();
-                            }
-
+                 {
+                    //Set the current page to beverage
+                    Orders.setCurrentPage("B");
+                    activeBtnColor();
+                    //clear the combo box 
+                    cboSelectFdItm.Items.Clear();
+                    cboSelectFdItm.Text = "";
+                    cboSelectFdItm.SelectedIndex = -1;
+                    //update the combo box
+                    updateCboSelectFrdItm();
+                    //change the menu
+                     displayMenuBtn();
+                 }
             }
             
         }
@@ -631,19 +607,20 @@ namespace RestSYS
             else
             {
                 if (!Orders.getCurrentPage().Equals("D"))
-                            {
-                                //Set the current page to dessert
-                                Orders.setCurrentPage("D");
-                                displayMenuBtn();
-                                if (Orders.state == 3)
-                                {
-                                    //clear the combo box 
-                                    cboSelectFdItm.Items.Clear();
-                                    //update the combo box
-                                    updateCboSelectFrdItm();
-                                }
-                                //change the menu
-                            }
+                 {
+                   //Set the current page to dessert
+                    Orders.setCurrentPage("D");
+                    displayMenuBtn();
+                    activeBtnColor();
+                    //clear the combo box 
+                    cboSelectFdItm.Items.Clear();
+                    cboSelectFdItm.Text = "";
+                    cboSelectFdItm.SelectedIndex = -1;
+                    //update the combo box
+                    updateCboSelectFrdItm();
+                    //change the menu
+                    displayMenuBtn();
+                }
 
             }
             
@@ -659,59 +636,6 @@ namespace RestSYS
             }
         }
 
-        private void btnNum8_Click(object sender, EventArgs e)
-        {
-            //number 8
-            if (Orders.state == 1)
-            {
-                numberAsString += "8";
-            }
-        }
-
-        private void btnNum4_Click(object sender, EventArgs e)
-        {
-            //number 4
-            if (Orders.state == 1)
-            {
-                numberAsString += "4";
-            }
-        }
-
-        private void btnNum6_Click(object sender, EventArgs e)
-        {
-            //number 6
-            if (Orders.state == 1)
-            {
-                numberAsString += "6";
-            }
-        }
-
-        private void btnNum5_Click(object sender, EventArgs e)
-        {
-            if (Orders.state == 1)
-            {
-                numberAsString += "5";
-            }
-        }
-
-        private void btnNum7_Click(object sender, EventArgs e)
-        {
-            //number 7
-            if (Orders.state == 1)
-            {
-                numberAsString += "7";
-            }
-        }
-
-        private void btnNum9_Click(object sender, EventArgs e)
-        {
-            //number 9
-            if (Orders.state == 1)
-            {
-                numberAsString += "9";
-            }
-        }
-
         private void cboSelectFdItm_SelectedIndexChange(object sender,EventArgs e)
         {
             //if resetting combo, ignore
@@ -720,7 +644,8 @@ namespace RestSYS
             }
             else{
                 //store that changeFoodItemId so can assign to button later on
-                Orders.changeFoodItemId = Convert.ToInt16(cboSelectFdItm.Text.Substring(0, 2));         
+                Orders.FoodItemId = Convert.ToInt32(cboSelectFdItm.Text.Substring(0, 2));
+                foodItemAsString = FoodItems.getFoodName(Convert.ToInt32(cboSelectFdItm.Text.Substring(0, 2)));
             }
         }
 
@@ -773,7 +698,7 @@ namespace RestSYS
                         {   //if found this food already exist in the order(food id co-exist)
                             //add the extra qty to the current qty                            
                             orderitem[1] += number;
-                            MessageBox.Show("Food Existed!!");
+                            //MessageBox.Show("Food Existed!!");
                             //working on the gridview order
                             int storeIndex = Orders.orderItems.IndexOf(orderitem);
                             int currentNum = Convert.ToInt32(grdOrder.Rows[storeIndex + 1].Cells[1].Value);
@@ -818,7 +743,7 @@ namespace RestSYS
 
         }
 
-        //define a method that display the menuButton text as the food name
+        //define a method that display the all the available food item 
         public static void displayMenuBtn()
         {
             for(int i = 0; i < menuButton.Count; i++)
@@ -876,6 +801,96 @@ namespace RestSYS
         private void btnFoodItem12_Click(object sender, EventArgs e)
         {
             clickOnBtn(12, menuButton[11], grdOrder);
+        }
+
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            if(String.IsNullOrEmpty(foodItemAsString))
+            {
+                MessageBox.Show("Please select the food before ordering");
+            }
+
+            else if (String.IsNullOrEmpty(numberAsString))
+            {
+                MessageBox.Show("Please select the quantity before ordering");
+            }
+
+
+            else
+            {
+                //get food item name
+                foodItemAsString = FoodItems.getFoodName(Convert.ToInt32(cboSelectFdItm.Text.Substring(0, 2)));
+                numberAsString = Convert.ToString(cboQty.Text);
+
+                FoodItems fooditem = FoodItems.getFood(Convert.ToInt32(cboSelectFdItm.Text.Substring(0, 2)));
+
+                //process on the orders list
+                int[] order = new int[2];   //[foodid,quantity]
+                order[0] = Convert.ToInt32(cboSelectFdItm.Text.Substring(0, 2));   //foodid
+                order[1] = number;  //food qty
+                Boolean existed = false;
+                foreach (int[] orderitem in Orders.orderItems)
+                {
+                    if (orderitem[0] == order[0])
+                    {   //if found this food already exist in the order(food id co-exist)
+                        //add the extra qty to the current qty                            
+                        orderitem[1] += number;
+                        //MessageBox.Show("Food Existed!!");
+                        //working on the gridview order
+                        int storeIndex = Orders.orderItems.IndexOf(orderitem);
+                        int currentNum = Convert.ToInt32(grdOrder.Rows[storeIndex + 1].Cells[1].Value);
+                        grdOrder.Rows[storeIndex + 1].Cells[1].Value = currentNum + number;
+                        grdOrder.Rows[storeIndex + 1].Cells[3].Value = fooditem.getPrice() * Convert.ToInt32(grdOrder.Rows[storeIndex + 1].Cells[1].Value);
+                        existed = true;
+                        break;
+                    }
+                }
+
+                if (!existed)
+                {
+                    MessageBox.Show("Adding new food!");
+                    Orders.orderItems.Add(order);
+                    DataGridViewRow gridRow = (DataGridViewRow)grdOrder.Rows[0].Clone();
+                    gridRow.Cells[0].Value = foodItemAsString; //Set the food name column to selected food name
+                    gridRow.Cells[1].Value = number;   //Set the number of food ordered column to number value
+                    gridRow.Cells[2].Value = fooditem.getPrice();    //Set the food price column to food unit price
+                    gridRow.Cells[3].Value = fooditem.getPrice() * number;    //Set the total price of the food
+                    grdOrder.Rows.Add(gridRow);
+                }
+
+                //grdOrder.Enabled = false;
+                grdOrder.Enabled = true;
+                numberAsString = "";
+                totalQty += number;
+                totalPrice += fooditem.getPrice() * number;
+                grdOrder.Rows[0].Cells[1].Value = totalQty;
+                grdOrder.Rows[0].Cells[3].Value = totalPrice;
+
+                //reset the combo box
+                cboSelectFdItm.SelectedIndex = -1;
+                cboSelectFdItm.Text = "";
+
+                cboQty.SelectedIndex = -1;
+                cboQty.Text = "";
+                foodItemAsString = "";
+                numberAsString = "";
+            }
+            
+        }
+
+        private void cboQty_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //if resetting combo, ignore
+            if (cboSelectFdItm.SelectedIndex == -1)
+            {
+                return;
+            }
+            else
+            {
+                number = Convert.ToInt32(cboQty.Text.Substring(0));
+                numberAsString = Convert.ToString(cboQty.Text);
+            }
+            
         }
     }
 }

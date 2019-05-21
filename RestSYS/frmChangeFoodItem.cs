@@ -101,9 +101,23 @@ namespace RestSYS
                 txtChangeFoodItemDesc.Clear();
                 txtChgFoodItemPrice.ResetText();
                 cboChangeFoodItemFoodStatus.SelectedIndex = -1;
-                cboChangeFoodItemFoodType.SelectedIndex = -1;
+                //cboChangeFoodItemFoodType.SelectedIndex = -1;
                 grpChangeFoodItemSelectFood.Visible = true;
                 grpChangeFoodItemChangeFood.Visible = false;
+
+                string foodType = cboChangeFoodItemType.Text.Substring(0, 1);
+
+                //Get the dataset by passing the foodtype as parameter to retrieve selectedFoodItem dataset
+                DataSet ds = new DataSet();
+
+                ds = FoodItems.getSelectedFoodItem(ds, foodType);
+
+                //load data from ds to grpChangeFoodItemSelectFood
+                if (ds != null)
+                {
+                    grdChangeFoodItemSelectFoodItem.DataSource = ds.Tables["FoodItems"];
+                    
+                }
             }
         }
 
@@ -134,12 +148,25 @@ namespace RestSYS
                 this.txtChangeFoodItemDesc.Text = selectedItem.getDescription();
                 this.cboChangeFoodItemType.Text = selectedItem.getFoodType();
                 this.txtChgFoodItemPrice.Value = selectedItem.getPrice();
-                this.cboChangeFoodItemFoodStatus.Text = selectedItem.getStatus();
-
+                //this.cboChangeFoodItemFoodStatus.Text = selectedItem.getStatus();
+                rtnStatus(selectedItem.getStatus());
 
                 //display change food item group
                 grpChangeFoodItemSelectFood.Visible = false;
                 grpChangeFoodItemChangeFood.Visible = true;
+            }
+        }
+
+        private void rtnStatus(String status)
+        {
+            if (status.Equals("U"))
+            {
+                this.cboChangeFoodItemFoodStatus.SelectedIndex = 1;
+            }
+
+            else
+            {
+                this.cboChangeFoodItemFoodStatus.SelectedIndex = 0;
             }
         }
 

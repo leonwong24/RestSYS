@@ -16,8 +16,9 @@ namespace RestSYS
         public static DataSet foodOrder = new DataSet();
         public static int[,] menu = new int[4, 13];
         private static string currentPage = "S";
-        public static int state;    //1 = order 2 = staff 3 = changeFood
+        public static int state;    //1 = order 2 = staff 
         public static int changeFoodItemId = 0;
+        public static int FoodItemId = 0;
         public static List<int[]> orderItems = new List<int[]>();
         public static String staff;
 
@@ -34,7 +35,7 @@ namespace RestSYS
         private int staffId;
         private String status;
         private decimal value;
-        private List<int[]> tableOrderItems;
+        //private List<int[]> tableOrderItems;
 
         public int OrderNo { get => orderNo; set => orderNo = value; }
         public string OrderDate { get => orderDate; set => orderDate = value; }

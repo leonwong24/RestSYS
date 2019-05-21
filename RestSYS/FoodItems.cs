@@ -31,7 +31,7 @@ namespace RestSYS
         }
 
         //argument constructor
-        public FoodItems(int itemId,string itemName,string description,string foodType,decimal price, string status)
+        public FoodItems(int itemId,string itemName,string description,string foodType, decimal price, string status)
         {
             this.itemId = itemId;
             this.itemName = itemName;
@@ -131,7 +131,7 @@ namespace RestSYS
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
             //connection name conn.open()
-            String strSQL = "SELECT * FROM FoodItems WHERE FoodType LIKE '"+foodType+"'";
+            String strSQL = "SELECT * FROM FoodItems WHERE FoodType LIKE '"+foodType+"' Order By ItemName";
             OracleCommand cmd = new OracleCommand(strSQL, conn);
 
             //cmd.CommandType = CommandType.text;
